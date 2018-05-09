@@ -1,4 +1,4 @@
-# coding
+# pivotal-tests
 
 [![Build status](https://travis-ci.org/AT-06/pivotal-tests.svg?branch=develop)](https://travis-ci.org/AT-06/pivotal-tests) 
 
