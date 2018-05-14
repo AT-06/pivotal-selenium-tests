@@ -1,7 +1,7 @@
 package org.fundacionjala.pivotal.objects;
 
 /**
- * Page object Values
+ * Page object Values.
  */
 public enum ProjectValues {
     PROJECT_TITLE,

@@ -44,7 +44,7 @@ public class EditProject extends Base {
      * Method for set Date Project.
      * @param date String.
      */
-    private void setTxtDateProject(String date) {
+    private void setTxtDateProject(final String date) {
         CommonMethods.setWebElement(txtDateProject, date);
     }
 
@@ -52,7 +52,7 @@ public class EditProject extends Base {
      * Method for set txt Project week.
      * @param day String.
      */
-    private void setTxtProjectWeek(String day) {
+    private void setTxtProjectWeek(final String day) {
         CommonMethods.clickWebElement(txtProjectWeek);
         CommonMethods.setWebElement(txtProjectWeek, day);
     }
@@ -77,7 +77,7 @@ public class EditProject extends Base {
      * Method for txt Public.
      * @param check String.
      */
-    private void setTxtPublic(String check) {
+    private void setTxtPublic(final String check) {
         if (check.equalsIgnoreCase("false")) {
             CommonMethods.clickWebElement(txtPublic);
         }
@@ -88,7 +88,7 @@ public class EditProject extends Base {
      * Method for txt Project Description.
      * @param description String.
      */
-    private void setTxtProjectDescription(String description) {
+    private void setTxtProjectDescription(final String description) {
         CommonMethods.setWebElement(txtProjectDescription, description);
     }
 
@@ -96,7 +96,7 @@ public class EditProject extends Base {
      * Method for txt Task.
      * @param check String.
      */
-    private void setTxtTask(String check) {
+    private void setTxtTask(final String check) {
         if (check.equalsIgnoreCase("false")) {
             CommonMethods.clickWebElement(txtTask);
         }
@@ -107,7 +107,7 @@ public class EditProject extends Base {
      * @param values Map<DescriptionValues, Object>.
      * @return strategyMap.
      */
-    public Map<DescriptionValues, Meth> getStrategyStepMap(Map<DescriptionValues, Object> values) {
+    public Map<DescriptionValues, Meth> getStrategyStepMap(final Map<DescriptionValues, Object> values) {
         Map<DescriptionValues, Meth> strategyMap = new HashMap<>();
         strategyMap.put(DescriptionValues.DESCRIPTION, () ->
                 this.setTxtProjectDescription(String.valueOf(values.get(DescriptionValues.DESCRIPTION))));

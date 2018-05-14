@@ -64,7 +64,7 @@ public class CreateProject extends Base {
      * Method for set Privacy.
      * @param privacy String.
      */
-    private void setPrivacy(String privacy) {
+    private void setPrivacy(final String privacy) {
         if (privacy.equalsIgnoreCase("private")) {
             driver.findElement(By.cssSelector(
                     "div#modal_area label:nth-child(2) > input[name=\"project_type\"]")).click();
@@ -79,7 +79,7 @@ public class CreateProject extends Base {
      * Method for set Select an Account Specific.
      * @param account String.
      */
-    private void setTxtSelectorAcccountSpecific(String account) {
+    private void setTxtSelectorAcccountSpecific(final String account) {
         this.setTxtSelectorAcccountCheck();
 
         //these last comands permit to create a new Account from create project menu
@@ -105,7 +105,7 @@ public class CreateProject extends Base {
      * Method for set Project name.
      * @param projectName String.
      */
-    private void setTxtProjectName(String projectName) {
+    private void setTxtProjectName(final String projectName) {
         CommonMethods.setWebElement(txtProjectName, projectName);
 
     }
@@ -122,7 +122,7 @@ public class CreateProject extends Base {
      * @param values Map<ProjectValues, Object>
      * @return strategyMap.
      */
-    public final Map<ProjectValues, Meth> getStrategyStepMap(Map<ProjectValues, Object> values) {
+    public final Map<ProjectValues, Meth> getStrategyStepMap(final Map<ProjectValues, Object> values) {
         Map<ProjectValues, Meth> strategyMap = new HashMap<>();
         strategyMap.put(ProjectValues.PROJECT_TITLE, () ->
                 setTxtProjectName(String.valueOf(values.get(ProjectValues.PROJECT_TITLE))));

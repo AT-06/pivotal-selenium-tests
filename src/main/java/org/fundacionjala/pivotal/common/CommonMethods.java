@@ -20,7 +20,7 @@ public final class CommonMethods {
      * @param webElement WebElement.
      * @param text String.
      */
-    public static void setWebElement(WebElement webElement, String text) {
+    public static void setWebElement(final WebElement webElement, final String text) {
         driverWait.until(ExpectedConditions.visibilityOf(webElement));
         webElement.sendKeys(text);
     }
@@ -30,7 +30,7 @@ public final class CommonMethods {
      * Method for ClickElement.
      * @param webElement WebElement.
      */
-    public static void clickWebElement(WebElement webElement) {
+    public static void clickWebElement(final WebElement webElement) {
         driverWait.until(ExpectedConditions.elementToBeClickable(webElement));
         webElement.click();
     }
@@ -40,7 +40,7 @@ public final class CommonMethods {
      * Method for wait Web element.
      * @param webElement WebElement.
      */
-    public static void waitWebElement(WebElement webElement) {
+    public static void waitWebElement(final WebElement webElement) {
         driverWait.until(ExpectedConditions.visibilityOf(webElement));
     }
 

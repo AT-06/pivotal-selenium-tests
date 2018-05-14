@@ -50,7 +50,7 @@ public class Account extends Base {
      * Set txtAccountName.
      * @param accountName String.
      */
-    private void setTxtAccountName(String accountName) {
+    private void setTxtAccountName(final String accountName) {
         CommonMethods.setWebElement(txtAccountName, accountName);
     }
 
@@ -79,7 +79,7 @@ public class Account extends Base {
      * Set Create Account all previous setter declared.
      * @param accountName String.
      */
-    public final void createAccount(String accountName) {
+    public final void createAccount(final String accountName) {
         this.setProfileButton();
         this.setAccountButton();
         this.setCreateAccounButton();

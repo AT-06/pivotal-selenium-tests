@@ -38,7 +38,7 @@ public class DashBoard extends Base {
      * Set Button for Search Project.
      * @param nameProject String.
      */
-    private void setSearchProjectButton(String nameProject) {
+    private void setSearchProjectButton(final String nameProject) {
         CommonMethods.setWebElement(searchProjectButton, nameProject);
     }
 
@@ -46,7 +46,7 @@ public class DashBoard extends Base {
      * Set Project name for a search.
      * @param projectName String.
      */
-    public void searchProject(String projectName) {
+    public void searchProject(final String projectName) {
         this.setSearchProjectButton(projectName);
         this.setButtonEditProject();
 

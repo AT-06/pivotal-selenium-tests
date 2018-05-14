@@ -27,7 +27,7 @@ public class PageLogin extends Base {
      * Method for set txt User Name.
      * @param username String.
      */
-    private void setTxtUsername(String username) {
+     private void setTxtUsername(final String username) {
         driverWait.until(ExpectedConditions.visibilityOf(txtUsername));
         txtUsername.sendKeys(username);
     }
@@ -36,7 +36,7 @@ public class PageLogin extends Base {
      * Method for set txt Password.
      * @param password String.
      */
-    private void setTxtPassword(String password) {
+    private void setTxtPassword(final String  password) {
         driverWait.until(ExpectedConditions.visibilityOf(txtPassword));
         txtPassword.sendKeys(password);
     }
@@ -63,7 +63,7 @@ public class PageLogin extends Base {
      * @param username String.
      * @param password String.
      */
-    public void asLogin(String username, String password) {
+    public void asLogin(final String username, final String password) {
         setTxtUsername(username);
         setTxtButton();
         setTxtPassword(password);
