@@ -48,7 +48,7 @@ public class EditProjectSteps extends Base {
     public void iCanEditTheProject(Map<DescriptionValues, Object> values) {
         // Write code here that turns the phrase above into concrete actions
         this.descriptions = values;
-        descriptions.keySet().stream().forEach((step) -> editProject.getStrategyStepMap(descriptions).get(step).execute());
+        descriptions.keySet().stream().forEach(step -> editProject.getStrategyStepMap(descriptions).get(step).execute());
         editProject.setSaveEditProject();
     }
 
