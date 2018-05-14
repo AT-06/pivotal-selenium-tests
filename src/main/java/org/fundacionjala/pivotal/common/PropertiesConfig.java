@@ -5,11 +5,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-
 /**
  * PropertiesConfig is class for read config.properties.
  */
-public class PropertiesConfig {
+public final class PropertiesConfig {
     /**
      * properties.
      */
@@ -24,7 +23,7 @@ public class PropertiesConfig {
     private InputStream inputStream;
 
     /**
-     * @return a instance of PropertiesConfig
+     * @return a instance of PropertiesConfig.
      */
     public static PropertiesConfig getPropertiesConfig() {
         if (propertiesConfig == null) {
@@ -34,7 +33,7 @@ public class PropertiesConfig {
     }
 
     /**
-     * This method initialize properties and input stream
+     * This method initialize properties and input stream.
      */
     private PropertiesConfig() {
         try {

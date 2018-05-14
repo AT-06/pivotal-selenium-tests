@@ -2,7 +2,7 @@ package org.fundacionjala.pivotal.objects;
 
 import org.fundacionjala.pivotal.common.Base;
 import org.fundacionjala.pivotal.common.CommonMethods;
-import org.fundacionjala.pivotal.common.commonMeth;
+import org.fundacionjala.pivotal.common.Meth;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,6 +10,8 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.util.HashMap;
 import java.util.Map;
+import static org.fundacionjala.pivotal.common.CommonMethods.waitWebElement;
+
 
 /**
  * Class for create a Project.
@@ -54,7 +56,7 @@ public class CreateProject extends Base {
      * @return txtVerifyName.
      */
     public String verifyName() {
-        CommonMethods.waitWebElement(txtVerifyName);
+        waitWebElement(txtVerifyName);
         return txtVerifyName.getText();
     }
 
@@ -62,12 +64,14 @@ public class CreateProject extends Base {
      * Method for set Privacy.
      * @param privacy String.
      */
-    public void setPrivacy(String privacy) {
+    private void setPrivacy(String privacy) {
         if (privacy.equalsIgnoreCase("private")) {
-            driver.findElement(By.cssSelector("div#modal_area label:nth-child(2) > input[name=\"project_type\"]")).click();
+            driver.findElement(By.cssSelector(
+                    "div#modal_area label:nth-child(2) > input[name=\"project_type\"]")).click();
         }
         if (privacy.equalsIgnoreCase("public")) {
-            driver.findElement(By.cssSelector("div#modal_area label:nth-child(3) > input[name=\"project_type\"]")).click();
+            driver.findElement(By.cssSelector(
+                    "div#modal_area label:nth-child(3) > input[name=\"project_type\"]")).click();
         }
     }
 
@@ -75,11 +79,8 @@ public class CreateProject extends Base {
      * Method for set Select an Account Specific.
      * @param account String.
      */
-    public void setTxtSelectorAcccountSpecific(String account) {
+    private void setTxtSelectorAcccountSpecific(String account) {
         this.setTxtSelectorAcccountCheck();
-        //CommonMethods.clickWebElement(driver.findElement(By.xpath("//div[@class='tc-account-selector__option-account-name' and text()='" + account + "']")));
-        //driver.findElement(By.xpath(String.format("%s%s%s", "//div[@class='tc-account-selector__option-account-name' and text()='", account, "']"))).click();
-        //driver.findElement(By.xpath(("//div[@class='tc-account-selector__option-account-name' and text()='"+ account+ "']"))).click();
 
         //these last comands permit to create a new Account from create project menu
         CommonMethods.clickWebElement(buttonCreateAccount);
@@ -89,7 +90,7 @@ public class CreateProject extends Base {
     /**
      * Method for Select Account Check.
      */
-    public void setTxtSelectorAcccountCheck() {
+    private void setTxtSelectorAcccountCheck() {
         CommonMethods.clickWebElement(txtSelectorAcccountCheck);
     }
 
@@ -104,7 +105,7 @@ public class CreateProject extends Base {
      * Method for set Project name.
      * @param projectName String.
      */
-    public void setTxtProjectName(String projectName) {
+    private void setTxtProjectName(String projectName) {
         CommonMethods.setWebElement(txtProjectName, projectName);
 
     }
@@ -121,11 +122,14 @@ public class CreateProject extends Base {
      * @param values Map<ProjectValues, Object>
      * @return strategyMap.
      */
-    public Map<ProjectValues, commonMeth> getStrategyStepMap(Map<ProjectValues, Object> values) {
-        Map<ProjectValues, commonMeth> strategyMap = new HashMap<>();
-        strategyMap.put(ProjectValues.PROJECT_TITLE, () -> setTxtProjectName(String.valueOf(values.get(ProjectValues.PROJECT_TITLE))));
-        strategyMap.put(ProjectValues.PROJECT_ACCOUNT, () -> setTxtSelectorAcccountSpecific(String.valueOf(values.get(ProjectValues.PROJECT_ACCOUNT))));
-        strategyMap.put(ProjectValues.PROJECT_VISIBLE, () -> setPrivacy(String.valueOf(values.get(ProjectValues.PROJECT_VISIBLE))));
+    public final Map<ProjectValues, Meth> getStrategyStepMap(Map<ProjectValues, Object> values) {
+        Map<ProjectValues, Meth> strategyMap = new HashMap<>();
+        strategyMap.put(ProjectValues.PROJECT_TITLE, () ->
+                setTxtProjectName(String.valueOf(values.get(ProjectValues.PROJECT_TITLE))));
+        strategyMap.put(ProjectValues.PROJECT_ACCOUNT, ()
+                -> setTxtSelectorAcccountSpecific(String.valueOf(values.get(ProjectValues.PROJECT_ACCOUNT))));
+        strategyMap.put(ProjectValues.PROJECT_VISIBLE, ()
+                -> setPrivacy(String.valueOf(values.get(ProjectValues.PROJECT_VISIBLE))));
         return strategyMap;
     }
 

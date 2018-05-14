@@ -2,7 +2,7 @@ package org.fundacionjala.pivotal.objects;
 
 import org.fundacionjala.pivotal.common.Base;
 import org.fundacionjala.pivotal.common.CommonMethods;
-import org.fundacionjala.pivotal.common.commonMeth;
+import org.fundacionjala.pivotal.common.Meth;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -52,7 +52,7 @@ public class EditProject extends Base {
      * Method for set txt Project week.
      * @param day String.
      */
-    public void setTxtProjectWeek(String day) {
+    private void setTxtProjectWeek(String day) {
         CommonMethods.clickWebElement(txtProjectWeek);
         CommonMethods.setWebElement(txtProjectWeek, day);
     }
@@ -77,7 +77,7 @@ public class EditProject extends Base {
      * Method for txt Public.
      * @param check String.
      */
-    public void setTxtPublic(String check) {
+    private void setTxtPublic(String check) {
         if (check.equalsIgnoreCase("false")) {
             CommonMethods.clickWebElement(txtPublic);
         }
@@ -88,7 +88,7 @@ public class EditProject extends Base {
      * Method for txt Project Description.
      * @param description String.
      */
-    public void setTxtProjectDescription(String description) {
+    private void setTxtProjectDescription(String description) {
         CommonMethods.setWebElement(txtProjectDescription, description);
     }
 
@@ -96,7 +96,7 @@ public class EditProject extends Base {
      * Method for txt Task.
      * @param check String.
      */
-    public void setTxtTask(String check) {
+    private void setTxtTask(String check) {
         if (check.equalsIgnoreCase("false")) {
             CommonMethods.clickWebElement(txtTask);
         }
@@ -107,13 +107,18 @@ public class EditProject extends Base {
      * @param values Map<DescriptionValues, Object>.
      * @return strategyMap.
      */
-    public Map<DescriptionValues, commonMeth> getStrategyStepMap(Map<DescriptionValues, Object> values) {
-        Map<DescriptionValues, commonMeth> strategyMap = new HashMap<>();
-        strategyMap.put(DescriptionValues.DESCRIPTION, () -> this.setTxtProjectDescription(String.valueOf(values.get(DescriptionValues.DESCRIPTION))));
-        strategyMap.put(DescriptionValues.ENABLE_TASKS, () -> this.setTxtTask(String.valueOf(values.get(DescriptionValues.ENABLE_TASKS))));
-        strategyMap.put(DescriptionValues.PUBLIC_ACCESS, () -> this.setTxtPublic((String.valueOf(values.get(DescriptionValues.PUBLIC_ACCESS)))));
-        strategyMap.put(DescriptionValues.START_ITERATION, () -> this.setTxtProjectWeek(String.valueOf(values.get(DescriptionValues.START_ITERATION))));
-        strategyMap.put(DescriptionValues.PROJECT_START_DATE, () -> this.setTxtDateProject(String.valueOf(values.get(DescriptionValues.PROJECT_START_DATE))));
+    public Map<DescriptionValues, Meth> getStrategyStepMap(Map<DescriptionValues, Object> values) {
+        Map<DescriptionValues, Meth> strategyMap = new HashMap<>();
+        strategyMap.put(DescriptionValues.DESCRIPTION, () ->
+                this.setTxtProjectDescription(String.valueOf(values.get(DescriptionValues.DESCRIPTION))));
+        strategyMap.put(DescriptionValues.ENABLE_TASKS, () ->
+                this.setTxtTask(String.valueOf(values.get(DescriptionValues.ENABLE_TASKS))));
+        strategyMap.put(DescriptionValues.PUBLIC_ACCESS, () ->
+                this.setTxtPublic((String.valueOf(values.get(DescriptionValues.PUBLIC_ACCESS)))));
+        strategyMap.put(DescriptionValues.START_ITERATION, () ->
+                this.setTxtProjectWeek(String.valueOf(values.get(DescriptionValues.START_ITERATION))));
+        strategyMap.put(DescriptionValues.PROJECT_START_DATE, () ->
+                this.setTxtDateProject(String.valueOf(values.get(DescriptionValues.PROJECT_START_DATE))));
 
         return strategyMap;
     }

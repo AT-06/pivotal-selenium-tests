@@ -23,7 +23,8 @@ public class Account extends Base {
     @FindBy(how = How.CSS, using = "#modal_area input.tc-form__input")
     private WebElement txtAccountName;
 
-    @FindBy(how = How.CSS, using = "#modal_area button.zWDds__Button.pvXpn__Button--positive.zWDds__Button.pvXpn__Button--positive")
+    @FindBy(how = How.CSS, using =
+            "#modal_area button.zWDds__Button.pvXpn__Button--positive.zWDds__Button.pvXpn__Button--positive")
     private WebElement createButton;
 
     @FindBy(how = How.CSS, using = "#main  h2.account_name")
@@ -78,7 +79,7 @@ public class Account extends Base {
      * Set Create Account all previous setter declared.
      * @param accountName String.
      */
-    public void createAccount(String accountName) {
+    public final void createAccount(String accountName) {
         this.setProfileButton();
         this.setAccountButton();
         this.setCreateAccounButton();

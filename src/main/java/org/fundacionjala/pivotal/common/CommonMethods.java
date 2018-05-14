@@ -12,29 +12,36 @@ public final class CommonMethods {
     /**
      * Method for init Driver wait.
      */
-    private static WebDriverWait DRIVER_WAIT = WebCommonDriver.getWebCommonDriver().getDriverWait();
+    private static WebDriverWait driverWait = WebCommonDriver.getWebCommonDriver().getDriverWait();
+
 
     /**
-     * Method for set Web Element.
+     * Method for set WebElement.
+     * @param webElement WebElement.
+     * @param text String.
      */
     public static void setWebElement(WebElement webElement, String text) {
-        DRIVER_WAIT.until(ExpectedConditions.visibilityOf(webElement));
+        driverWait.until(ExpectedConditions.visibilityOf(webElement));
         webElement.sendKeys(text);
     }
 
+
     /**
-     * Method for Click Web Element.
+     * Method for ClickElement.
+     * @param webElement WebElement.
      */
     public static void clickWebElement(WebElement webElement) {
-        DRIVER_WAIT.until(ExpectedConditions.elementToBeClickable(webElement));
+        driverWait.until(ExpectedConditions.elementToBeClickable(webElement));
         webElement.click();
     }
 
+
     /**
-     * Method for wait web element.
+     * Method for wait Web element.
+     * @param webElement WebElement.
      */
     public static void waitWebElement(WebElement webElement) {
-        DRIVER_WAIT.until(ExpectedConditions.visibilityOf(webElement));
+        driverWait.until(ExpectedConditions.visibilityOf(webElement));
     }
 
 }

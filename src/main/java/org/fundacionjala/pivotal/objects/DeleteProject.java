@@ -34,21 +34,21 @@ public class DeleteProject extends Base {
     /**
      * Method for set Button Delete Project.
      */
-    public void setButtonDeleteProject() {
+    private void setButtonDeleteProject() {
         CommonMethods.clickWebElement(buttonDeleteProject);
     }
 
     /**
      * Method for Button Confirm delete.
      */
-    public void setButtonConfirmDelete() {
+    private void setButtonConfirmDelete() {
         CommonMethods.clickWebElement(buttonConfirmDelete);
     }
 
     /**
      * Method for ScrollPane.
      */
-    public void scrollPane() {
+    private void scrollPane() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", buttonConfirmDelete);
         ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,2500)");
         CommonMethods.clickWebElement(buttonConfirmDelete);
