@@ -44,14 +44,6 @@ public class CreateProject extends Base {
     private WebElement txtAccountName;
 
     /**
-     * Set go to DashBoard.
-     */
-    public void setGoToDashBoard() {
-        driverWait.until(ExpectedConditions.visibilityOf(goToDashBoard));
-        goToDashBoard.click();
-    }
-
-    /**
      * Method for verifyName.
      * @return txtVerifyName.
      */

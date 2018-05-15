@@ -50,15 +50,13 @@ public class DeleteProject extends Base {
      */
     private void scrollPane() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", buttonConfirmDelete);
-        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0,2500)");
-        CommonMethods.clickWebElement(buttonConfirmDelete);
+
     }
     /**
      * Method for delete Project.
      */
     public void deleteProject() {
         this.scrollPane();
-        this.setButtonDeleteProject();
-        this.setButtonConfirmDelete();
+
     }
 }
