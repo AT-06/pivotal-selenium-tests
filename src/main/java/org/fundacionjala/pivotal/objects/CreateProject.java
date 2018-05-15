@@ -118,7 +118,7 @@ public class CreateProject extends Base {
      * @return strategyMap.
      */
     public final Map<ProjectValues, Meth> getStrategyStepMap(final Map<ProjectValues, Object> values) {
-        Map<ProjectValues, Meth> strategyMap = new HashMap<>();
+        final Map<ProjectValues, Meth> strategyMap = new HashMap<>();
         strategyMap.put(ProjectValues.PROJECT_TITLE, () ->
                 setTxtProjectName(String.valueOf(values.get(ProjectValues.PROJECT_TITLE))));
         strategyMap.put(ProjectValues.PROJECT_ACCOUNT, ()

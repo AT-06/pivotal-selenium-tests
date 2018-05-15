@@ -26,7 +26,6 @@ public class DashBoard extends Base {
      */
     public void setButtonDashborad() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", buttonDashborad);
-        //CommonMethods.clickWebElement(buttonDashborad);
     }
 
     /**

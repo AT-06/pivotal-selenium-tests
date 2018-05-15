@@ -16,19 +16,10 @@ import java.util.Map;
  */
 public class EditProjectSteps extends Base {
 
-    /**
-     * Init editProject objects.
-     */
     private EditProject editProject = new EditProject();
 
-    /**
-     * Init DashBoard objects.
-     */
     private DashBoard dashBoard = new DashBoard();
 
-    /**
-     * Init Map of DescriptionValues objects.
-     */
     private Map<DescriptionValues, Object> descriptions;
 
     /**

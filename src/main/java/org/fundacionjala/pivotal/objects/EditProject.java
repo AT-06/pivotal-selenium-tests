@@ -115,7 +115,7 @@ public class EditProject extends Base {
      * @return strategyMap.
      */
     public Map<DescriptionValues, Meth> getStrategyStepMap(final Map<DescriptionValues, Object> values) {
-        Map<DescriptionValues, Meth> strategyMap = new HashMap<>();
+        final Map<DescriptionValues, Meth> strategyMap = new HashMap<>();
         strategyMap.put(DescriptionValues.DESCRIPTION, () ->
                 this.setTxtProjectDescription(String.valueOf(values.get(DescriptionValues.DESCRIPTION))));
         strategyMap.put(DescriptionValues.ENABLE_TASKS, () ->

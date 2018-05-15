@@ -41,7 +41,7 @@ public final class PropertiesConfig {
             inputStream = new FileInputStream("config.properties");
             properties.load(inputStream);
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
     }
 

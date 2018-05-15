@@ -25,7 +25,7 @@ public class ProjectStep {
     public void iCanCreateANewProjectWithTheFollowingValues(final Map<ProjectValues, Object> values) {
         this.projects = values;
         createProject.setButtonCreateProject();
-        projects.keySet().stream().forEach((step) -> createProject.getStrategyStepMap(projects).get(step).execute());
+        projects.keySet().stream().forEach(step -> createProject.getStrategyStepMap(projects).get(step).execute());
         createProject.setButtonCreate();
 
     }
@@ -38,20 +38,6 @@ public class ProjectStep {
     @Then("^I can verify the new project with \"([^\"]*)\" project name$")
     public void iCanVerifyTheNewProjectWithProjectName(final String projectName) {
         Assert.assertEquals(projectName, createProject.verifyName());
-    }
-
-    /**
-     * Method for Create a new project with the following Values and exits account.
-     *
-     * @param values Map<ProjectValues, Object>.
-     */
-    @Given("^I can create a new project with the following values and exist Account$")
-    public void iCanCreateANewProjectWithTheFollowingValuesAndExistAccount(final Map<ProjectValues, Object> values) {
-        this.projects = values;
-        createProject.setButtonCreateProject();
-        projects.keySet().stream().forEach((step) -> createProject.getStrategyStepMap(projects)
-                .get(step).execute());
-        createProject.setButtonCreate();
     }
 }
 
