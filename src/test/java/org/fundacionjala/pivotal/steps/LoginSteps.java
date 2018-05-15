@@ -12,12 +12,18 @@ import org.testng.Assert;
 public class LoginSteps {
     private PageLogin pageLogin = new PageLogin();
 
+    /**
+     * Given a valid user and password.
+     */
     //@Before("@selenium")
     @Given("I put a valid user and Password")
     public void iPutAValidAnd() {
         pageLogin.asLogin(PropertiesConfig.getPropertiesConfig().getUser(), PropertiesConfig.getPropertiesConfig().getPassword());
     }
 
+    /**
+     * Then can see login page.
+     */
     @Then("^I can see the Login Page$")
     public void iCanSeeTheLoginPage() {
         Assert.assertTrue(pageLogin.checkPageLogin());

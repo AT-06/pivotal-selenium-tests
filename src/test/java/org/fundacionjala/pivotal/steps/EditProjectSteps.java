@@ -60,6 +60,6 @@ public class EditProjectSteps extends Base {
     public void iCanVerifyTheMessageSaved(String message) {
         // Write code here that turns the phrase above into concrete actions
         Assert.assertEquals(message, editProject.setMessageSaved());
-        dashBoard.setButtonDashborad();
+
     }
 }
