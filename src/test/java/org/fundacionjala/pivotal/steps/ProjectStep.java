@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class ProjectStep {
     private CreateProject createProject = new CreateProject();
-    private Map<ProjectValues, Object> projects;
+    private Map<ProjectValues, String> projects;
 
     /**
      * Steps of Creating a Project.
@@ -22,7 +22,7 @@ public class ProjectStep {
      * @param values for enter.
      */
     @Given("^I can create a new project with the following values$")
-    public void iCanCreateANewProjectWithTheFollowingValues(final Map<ProjectValues, Object> values) {
+    public void iCanCreateANewProjectWithTheFollowingValues(final Map<ProjectValues, String> values) {
         this.projects = values;
         createProject.setButtonCreateProject();
         projects.keySet().stream().forEach(step -> createProject.getStrategyStepMap(projects).get(step).execute());

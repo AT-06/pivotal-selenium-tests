@@ -2,7 +2,7 @@ package org.fundacionjala.pivotal.objects;
 
 import org.fundacionjala.pivotal.common.Base;
 import org.fundacionjala.pivotal.common.CommonMethods;
-import org.fundacionjala.pivotal.common.Meth;
+import org.fundacionjala.pivotal.common.Steps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -57,11 +57,11 @@ public class CreateProject extends Base {
      * @param privacy String.
      */
     private void setPrivacy(final String privacy) {
-        if (privacy.equalsIgnoreCase("private")) {
+        if ("private".equalsIgnoreCase(privacy)) {
             driver.findElement(By.cssSelector(
                     "div#modal_area label:nth-child(2) > input[name=\"project_type\"]")).click();
         }
-        if (privacy.equalsIgnoreCase("public")) {
+        if ("public".equalsIgnoreCase(privacy)) {
             driver.findElement(By.cssSelector(
                     "div#modal_area label:nth-child(3) > input[name=\"project_type\"]")).click();
         }
@@ -117,14 +117,14 @@ public class CreateProject extends Base {
      * @param values Map<ProjectValues, Object>
      * @return strategyMap.
      */
-    public final Map<ProjectValues, Meth> getStrategyStepMap(final Map<ProjectValues, Object> values) {
-        final Map<ProjectValues, Meth> strategyMap = new HashMap<>();
+    public final Map<ProjectValues, Steps> getStrategyStepMap(final Map<ProjectValues, String> values) {
+        final Map<ProjectValues, Steps> strategyMap = new HashMap<>();
         strategyMap.put(ProjectValues.PROJECT_TITLE, () ->
-                setTxtProjectName(String.valueOf(values.get(ProjectValues.PROJECT_TITLE))));
+                setTxtProjectName(values.get(ProjectValues.PROJECT_TITLE)));
         strategyMap.put(ProjectValues.PROJECT_ACCOUNT, ()
-                -> setTxtSelectorAcccountSpecific(String.valueOf(values.get(ProjectValues.PROJECT_ACCOUNT))));
+                -> setTxtSelectorAcccountSpecific(values.get(ProjectValues.PROJECT_ACCOUNT)));
         strategyMap.put(ProjectValues.PROJECT_VISIBLE, ()
-                -> setPrivacy(String.valueOf(values.get(ProjectValues.PROJECT_VISIBLE))));
+                -> setPrivacy(values.get(ProjectValues.PROJECT_VISIBLE)));
         return strategyMap;
     }
 

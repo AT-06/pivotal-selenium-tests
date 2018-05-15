@@ -9,18 +9,17 @@ import java.util.Properties;
  * PropertiesConfig is class for read config.properties.
  */
 public final class PropertiesConfig {
+
     /**
      * properties.
      */
     private Properties properties;
+
     /**
      * PropertiesConfig.
      */
+
     private static PropertiesConfig propertiesConfig;
-    /**
-     * inputStream.
-     */
-    private InputStream inputStream;
 
     /**
      * @return a instance of PropertiesConfig.
@@ -33,15 +32,22 @@ public final class PropertiesConfig {
     }
 
     /**
-     * This method initialize properties and input stream.
+     * Constructor.
      */
     private PropertiesConfig() {
-        try {
-            properties = new Properties();
-            inputStream = new FileInputStream("config.properties");
+        init();
+    }
+
+    /**
+     * This method initialize properties and input stream.
+     */
+    private void init() {
+        properties = new Properties();
+        try (InputStream inputStream = new FileInputStream("config.properties")) {
             properties.load(inputStream);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("aa");
+            //Logger
         }
     }
 

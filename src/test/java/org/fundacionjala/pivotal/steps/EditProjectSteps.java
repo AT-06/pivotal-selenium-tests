@@ -20,7 +20,7 @@ public class EditProjectSteps extends Base {
 
     private DashBoard dashBoard = new DashBoard();
 
-    private Map<DescriptionValues, Object> descriptions;
+    private Map<DescriptionValues, String> descriptions;
 
     /**
      * Method for select any project.
@@ -39,9 +39,9 @@ public class EditProjectSteps extends Base {
      * @param values Map<DescriptionValues, Object>.
      */
     @And("^I can edit the project$")
-    public void iCanEditTheProject(final Map<DescriptionValues, Object> values) {
+    public void iCanEditTheProject(final Map<DescriptionValues, String> values) {
         this.descriptions = values;
-        descriptions.keySet().stream()
+        descriptions.keySet()
                 .forEach(step -> editProject.getStrategyStepMap(descriptions)
                         .get(step).execute());
         editProject.setSaveEditProject();

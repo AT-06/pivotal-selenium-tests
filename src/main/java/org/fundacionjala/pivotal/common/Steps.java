@@ -3,7 +3,7 @@ package org.fundacionjala.pivotal.common;
 /**
  * Interface CommonMeth.
  */
-public interface Meth {
+public interface Steps {
     /**
      * Void Execute.
      */
