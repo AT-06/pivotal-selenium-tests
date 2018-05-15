@@ -15,21 +15,21 @@ public class ProjectSettingSteps {
 
     /**
      * Method for Click Settings.
+     *
      * @param projectName String.
      */
     @When("^I click \"([^\"]*)\" settings$")
-    public void iClickSettings(String projectName) {
+    public void iClickSettings(final String projectName) {
+        dashBoard.setButtonDashborad();
         dashBoard.searchProject(projectName);
         deleteProject.deleteProject();
-
     }
 
     /**
      * Method for Expect Message was success full Deleted.
-     * @param arg0 String.
      */
-    @Then("^I expect the message: \"([^\"]*)\" was successfully deleted$")
-    public void iExpectTheMessageWasSuccessfullyDeleted(String arg0) {
+    @Then("^I can verify the project deleted$")
+    public void iCanVerifyTheProjectDeleted() {
         Assert.assertTrue(deleteProject.setMessageDelete());
     }
 }

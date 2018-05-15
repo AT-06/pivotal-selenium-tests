@@ -2,6 +2,7 @@ package org.fundacionjala.pivotal.objects;
 
 import org.fundacionjala.pivotal.common.Base;
 import org.fundacionjala.pivotal.common.CommonMethods;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -24,7 +25,8 @@ public class DashBoard extends Base {
      * Set Button DashBoard.
      */
     public void setButtonDashborad() {
-        CommonMethods.clickWebElement(buttonDashborad);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", buttonDashborad);
+        //CommonMethods.clickWebElement(buttonDashborad);
     }
 
     /**
@@ -36,6 +38,7 @@ public class DashBoard extends Base {
 
     /**
      * Set Button for Search Project.
+     *
      * @param nameProject String.
      */
     private void setSearchProjectButton(final String nameProject) {
@@ -44,6 +47,7 @@ public class DashBoard extends Base {
 
     /**
      * Set Project name for a search.
+     *
      * @param projectName String.
      */
     public void searchProject(final String projectName) {

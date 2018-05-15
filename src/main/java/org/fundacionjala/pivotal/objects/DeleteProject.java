@@ -12,10 +12,6 @@ import org.openqa.selenium.support.How;
  */
 public class DeleteProject extends Base {
 
-    @FindBy(how = How.XPATH, using = "//*[contains(@href,'#') and  text()='Delete']")
-    // //*[contains(@href,'#') and  text()='Delete']
-    private WebElement buttonDeleteProject;
-
     @FindBy(how = How.ID, using = "confirm_delete")
     private WebElement buttonConfirmDelete;
 
@@ -24,25 +20,12 @@ public class DeleteProject extends Base {
 
     /**
      * Method for set Message Delete.
+     *
      * @return messageDeleted is Displayed.
      */
     public boolean setMessageDelete() {
         CommonMethods.waitWebElement(messageDelete);
         return messageDelete.isDisplayed();
-    }
-
-    /**
-     * Method for set Button Delete Project.
-     */
-    private void setButtonDeleteProject() {
-        CommonMethods.clickWebElement(buttonDeleteProject);
-    }
-
-    /**
-     * Method for Button Confirm delete.
-     */
-    private void setButtonConfirmDelete() {
-        CommonMethods.clickWebElement(buttonConfirmDelete);
     }
 
     /**
@@ -52,6 +35,7 @@ public class DeleteProject extends Base {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", buttonConfirmDelete);
 
     }
+
     /**
      * Method for delete Project.
      */
@@ -60,3 +44,4 @@ public class DeleteProject extends Base {
 
     }
 }
+

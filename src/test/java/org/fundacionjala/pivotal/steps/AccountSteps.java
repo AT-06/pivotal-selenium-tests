@@ -13,11 +13,11 @@ public class AccountSteps {
 
     /**
      * Method for create an account.
+     *
      * @param accountName String.
      */
     @Given("^I can create a new \"([^\"]*)\" account$")
-    public void iCanCreateANewAccount(String accountName) {
-        // Write code here that turns the phrase above into concrete actions
+    public void iCanCreateANewAccount(final String accountName) {
         account.createAccount(accountName);
     }
 
@@ -26,7 +26,6 @@ public class AccountSteps {
      */
     @Then("^I can verify the new account$")
     public void iCanVerifyTheNewAccount() {
-        // Write code here that turns the phrase above into concrete actions
         Assert.assertTrue(account.verifyTheAccountName());
     }
 }

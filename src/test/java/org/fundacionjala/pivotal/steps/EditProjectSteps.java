@@ -8,6 +8,7 @@ import org.fundacionjala.pivotal.objects.DashBoard;
 import org.fundacionjala.pivotal.objects.DescriptionValues;
 import org.fundacionjala.pivotal.objects.EditProject;
 import org.testng.Assert;
+
 import java.util.Map;
 
 /**
@@ -32,34 +33,36 @@ public class EditProjectSteps extends Base {
 
     /**
      * Method for select any project.
+     *
      * @param projectName String.
      */
     @When("^I select any project \"([^\"]*)\"$")
-    public void iSelectAnyProject(String projectName) {
-        // Write code here that turns the phrase above into concrete actions
+    public void iSelectAnyProject(final String projectName) {
+        dashBoard.setButtonDashborad();
         dashBoard.searchProject(projectName);
     }
 
     /**
      * Method for edit the project.
+     *
      * @param values Map<DescriptionValues, Object>.
      */
     @And("^I can edit the project$")
-    public void iCanEditTheProject(Map<DescriptionValues, Object> values) {
-        // Write code here that turns the phrase above into concrete actions
+    public void iCanEditTheProject(final Map<DescriptionValues, Object> values) {
         this.descriptions = values;
-        descriptions.keySet().stream().forEach(step -> editProject.getStrategyStepMap(descriptions).get(step).execute());
+        descriptions.keySet().stream()
+                .forEach(step -> editProject.getStrategyStepMap(descriptions)
+                        .get(step).execute());
         editProject.setSaveEditProject();
     }
 
     /**
      * Method for Verify the message of saved changes.
+     *
      * @param message String.
      */
     @Then("^I can verify the message saved \"([^\"]*)\"$")
-    public void iCanVerifyTheMessageSaved(String message) {
-        // Write code here that turns the phrase above into concrete actions
+    public void iCanVerifyTheMessageSaved(final String message) {
         Assert.assertEquals(message, editProject.setMessageSaved());
-
     }
 }

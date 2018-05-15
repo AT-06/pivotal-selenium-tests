@@ -6,6 +6,7 @@ import org.fundacionjala.pivotal.common.Meth;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,6 +43,7 @@ public class EditProject extends Base {
 
     /**
      * Method for set Date Project.
+     *
      * @param date String.
      */
     private void setTxtDateProject(final String date) {
@@ -50,6 +52,7 @@ public class EditProject extends Base {
 
     /**
      * Method for set txt Project week.
+     *
      * @param day String.
      */
     private void setTxtProjectWeek(final String day) {
@@ -59,6 +62,7 @@ public class EditProject extends Base {
 
     /**
      * Method for Message saved.
+     *
      * @return messageSaved.
      */
     public String setMessageSaved() {
@@ -75,6 +79,7 @@ public class EditProject extends Base {
 
     /**
      * Method for txt Public.
+     *
      * @param check String.
      */
     private void setTxtPublic(final String check) {
@@ -84,8 +89,8 @@ public class EditProject extends Base {
     }
 
     /**
-     *
      * Method for txt Project Description.
+     *
      * @param description String.
      */
     private void setTxtProjectDescription(final String description) {
@@ -94,6 +99,7 @@ public class EditProject extends Base {
 
     /**
      * Method for txt Task.
+     *
      * @param check String.
      */
     private void setTxtTask(final String check) {
@@ -104,6 +110,7 @@ public class EditProject extends Base {
 
     /**
      * Method for get Strategy Step Map.
+     *
      * @param values Map<DescriptionValues, Object>.
      * @return strategyMap.
      */
@@ -114,7 +121,7 @@ public class EditProject extends Base {
         strategyMap.put(DescriptionValues.ENABLE_TASKS, () ->
                 this.setTxtTask(String.valueOf(values.get(DescriptionValues.ENABLE_TASKS))));
         strategyMap.put(DescriptionValues.PUBLIC_ACCESS, () ->
-                this.setTxtPublic((String.valueOf(values.get(DescriptionValues.PUBLIC_ACCESS)))));
+                this.setTxtPublic(String.valueOf(values.get(DescriptionValues.PUBLIC_ACCESS))));
         strategyMap.put(DescriptionValues.START_ITERATION, () ->
                 this.setTxtProjectWeek(String.valueOf(values.get(DescriptionValues.START_ITERATION))));
         strategyMap.put(DescriptionValues.PROJECT_START_DATE, () ->

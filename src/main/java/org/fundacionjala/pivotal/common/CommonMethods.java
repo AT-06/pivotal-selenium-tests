@@ -14,11 +14,17 @@ public final class CommonMethods {
      */
     private static WebDriverWait driverWait = WebCommonDriver.getWebCommonDriver().getDriverWait();
 
+    /**
+     * Constructor Private.
+     */
+    private CommonMethods() {
+    }
 
     /**
      * Method for set WebElement.
+     *
      * @param webElement WebElement.
-     * @param text String.
+     * @param text       String.
      */
     public static void setWebElement(final WebElement webElement, final String text) {
         driverWait.until(ExpectedConditions.visibilityOf(webElement));
@@ -28,6 +34,7 @@ public final class CommonMethods {
 
     /**
      * Method for ClickElement.
+     *
      * @param webElement WebElement.
      */
     public static void clickWebElement(final WebElement webElement) {
@@ -38,6 +45,7 @@ public final class CommonMethods {
 
     /**
      * Method for wait Web element.
+     *
      * @param webElement WebElement.
      */
     public static void waitWebElement(final WebElement webElement) {

@@ -7,9 +7,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import java.util.HashMap;
 import java.util.Map;
+
 import static org.fundacionjala.pivotal.common.CommonMethods.waitWebElement;
 
 
@@ -31,9 +32,6 @@ public class CreateProject extends Base {
     @FindBy(how = How.CLASS_NAME, using = "raw_context_name")
     private WebElement txtVerifyName;
 
-    @FindBy(how = How.CSS, using = "#view42 img.headerLogo__image")
-    private WebElement goToDashBoard;
-
     @FindBy(how = How.XPATH, using = "//*[@id=\"modal_area\"]/div/div[2]/div/form/footer/button[2]")
     private WebElement buttonCreate;
 
@@ -45,6 +43,7 @@ public class CreateProject extends Base {
 
     /**
      * Method for verifyName.
+     *
      * @return txtVerifyName.
      */
     public String verifyName() {
@@ -54,6 +53,7 @@ public class CreateProject extends Base {
 
     /**
      * Method for set Privacy.
+     *
      * @param privacy String.
      */
     private void setPrivacy(final String privacy) {
@@ -69,6 +69,7 @@ public class CreateProject extends Base {
 
     /**
      * Method for set Select an Account Specific.
+     *
      * @param account String.
      */
     private void setTxtSelectorAcccountSpecific(final String account) {
@@ -95,6 +96,7 @@ public class CreateProject extends Base {
 
     /**
      * Method for set Project name.
+     *
      * @param projectName String.
      */
     private void setTxtProjectName(final String projectName) {
@@ -111,6 +113,7 @@ public class CreateProject extends Base {
 
     /**
      * Method for Strategy Step Map.
+     *
      * @param values Map<ProjectValues, Object>
      * @return strategyMap.
      */

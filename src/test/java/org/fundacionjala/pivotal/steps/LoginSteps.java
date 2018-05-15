@@ -15,10 +15,10 @@ public class LoginSteps {
     /**
      * Given a valid user and password.
      */
-    //@Before("@selenium")
     @Given("I put a valid user and Password")
     public void iPutAValidAnd() {
-        pageLogin.asLogin(PropertiesConfig.getPropertiesConfig().getUser(), PropertiesConfig.getPropertiesConfig().getPassword());
+        pageLogin.asLogin(PropertiesConfig.getPropertiesConfig()
+                .getUser(), PropertiesConfig.getPropertiesConfig().getPassword());
     }
 
     /**
