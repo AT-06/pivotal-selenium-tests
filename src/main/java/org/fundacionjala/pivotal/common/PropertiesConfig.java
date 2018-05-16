@@ -46,7 +46,7 @@ public final class PropertiesConfig {
         try (InputStream inputStream = new FileInputStream("config.properties")) {
             properties.load(inputStream);
         } catch (IOException e) {
-            throw new RuntimeException("aa");
+            throw new NoConfigPropertiesFound("Class PropertiesConfig: ", e);
             //Logger
         }
     }

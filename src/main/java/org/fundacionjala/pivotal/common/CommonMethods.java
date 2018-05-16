@@ -39,6 +39,7 @@ public final class CommonMethods {
      * Method for wait Web element.
      *
      * @param webElement WebElement.
+     * @return the element.
      */
     public static WebElement waitWebElement(final WebElement webElement) {
         return DriverManager.getInstance().getDriverWait().until(ExpectedConditions.visibilityOf(webElement));
