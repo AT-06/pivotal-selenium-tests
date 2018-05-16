@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 import static org.fundacionjala.pivotal.common.CommonMethods.waitWebElement;
@@ -117,8 +117,8 @@ public class CreateProject extends Base {
      * @param values Map<ProjectValues, Object>
      * @return strategyMap.
      */
-    public final Map<ProjectValues, Steps> getStrategyStepMap(final Map<ProjectValues, String> values) {
-        final Map<ProjectValues, Steps> strategyMap = new HashMap<>();
+    public final EnumMap<ProjectValues, Steps> getStrategyStepMap(final Map<ProjectValues, String> values) {
+        final EnumMap<ProjectValues, Steps> strategyMap = new EnumMap<>(ProjectValues.class);
         strategyMap.put(ProjectValues.PROJECT_TITLE, () ->
                 setTxtProjectName(values.get(ProjectValues.PROJECT_TITLE)));
         strategyMap.put(ProjectValues.PROJECT_ACCOUNT, ()

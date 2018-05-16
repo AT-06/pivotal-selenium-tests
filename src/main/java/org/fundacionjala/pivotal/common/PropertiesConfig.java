@@ -18,7 +18,6 @@ public final class PropertiesConfig {
     /**
      * PropertiesConfig.
      */
-
     private static PropertiesConfig propertiesConfig;
 
     /**

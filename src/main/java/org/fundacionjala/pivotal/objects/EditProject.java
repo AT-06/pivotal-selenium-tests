@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 /**
@@ -114,8 +114,8 @@ public class EditProject extends Base {
      * @param values Map<DescriptionValues, Object>.
      * @return strategyMap.
      */
-    public Map<DescriptionValues, Steps> getStrategyStepMap(final Map<DescriptionValues, String> values) {
-        final Map<DescriptionValues, Steps> strategyMap = new HashMap<>();
+    public EnumMap<DescriptionValues, Steps> getStrategyStepMap(final Map<DescriptionValues, String> values) {
+        final EnumMap<DescriptionValues, Steps> strategyMap = new EnumMap<>(DescriptionValues.class);
         strategyMap.put(DescriptionValues.DESCRIPTION, () ->
                 this.setTxtProjectDescription(values.get(DescriptionValues.DESCRIPTION)));
         strategyMap.put(DescriptionValues.ENABLE_TASKS, () ->
