@@ -117,7 +117,7 @@ public class CreateProject extends Base {
      * @param values Map<ProjectValues, Object>
      * @return strategyMap.
      */
-    public final EnumMap<ProjectValues, Steps> getStrategyStepMap(final Map<ProjectValues, String> values) {
+    public final Map<ProjectValues, Steps> getStrategyStepMap(final Map<ProjectValues, String> values) {
         final EnumMap<ProjectValues, Steps> strategyMap = new EnumMap<>(ProjectValues.class);
         strategyMap.put(ProjectValues.PROJECT_TITLE, () ->
                 setTxtProjectName(values.get(ProjectValues.PROJECT_TITLE)));

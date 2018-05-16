@@ -114,7 +114,7 @@ public class EditProject extends Base {
      * @param values Map<DescriptionValues, Object>.
      * @return strategyMap.
      */
-    public EnumMap<DescriptionValues, Steps> getStrategyStepMap(final Map<DescriptionValues, String> values) {
+    public Map<DescriptionValues, Steps> getStrategyStepMap(final Map<DescriptionValues, String> values) {
         final EnumMap<DescriptionValues, Steps> strategyMap = new EnumMap<>(DescriptionValues.class);
         strategyMap.put(DescriptionValues.DESCRIPTION, () ->
                 this.setTxtProjectDescription(values.get(DescriptionValues.DESCRIPTION)));
