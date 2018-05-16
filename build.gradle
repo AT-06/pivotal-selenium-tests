@@ -21,6 +21,9 @@ dependencies {
     testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
     // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.11.0'
+    // https://mvnrepository.com/artifact/com.jayway.restassured/rest-assured
+    testCompile group: 'com.jayway.restassured', name: 'rest-assured', version: '2.9.0'
+
 }
 
 // Checkstyle configuration
