@@ -12,11 +12,11 @@ public class Base {
     protected WebDriverWait driverWait;
 
     /**
-     * Method for Base for declared WebCommonDriver.
+     * Method for Base for declared DriverManager.
      */
     public Base() {
-        driver = WebCommonDriver.getWebCommonDriver().getDriver();
-        driverWait = WebCommonDriver.getWebCommonDriver().getDriverWait();
+        driver = DriverManager.getInstance().getDriver();
+        driverWait = DriverManager.getInstance().getDriverWait();
         PageFactory.initElements(driver, this);
     }
 }

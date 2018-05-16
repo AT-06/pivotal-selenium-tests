@@ -2,12 +2,12 @@ package org.fundacionjala.pivotal.objects;
 
 import org.fundacionjala.pivotal.common.Base;
 import org.fundacionjala.pivotal.common.CommonMethods;
-import org.fundacionjala.pivotal.common.Meth;
+import org.fundacionjala.pivotal.common.Steps;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 /**
@@ -114,18 +114,18 @@ public class EditProject extends Base {
      * @param values Map<DescriptionValues, Object>.
      * @return strategyMap.
      */
-    public Map<DescriptionValues, Meth> getStrategyStepMap(final Map<DescriptionValues, Object> values) {
-        final Map<DescriptionValues, Meth> strategyMap = new HashMap<>();
+    public Map<DescriptionValues, Steps> getStrategyStepMap(final Map<DescriptionValues, String> values) {
+        final EnumMap<DescriptionValues, Steps> strategyMap = new EnumMap<>(DescriptionValues.class);
         strategyMap.put(DescriptionValues.DESCRIPTION, () ->
-                this.setTxtProjectDescription(String.valueOf(values.get(DescriptionValues.DESCRIPTION))));
+                this.setTxtProjectDescription(values.get(DescriptionValues.DESCRIPTION)));
         strategyMap.put(DescriptionValues.ENABLE_TASKS, () ->
-                this.setTxtTask(String.valueOf(values.get(DescriptionValues.ENABLE_TASKS))));
+                this.setTxtTask(values.get(DescriptionValues.ENABLE_TASKS)));
         strategyMap.put(DescriptionValues.PUBLIC_ACCESS, () ->
-                this.setTxtPublic(String.valueOf(values.get(DescriptionValues.PUBLIC_ACCESS))));
+                this.setTxtPublic(values.get(DescriptionValues.PUBLIC_ACCESS)));
         strategyMap.put(DescriptionValues.START_ITERATION, () ->
-                this.setTxtProjectWeek(String.valueOf(values.get(DescriptionValues.START_ITERATION))));
+                this.setTxtProjectWeek(values.get(DescriptionValues.START_ITERATION)));
         strategyMap.put(DescriptionValues.PROJECT_START_DATE, () ->
-                this.setTxtDateProject(String.valueOf(values.get(DescriptionValues.PROJECT_START_DATE))));
+                this.setTxtDateProject(values.get(DescriptionValues.PROJECT_START_DATE)));
 
         return strategyMap;
     }

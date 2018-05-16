@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 /**
  * Class Web common Driver.
  */
-public final class WebCommonDriver {
+public final class DriverManager {
 
     /**
      * WebDriver driver declared.
@@ -20,34 +20,31 @@ public final class WebCommonDriver {
     private WebDriverWait driverWait;
 
     /**
-     * WebCommonDriver webCommonDriver declared.
+     * DriverManager instance declared.
      */
-    private static WebCommonDriver webCommonDriver;
+    private static DriverManager instance;
 
     /**
      * Method Web common Driver.
      * Use Singleton Pattern.
      */
-    private WebCommonDriver() {
-        final int thirty = 30;
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+    private DriverManager() {
+        final int explicitWaitTimeOut = 30;
         driver = new ChromeDriver();
         driver.navigate().to("https://www.pivotaltracker.com/signin");
-        driverWait = new WebDriverWait(driver, thirty);
+        driverWait = new WebDriverWait(driver, explicitWaitTimeOut);
     }
-
 
     /**
      * Method for get Web common driver.
-     * @return webCommonDriver.
+     * @return instance.
      */
-    public static WebCommonDriver getWebCommonDriver() {
-        if (webCommonDriver == null) {
-            webCommonDriver = new WebCommonDriver();
+    public static DriverManager getInstance() {
+        if (instance == null) {
+            instance = new DriverManager();
         }
-        return webCommonDriver;
+        return instance;
     }
-
 
     /**
      * Method for get Driver.

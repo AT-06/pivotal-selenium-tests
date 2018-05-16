@@ -2,17 +2,11 @@ package org.fundacionjala.pivotal.common;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Class CommonMethods.
  */
 public final class CommonMethods {
-
-    /**
-     * Method for init Driver wait.
-     */
-    private static WebDriverWait driverWait = WebCommonDriver.getWebCommonDriver().getDriverWait();
 
     /**
      * Constructor Private.
@@ -27,8 +21,7 @@ public final class CommonMethods {
      * @param text       String.
      */
     public static void setWebElement(final WebElement webElement, final String text) {
-        driverWait.until(ExpectedConditions.visibilityOf(webElement));
-        webElement.sendKeys(text);
+        waitWebElement(webElement).sendKeys(text);
     }
 
 
@@ -38,8 +31,7 @@ public final class CommonMethods {
      * @param webElement WebElement.
      */
     public static void clickWebElement(final WebElement webElement) {
-        driverWait.until(ExpectedConditions.elementToBeClickable(webElement));
-        webElement.click();
+        waitWebElement(webElement).click();
     }
 
 
@@ -47,9 +39,10 @@ public final class CommonMethods {
      * Method for wait Web element.
      *
      * @param webElement WebElement.
+     * @return the element received in param.
      */
-    public static void waitWebElement(final WebElement webElement) {
-        driverWait.until(ExpectedConditions.visibilityOf(webElement));
+    public static WebElement waitWebElement(final WebElement webElement) {
+        return DriverManager.getInstance().getDriverWait().until(ExpectedConditions.visibilityOf(webElement));
     }
 
 }
