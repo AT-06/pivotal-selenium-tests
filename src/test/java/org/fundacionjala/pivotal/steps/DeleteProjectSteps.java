@@ -9,9 +9,20 @@ import org.testng.Assert;
 /**
  * Class for Project Settings Steps.
  */
-public class ProjectSettingSteps {
-    private DeleteProject deleteProject = new DeleteProject();
-    private DashBoard dashBoard = new DashBoard();
+public class DeleteProjectSteps {
+    private DeleteProject deleteProject;
+    private DashBoard dashBoard;
+
+    /**
+     * Constructor for DeleteProjectSteps class.
+     *
+     * @param deleteProject object.
+     * @param dashBoard     object.
+     */
+    public DeleteProjectSteps(final DeleteProject deleteProject, final DashBoard dashBoard) {
+        this.deleteProject = deleteProject;
+        this.dashBoard = dashBoard;
+    }
 
     /**
      * Method for Click Settings.

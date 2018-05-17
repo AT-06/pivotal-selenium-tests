@@ -1,0 +1,99 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "With valid credentials account",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 56046725811,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I put a valid user and Password",
+            "match": {
+              "location": "LoginSteps.iPutAValidAnd()"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "line": 7,
+        "name": "Create Project",
+        "description": "",
+        "id": "create-project;create-project",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 6255654471,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I can create a new project with the following values",
+            "match": {
+              "location": "ProjectStep.iCanCreateANewProjectWithTheFollowingValues(ProjectDescription,String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "PROJECT_TITLE",
+                  "Projectx"
+                ]
+              },
+              {
+                "cells": [
+                  "PROJECT_ACCOUNT",
+                  "Fundacion"
+                ]
+              },
+              {
+                "cells": [
+                  "PROJECT_VISIBLE",
+                  "public"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 18719996417,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I can verify the new project with \"Projectx\" project name",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Projectx",
+                  "offset": 35
+                }
+              ],
+              "location": "ProjectStep.iCanVerifyTheNewProjectWithProjectName(String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@acceptance"
+          }
+        ]
+      }
+    ],
+    "name": "Create Project",
+    "description": "",
+    "id": "create-project",
+    "keyword": "Feature",
+    "uri": "src/test/resources/CreateProject.feature",
+    "tags": []
+  }
+]

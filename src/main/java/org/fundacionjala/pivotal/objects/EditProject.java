@@ -56,7 +56,7 @@ public class EditProject extends Base {
      * @param day String.
      */
     private void setTxtProjectWeek(final String day) {
-        CommonMethods.clickWebElement(txtProjectWeek);
+        CommonMethods.clickWebElementWithJavascriptExecutor(txtProjectWeek);
         CommonMethods.setWebElement(txtProjectWeek, day);
     }
 
@@ -111,21 +111,21 @@ public class EditProject extends Base {
     /**
      * Method for get Strategy Step Map.
      *
-     * @param values Map<DescriptionValues, Object>.
+     * @param values Map<ProjectDescription, Object>.
      * @return strategyMap.
      */
-    public Map<DescriptionValues, Steps> getStrategyStepMap(final Map<DescriptionValues, String> values) {
-        final EnumMap<DescriptionValues, Steps> strategyMap = new EnumMap<>(DescriptionValues.class);
-        strategyMap.put(DescriptionValues.DESCRIPTION, () ->
-                this.setTxtProjectDescription(values.get(DescriptionValues.DESCRIPTION)));
-        strategyMap.put(DescriptionValues.ENABLE_TASKS, () ->
-                this.setTxtTask(values.get(DescriptionValues.ENABLE_TASKS)));
-        strategyMap.put(DescriptionValues.PUBLIC_ACCESS, () ->
-                this.setTxtPublic(values.get(DescriptionValues.PUBLIC_ACCESS)));
-        strategyMap.put(DescriptionValues.START_ITERATION, () ->
-                this.setTxtProjectWeek(values.get(DescriptionValues.START_ITERATION)));
-        strategyMap.put(DescriptionValues.PROJECT_START_DATE, () ->
-                this.setTxtDateProject(values.get(DescriptionValues.PROJECT_START_DATE)));
+    public Map<ProjectDescription, Steps> getStrategyStepMap(final Map<ProjectDescription, String> values) {
+        final EnumMap<ProjectDescription, Steps> strategyMap = new EnumMap<>(ProjectDescription.class);
+        strategyMap.put(ProjectDescription.DESCRIPTION, () ->
+                this.setTxtProjectDescription(values.get(ProjectDescription.DESCRIPTION)));
+        strategyMap.put(ProjectDescription.ENABLE_TASKS, () ->
+                this.setTxtTask(values.get(ProjectDescription.ENABLE_TASKS)));
+        strategyMap.put(ProjectDescription.PUBLIC_ACCESS, () ->
+                this.setTxtPublic(values.get(ProjectDescription.PUBLIC_ACCESS)));
+        strategyMap.put(ProjectDescription.START_ITERATION, () ->
+                this.setTxtProjectWeek(values.get(ProjectDescription.START_ITERATION)));
+        strategyMap.put(ProjectDescription.PROJECT_START_DATE, () ->
+                this.setTxtDateProject(values.get(ProjectDescription.PROJECT_START_DATE)));
 
         return strategyMap;
     }

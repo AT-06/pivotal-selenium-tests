@@ -5,7 +5,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.pivotal.common.Base;
 import org.fundacionjala.pivotal.objects.DashBoard;
-import org.fundacionjala.pivotal.objects.DescriptionValues;
+import org.fundacionjala.pivotal.objects.ProjectDescription;
 import org.fundacionjala.pivotal.objects.EditProject;
 import org.testng.Assert;
 
@@ -16,11 +16,20 @@ import java.util.Map;
  */
 public class EditProjectSteps extends Base {
 
-    private EditProject editProject = new EditProject();
+    private EditProject editProject;
 
-    private DashBoard dashBoard = new DashBoard();
+    private DashBoard dashBoard;
 
-
+    /**
+     * Constructor for EditProjectSteps class.
+     *
+     * @param editProject object.
+     * @param dashBoard   object.
+     */
+    public EditProjectSteps(final EditProject editProject, final DashBoard dashBoard) {
+        this.editProject = editProject;
+        this.dashBoard = dashBoard;
+    }
 
     /**
      * Method for select any project.
@@ -36,11 +45,11 @@ public class EditProjectSteps extends Base {
     /**
      * Method for edit the project.
      *
-     * @param values Map<DescriptionValues, Object>.
+     * @param values Map<ProjectDescription, Object>.
      */
     @And("^I can edit the project$")
-    public void iCanEditTheProject(final Map<DescriptionValues, String> values) {
-        final Map<DescriptionValues, String> descriptions = values;
+    public void iCanEditTheProject(final Map<ProjectDescription, String> values) {
+        final Map<ProjectDescription, String> descriptions = values;
         descriptions.keySet()
                 .forEach(step -> editProject.getStrategyStepMap(descriptions)
                         .get(step).execute());
