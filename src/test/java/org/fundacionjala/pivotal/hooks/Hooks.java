@@ -9,15 +9,16 @@ import static org.fundacionjala.pivotal.steps.api.APIProjectSteps.PROJECT_ENDPOI
  * Class that will have hooks for scenarios.
  */
 public class Hooks {
-    private APIProjectsRequests requests;
+
 
     /**
      * After hook to delete the project created in tests.
      */
     @After("@PostConditionProject")
     public void afterCreatingProject() {
+        final APIProjectsRequests requests;
         requests = new APIProjectsRequests();
-        requests.setBaseUri("https://www.pivotaltracker.com/services/v5");
+        APIProjectsRequests.setBaseUri("https://www.pivotaltracker.com/services/v5");
         requests.deleteProject(PROJECT_ENDPOINT);
     }
 }

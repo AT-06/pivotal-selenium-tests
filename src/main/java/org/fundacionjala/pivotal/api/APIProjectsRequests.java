@@ -14,11 +14,6 @@ public class APIProjectsRequests {
     private static String projectId = "0";
     private Response response;
 
-    /**
-     * Constructor.
-     */
-    public APIProjectsRequests() {
-    }
 
     /**
      * Method to post a request.

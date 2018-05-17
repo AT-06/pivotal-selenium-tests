@@ -37,10 +37,10 @@ public final class APICommons {
      * @return the request specification.
      */
     public static RequestSpecification buildRequestHeader() {
-        RequestSpecification requestSpecification = new RequestSpecBuilder()
+        return new RequestSpecBuilder()
                 .addHeader("X-TrackerToken", PropertiesConfig.getPropertiesConfig().getAPIToken())
                 .build();
-        return requestSpecification;
+
     }
 
 

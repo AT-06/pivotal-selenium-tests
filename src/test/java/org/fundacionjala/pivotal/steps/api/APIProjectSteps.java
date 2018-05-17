@@ -22,7 +22,7 @@ public class APIProjectSteps {
     @Given("^I post a new project$")
     public void iPostANewProject(final Map<String, String> values) {
         requests = new APIProjectsRequests();
-        requests.setBaseUri("https://www.pivotaltracker.com/services/v5");
+        APIProjectsRequests.setBaseUri("https://www.pivotaltracker.com/services/v5");
         requests.postNewProject(values, PROJECT_ENDPOINT);
     }
 
