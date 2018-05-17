@@ -2,19 +2,19 @@ Feature: Create and Delete Project
 
   Background: With valid credentials account
     Given I put a valid user and Password
-    And I can create a new project with the following values
-      | PROJECT_TITLE   | Project   |
-      | PROJECT_ACCOUNT | Fundacion |
-      | PROJECT_VISIBLE | private   |
-    Then I can verify the new project with "Project" project name
+    And I post a new project
+      | name             | P228 |
+      | new_account_name | Fundacion  |
+      | public           | false      |
+    Then I get body of the answer
 
-  @acceptance
+  @acceptance @PostConditionProject
   Scenario: Edit Project
-    When I select any project "Project"
+    When I select any project "P228"
     And I can edit the project
-      | DESCRIPTION        | Pruebas    |
+      | DESCRIPTION        | px |
       | ENABLE_TASKS       | false      |
-      | PUBLIC_ACCESS      | true       |
+      | PUBLIC_ACCESS      | false      |
       | START_ITERATION    | Tuesday    |
       | PROJECT_START_DATE | 14/01/2020 |
     Then I can verify the message saved "Changes saved."

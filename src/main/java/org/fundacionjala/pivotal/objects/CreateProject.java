@@ -19,8 +19,6 @@ import static org.fundacionjala.pivotal.common.CommonMethods.waitWebElement;
  */
 public class CreateProject extends Base {
 
-    public static String newProjectId;
-
     @FindBy(how = How.ID, using = "create-project-button")
     private WebElement buttonCreateProject;
 
@@ -30,7 +28,6 @@ public class CreateProject extends Base {
     @FindBy(how = How.XPATH, using = "//div[@class='tc-account-selector__header']")
     private WebElement txtSelectorAcccountCheck;
 
-    ////td[text()='UserID']            @FindBy(how = How.CSS, using = "#view42 span.raw_context_name")
     @FindBy(how = How.CLASS_NAME, using = "raw_context_name")
     private WebElement txtVerifyName;
 
@@ -131,27 +128,11 @@ public class CreateProject extends Base {
     }
 
     /**
-     * Method to set newProjectId static variable.
-     * @param projectId last created project's id.
-     */
-    public static void setNewProjectId(String projectId) {
-        newProjectId = projectId;
-    }
-
-    /**
      * Method to extract new project's id from url.
-     * @return the project's id.
+     *
+     * @return the project's id extracted from URL.
      */
     public String extractProjectIdFromUrl() {
-        return driver.getCurrentUrl().substring(driver.getCurrentUrl().lastIndexOf("/") + 1);
+        return this.driver.getCurrentUrl().substring(this.driver.getCurrentUrl().lastIndexOf("/") + 1);
     }
-
-    /**
-     * Method to get new project's id.
-     * @return new project's id.
-     */
-    public String getNewProjectId() {
-        return this.newProjectId;
-    }
-
 }

@@ -1,8 +1,8 @@
 Feature: Test API
-
+  @ProjectPost
   Scenario: Test post new project
     Given I post a new project
-      | name             | name projectyyyy |
+      | name             | name projectxxxxxx |
       | new_account_name | a            |
       | public           | true         |
     Then I get body of the answer

@@ -1,17 +1,19 @@
-package org.fundacionjala.pivotal.steps;
+package org.fundacionjala.pivotal.steps.api;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.fundacionjala.pivotal.common.APIMethods;
+import org.fundacionjala.pivotal.api.APIProjectsRequests;
 import org.testng.Assert;
 import java.util.Map;
 
 /**
- * APISteps.java
+ * APIProjectSteps.java
  * Class with steps for test feature.
  */
-public class APISteps {
-    private APIMethods methods;
+public class APIProjectSteps {
+
+    public static final String PROJECT_ENDPOINT = "/projects/";
+    private APIProjectsRequests requests;
 
     /**
      * Given.
@@ -19,18 +21,19 @@ public class APISteps {
      */
     @Given("^I post a new project$")
     public void iPostANewProject(final Map<String, String> values) {
-        methods = new APIMethods();
-        methods.postNewProject(values);
+        requests = new APIProjectsRequests();
+        requests.setBaseUri("https://www.pivotaltracker.com/services/v5");
+        requests.postNewProject(values, PROJECT_ENDPOINT);
     }
 
     /**
-     * Then.
+     * Then, when a post is made.
      */
     @Then("^I get body of the answer$")
     public void iGetBodyOfTheAnswer() {
         final int expectedStatus = 200;
-        Assert.assertEquals(methods.getStatusCode(), expectedStatus);
-        methods.getResponseBody();
+        Assert.assertEquals(requests.getStatusCode(), expectedStatus);
+        requests.getResponseBody();
     }
 
     /**
@@ -39,8 +42,9 @@ public class APISteps {
      */
     @Given("^I delete a project$")
     public void iDeleteAProject(final Map<String, String> values) {
-        methods = new APIMethods();
-        methods.deleteProject();
+        requests = new APIProjectsRequests();
+        requests.setBaseUri("https://www.pivotaltracker.com/services/v5");
+        requests.deleteProject(PROJECT_ENDPOINT);
     }
 
     /**
@@ -50,6 +54,6 @@ public class APISteps {
     @Then("^status code is (\\d+)$")
     public void statusCodeIs(int arg0) {
         final int expectedStatus = 204;
-        Assert.assertEquals(methods.getStatusCode(), expectedStatus);
+        Assert.assertEquals(requests.getStatusCode(), expectedStatus);
     }
 }
