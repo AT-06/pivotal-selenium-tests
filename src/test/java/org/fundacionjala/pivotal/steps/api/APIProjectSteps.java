@@ -12,7 +12,6 @@ import java.util.Map;
  */
 public class APIProjectSteps {
     public static final String PROJECT_ENDPOINT = "/projects/";
-    private APIProjectsRequests requests;
 
     /**
      * Given.
@@ -20,9 +19,7 @@ public class APIProjectSteps {
      */
     @Given("^I post a new project$")
     public void iPostANewProject(final Map<String, String> values) {
-        requests = new APIProjectsRequests();
-        APIProjectsRequests.setBaseUri("https://www.pivotaltracker.com/services/v5");
-        requests.postNewProject(values, PROJECT_ENDPOINT);
+        APIProjectsRequests.postNewProject(values, PROJECT_ENDPOINT);
     }
 
     /**
@@ -31,8 +28,8 @@ public class APIProjectSteps {
     @Then("^I get body of the answer$")
     public void iGetBodyOfTheAnswer() {
         final int expectedStatus = 200;
-        Assert.assertEquals(requests.getStatusCode(), expectedStatus);
-        requests.getResponseBody();
+        Assert.assertEquals(APIProjectsRequests.getStatusCode(), expectedStatus);
+        APIProjectsRequests.getResponseBody();
     }
 
     /**
@@ -41,9 +38,7 @@ public class APIProjectSteps {
      */
     @Given("^I delete a project$")
     public void iDeleteAProject(final Map<String, String> values) {
-        requests = new APIProjectsRequests();
-        APIProjectsRequests.setBaseUri("https://www.pivotaltracker.com/services/v5");
-        requests.deleteProject(PROJECT_ENDPOINT);
+        APIProjectsRequests.deleteProject(PROJECT_ENDPOINT);
     }
 
     /**
@@ -53,6 +48,6 @@ public class APIProjectSteps {
     @Then("^status code is (\\d+)$")
     public void statusCodeIs(int arg0) {
         final int expectedStatus = 204;
-        Assert.assertEquals(requests.getStatusCode(), expectedStatus);
+        Assert.assertEquals(APIProjectsRequests.getStatusCode(), expectedStatus);
     }
 }

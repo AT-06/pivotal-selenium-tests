@@ -6,8 +6,8 @@ Feature: Create Project
   @acceptance @PostConditionProject
   Scenario: Create Project with a new Account
     Given I can create a new project with the following values
-      | PROJECT_TITLE   | Project14   |
+      | PROJECT_TITLE   | Test8   |
       | PROJECT_ACCOUNT | Fundacion |
       | PROJECT_VISIBLE | public    |
-    Then I can verify the new project with "Project14" project name
+    Then I can verify the new project with "Test8" project name
 

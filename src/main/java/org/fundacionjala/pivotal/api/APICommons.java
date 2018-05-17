@@ -35,8 +35,10 @@ public final class APICommons {
      *
      * @return the request specification.
      */
-    public static RequestSpecification buildRequestHeader() {
+    public static RequestSpecification
+    buildRequestHeader() {
         return new RequestSpecBuilder()
+                .setBaseUri("https://www.pivotaltracker.com/services/v5")
                 .addHeader("X-TrackerToken", PropertiesConfig.getPropertiesConfig().getAPIToken())
                 .build();
     }

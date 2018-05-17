@@ -15,9 +15,6 @@ public class Hooks {
      */
     @After("@PostConditionProject")
     public void afterCreatingProject() {
-        final APIProjectsRequests requests;
-        requests = new APIProjectsRequests();
-        APIProjectsRequests.setBaseUri("https://www.pivotaltracker.com/services/v5");
-        requests.deleteProject(PROJECT_ENDPOINT);
+        APIProjectsRequests.deleteProject(PROJECT_ENDPOINT);
     }
 }
