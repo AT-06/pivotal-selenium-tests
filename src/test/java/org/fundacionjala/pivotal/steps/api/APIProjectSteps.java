@@ -43,7 +43,7 @@ public class APIProjectSteps {
     @Given("^I delete a project$")
     public void iDeleteAProject(final Map<String, String> values) {
         requests = new APIProjectsRequests();
-        requests.setBaseUri("https://www.pivotaltracker.com/services/v5");
+        APIProjectsRequests.setBaseUri("https://www.pivotaltracker.com/services/v5");
         requests.deleteProject(PROJECT_ENDPOINT);
     }
 
