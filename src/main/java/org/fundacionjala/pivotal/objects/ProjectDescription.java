@@ -12,5 +12,4 @@ public enum ProjectDescription {
     PUBLIC_ACCESS,
     START_ITERATION,
     PROJECT_START_DATE
-
 }

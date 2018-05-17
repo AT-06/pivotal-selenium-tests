@@ -73,8 +73,6 @@ public class CreateProject extends Base {
      */
     private void setTxtSelectorAcccountSpecific(final String account) {
         this.setTxtSelectorAcccountCheck();
-
-        //these last comands permit to create a new Account from create project menu
         CommonMethods.clickWebElement(buttonCreateAccount);
         CommonMethods.setWebElement(txtAccountName, account);
     }

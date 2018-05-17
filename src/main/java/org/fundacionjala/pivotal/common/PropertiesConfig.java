@@ -46,7 +46,6 @@ public final class PropertiesConfig {
             properties.load(inputStream);
         } catch (IOException e) {
             throw new NoConfigPropertiesFound("Class PropertiesConfig: ", e);
-            //Logger
         }
     }
 

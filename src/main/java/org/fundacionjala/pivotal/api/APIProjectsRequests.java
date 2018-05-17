@@ -11,9 +11,15 @@ import static com.jayway.restassured.RestAssured.given;
  */
 public class APIProjectsRequests {
 
+    /**
+     * static attribute to manage project's id through processes.
+     */
     private static String projectId = "0";
-    private Response response;
 
+    /**
+     * Response attribute to get request.
+     */
+    private Response response;
 
     /**
      * Method to post a request.
@@ -70,5 +76,4 @@ public class APIProjectsRequests {
     public static void setBaseUri(final String uri) {
         RestAssured.baseURI = uri;
     }
-
 }

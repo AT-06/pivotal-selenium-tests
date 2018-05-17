@@ -16,7 +16,6 @@ public final class APICommons {
      * Constructor.
      */
     private APICommons() {
-
     }
 
     /**
@@ -40,9 +39,6 @@ public final class APICommons {
         return new RequestSpecBuilder()
                 .addHeader("X-TrackerToken", PropertiesConfig.getPropertiesConfig().getAPIToken())
                 .build();
-
     }
-
-
 }
 

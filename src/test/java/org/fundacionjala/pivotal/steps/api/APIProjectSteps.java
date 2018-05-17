@@ -11,7 +11,6 @@ import java.util.Map;
  * Class with steps for test feature.
  */
 public class APIProjectSteps {
-
     public static final String PROJECT_ENDPOINT = "/projects/";
     private APIProjectsRequests requests;
 

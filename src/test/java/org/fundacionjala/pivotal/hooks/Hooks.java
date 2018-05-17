@@ -10,7 +10,6 @@ import static org.fundacionjala.pivotal.steps.api.APIProjectSteps.PROJECT_ENDPOI
  */
 public class Hooks {
 
-
     /**
      * After hook to delete the project created in tests.
      */

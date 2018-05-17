@@ -15,9 +15,7 @@ import java.util.Map;
  * Class por Edit Project Steps.
  */
 public class EditProjectSteps extends Base {
-
     private EditProject editProject;
-
     private DashBoard dashBoard;
 
     /**
