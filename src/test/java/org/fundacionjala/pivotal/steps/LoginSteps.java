@@ -10,7 +10,16 @@ import org.testng.Assert;
  * Class of Login Steps.
  */
 public class LoginSteps {
-    private PageLogin pageLogin = new PageLogin();
+    /**
+     * Constructor for LoginSteps class.
+     *
+     * @param pageLogin object.
+     */
+    public LoginSteps(final PageLogin pageLogin) {
+        this.pageLogin = pageLogin;
+    }
+
+    private PageLogin pageLogin;
 
     /**
      * Given a valid user and password.

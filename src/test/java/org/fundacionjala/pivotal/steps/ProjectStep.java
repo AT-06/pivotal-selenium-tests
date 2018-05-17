@@ -3,7 +3,7 @@ package org.fundacionjala.pivotal.steps;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.fundacionjala.pivotal.objects.CreateProject;
-import org.fundacionjala.pivotal.objects.ProjectValues;
+import org.fundacionjala.pivotal.objects.ProjectDescription;
 import org.testng.Assert;
 
 import java.util.Map;
@@ -13,8 +13,16 @@ import java.util.Map;
  * Class Project Steps for create a project.
  */
 public class ProjectStep {
-    private CreateProject createProject = new CreateProject();
+    private CreateProject createProject;
 
+    /**
+     * Constructor for ProjectStep class.
+     *
+     * @param createProject object.
+     */
+    public ProjectStep(final CreateProject createProject) {
+        this.createProject = createProject;
+    }
 
     /**
      * Steps of Creating a Project.
@@ -22,8 +30,8 @@ public class ProjectStep {
      * @param values for enter.
      */
     @Given("^I can create a new project with the following values$")
-    public void iCanCreateANewProjectWithTheFollowingValues(final Map<ProjectValues, String> values) {
-        final Map<ProjectValues, String> projects = values;
+    public void iCanCreateANewProjectWithTheFollowingValues(final Map<ProjectDescription, String> values) {
+        final Map<ProjectDescription, String> projects = values;
         createProject.setButtonCreateProject();
         projects.keySet().stream().forEach(step -> createProject.getStrategyStepMap(projects).get(step).execute());
         createProject.setButtonCreate();
@@ -31,7 +39,7 @@ public class ProjectStep {
     }
 
     /**
-     * Verify taht is created the project.
+     * Verify that is created the project.
      *
      * @param projectName name of project.
      */

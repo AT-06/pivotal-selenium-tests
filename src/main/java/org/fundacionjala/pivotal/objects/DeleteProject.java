@@ -2,7 +2,6 @@ package org.fundacionjala.pivotal.objects;
 
 import org.fundacionjala.pivotal.common.Base;
 import org.fundacionjala.pivotal.common.CommonMethods;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -29,19 +28,10 @@ public class DeleteProject extends Base {
     }
 
     /**
-     * Method for ScrollPane.
-     */
-    private void scrollPane() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", buttonConfirmDelete);
-
-    }
-
-    /**
      * Method for delete Project.
      */
     public void deleteProject() {
-        this.scrollPane();
-
+        CommonMethods.clickWebElementWithJavascriptExecutor(buttonConfirmDelete);
     }
 }
 
