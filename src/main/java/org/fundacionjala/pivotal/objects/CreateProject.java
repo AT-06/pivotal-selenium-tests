@@ -114,17 +114,17 @@ public class CreateProject extends Base {
     /**
      * Method for Strategy Step Map.
      *
-     * @param values Map<ProjectValues, Object>
+     * @param values Map<ProjectDescription, Object>
      * @return strategyMap.
      */
-    public final Map<ProjectValues, Steps> getStrategyStepMap(final Map<ProjectValues, String> values) {
-        final EnumMap<ProjectValues, Steps> strategyMap = new EnumMap<>(ProjectValues.class);
-        strategyMap.put(ProjectValues.PROJECT_TITLE, () ->
-                setTxtProjectName(values.get(ProjectValues.PROJECT_TITLE)));
-        strategyMap.put(ProjectValues.PROJECT_ACCOUNT, ()
-                -> setTxtSelectorAcccountSpecific(values.get(ProjectValues.PROJECT_ACCOUNT)));
-        strategyMap.put(ProjectValues.PROJECT_VISIBLE, ()
-                -> setPrivacy(values.get(ProjectValues.PROJECT_VISIBLE)));
+    public final Map<ProjectDescription, Steps> getStrategyStepMap(final Map<ProjectDescription, String> values) {
+        final EnumMap<ProjectDescription, Steps> strategyMap = new EnumMap<>(ProjectDescription.class);
+        strategyMap.put(ProjectDescription.PROJECT_TITLE, () ->
+                setTxtProjectName(values.get(ProjectDescription.PROJECT_TITLE)));
+        strategyMap.put(ProjectDescription.PROJECT_ACCOUNT, ()
+                -> setTxtSelectorAcccountSpecific(values.get(ProjectDescription.PROJECT_ACCOUNT)));
+        strategyMap.put(ProjectDescription.PROJECT_VISIBLE, ()
+                -> setPrivacy(values.get(ProjectDescription.PROJECT_VISIBLE)));
         return strategyMap;
     }
 

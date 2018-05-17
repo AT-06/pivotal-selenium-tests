@@ -9,7 +9,16 @@ import org.testng.Assert;
  * Class for Create Account.
  */
 public class AccountSteps {
-    private Account account = new Account();
+    private Account account;
+
+    /**
+     * Constructor for AccountSteps class.
+     *
+     * @param account Account object.
+     */
+    public AccountSteps(final Account account) {
+        this.account = account;
+    }
 
     /**
      * Method for create an account.
