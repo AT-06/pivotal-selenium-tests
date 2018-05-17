@@ -38,6 +38,7 @@ public class ProjectStep {
     @Then("^I can verify the new project with \"([^\"]*)\" project name$")
     public void iCanVerifyTheNewProjectWithProjectName(final String projectName) {
         Assert.assertEquals(projectName, createProject.verifyName());
+        CreateProject.setNewProjectId(createProject.extractProjectIdFromUrl());
     }
 }
 

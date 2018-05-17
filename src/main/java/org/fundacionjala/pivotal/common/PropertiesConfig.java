@@ -63,4 +63,12 @@ public final class PropertiesConfig {
     public String getPassword() {
         return properties.getProperty("Password");
     }
+
+    /**
+     * Method to get token to use API.
+     * @return the token read from properties file.
+     */
+    public String getAPIToken() {
+        return properties.getProperty("APIToken");
+    }
 }

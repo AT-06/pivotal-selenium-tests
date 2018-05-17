@@ -19,6 +19,8 @@ import static org.fundacionjala.pivotal.common.CommonMethods.waitWebElement;
  */
 public class CreateProject extends Base {
 
+    public static String newProjectId;
+
     @FindBy(how = How.ID, using = "create-project-button")
     private WebElement buttonCreateProject;
 
@@ -126,6 +128,30 @@ public class CreateProject extends Base {
         strategyMap.put(ProjectValues.PROJECT_VISIBLE, ()
                 -> setPrivacy(values.get(ProjectValues.PROJECT_VISIBLE)));
         return strategyMap;
+    }
+
+    /**
+     * Method to set newProjectId static variable.
+     * @param projectId last created project's id.
+     */
+    public static void setNewProjectId(String projectId) {
+        newProjectId = projectId;
+    }
+
+    /**
+     * Method to extract new project's id from url.
+     * @return the project's id.
+     */
+    public String extractProjectIdFromUrl() {
+        return driver.getCurrentUrl().substring(driver.getCurrentUrl().lastIndexOf("/") + 1);
+    }
+
+    /**
+     * Method to get new project's id.
+     * @return new project's id.
+     */
+    public String getNewProjectId() {
+        return this.newProjectId;
     }
 
 }

@@ -5,8 +5,8 @@ Feature: Create Project
 
   Scenario: Create Project with a new Account
     Given I can create a new project with the following values
-      | PROJECT_TITLE   | ProjectCucumbers3 |
+      | PROJECT_TITLE   | ProjectCucumbers8 |
       | PROJECT_ACCOUNT | Fundacion         |
       | PROJECT_VISIBLE | public            |
-    Then I can verify the new project with "ProjectCucumbers3" project name
+    Then I can verify the new project with "ProjectCucumbers8" project name
 
