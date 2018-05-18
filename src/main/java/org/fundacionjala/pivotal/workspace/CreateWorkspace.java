@@ -1,4 +1,4 @@
-package org.fundacionjala.pivotal.objects;
+package org.fundacionjala.pivotal.workspace;
 
 import org.fundacionjala.pivotal.common.Base;
 import org.fundacionjala.pivotal.common.CommonMethods;
@@ -19,6 +19,14 @@ public class CreateWorkspace extends Base {
     @FindBy(how = How.CSS, using = ".pvXpn__Button--positive")
     private WebElement buttonCreateWorkspace;
 
+    @FindBy(how = How.CSS, using = ".my_work_group")
+    private WebElement panelWorkspace;
+
+    @FindBy(how = How.CSS, using = ".WorkspaceTile:last-child .WorkspaceTile__name")
+    private WebElement lastWorkspaceCreated;
+
+    private String workspaceName;
+
 
     /**
      * Method for set Workspace name.
@@ -37,6 +45,33 @@ public class CreateWorkspace extends Base {
         return CommonMethods.waitWebElement(buttonCreateWorkspace);
 
     }
+    /**
+     * Method for set Workspace name.
+     * @return ButtonCreateWorkspace.
+     */
+    private WebElement getPanelWorkspace() {
+        return CommonMethods.waitWebElement(panelWorkspace);
+
+    }
+
+    /**
+     * Method for set Workspace name.
+     * @return ButtonCreateWorkspace.
+     */
+    private WebElement getLastWorkspaceCreated() {
+        return CommonMethods.waitWebElement(lastWorkspaceCreated);
+
+    }
+
+    /**
+     * Method for set Workspace name.
+     * @return ButtonCreateWorkspace.
+     */
+    public String getLastWorkspaceCreatedText() {
+        return getLastWorkspaceCreated().getText();
+
+    }
+
     /**
      * Method for set Workspace name.
      * @param workspaceName String.
@@ -68,6 +103,22 @@ public class CreateWorkspace extends Base {
         this.clickButtonCreateWorkspace();
         this.setTxtWorkspaceNameName(workspaceName);
         this.clickButtonSaveWorkspace();
+    }
+
+    /**
+     * This method set the workspace name variable.
+     * @param workspaceName the value to be set.
+     */
+    public void setWorkspaceName(final String workspaceName) {
+        this.workspaceName = workspaceName;
+    }
+
+    /**
+     * This method return the workspace name variable.
+     * @return the variable value.
+     */
+    public String getWorkspaceName() {
+        return workspaceName;
     }
 
 
