@@ -5,14 +5,14 @@ import java.util.Map;
 import static com.jayway.restassured.RestAssured.given;
 
 /**
- * APIProjectsRequests.java
+ * APIRequestManager.java
  * Class that implements the methods to get, post, delete and put through Pivotal API.
  */
-public final class APIProjectsRequests {
+public final class APIRequestManager {
     /**
      * Constructor.
      */
-    private APIProjectsRequests() {
+    private APIRequestManager() {
     }
 
     /**
@@ -30,9 +30,9 @@ public final class APIProjectsRequests {
      * @param values map.
      * @param endpoint to request to.
      */
-    public static void postNewProject(final Map<String, String> values, final String endpoint) {
+    public static void post(final Map<String, String> values, final String endpoint) {
         response = given()
-                .spec(APICommons.buildRequestHeader())
+                .spec(APIManager.getInstance().getRequestSpecification())
                 .params(values)
                 .when()
                 .post(endpoint);
@@ -42,11 +42,11 @@ public final class APIProjectsRequests {
      * Method to delete a request.
      * @param endpoint to request to.
      */
-    public static void deleteProject(final String endpoint) {
+    public static void delete(final String endpoint) {
         response = given()
-                .spec(APICommons.buildRequestHeader())
+                .spec(APIManager.getInstance().getRequestSpecification())
                 .when()
-                .delete(String.format("%s%s", endpoint, projectId));
+                .delete(endpoint);
     }
 
     /**
@@ -58,17 +58,14 @@ public final class APIProjectsRequests {
     }
 
     /**
-     * Method to get body of response.
-     */
-    public static void getResponseBody() {
-        APIProjectsRequests.setProjectId(APICommons.getElementResponse(response, "id"));
-    }
-
-    /**
      * Method to set project id.
      * @param projectId from current project.
      */
     public static void setProjectId(final String projectId) {
-        APIProjectsRequests.projectId = projectId;
+        APIRequestManager.projectId = projectId;
+    }
+
+    public static Response getResponse() {
+        return response;
     }
 }

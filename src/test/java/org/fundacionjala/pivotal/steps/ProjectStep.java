@@ -2,7 +2,7 @@ package org.fundacionjala.pivotal.steps;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.fundacionjala.pivotal.api.APIProjectsRequests;
+import org.fundacionjala.pivotal.api.APIRequestManager;
 import org.fundacionjala.pivotal.objects.CreateProject;
 import org.fundacionjala.pivotal.objects.ProjectDescription;
 import org.testng.Assert;
@@ -46,7 +46,7 @@ public class ProjectStep {
     @Then("^I can verify the new project with \"([^\"]*)\" project name$")
     public void iCanVerifyTheNewProjectWithProjectName(final String projectName) {
         Assert.assertEquals(projectName, createProject.verifyName());
-        APIProjectsRequests.setProjectId(createProject.extractProjectIdFromUrl());
+        APIRequestManager.setProjectId(createProject.extractProjectIdFromUrl());
     }
 }
 

@@ -6,11 +6,12 @@ Feature: Create and Delete Project
       | name             | Test New Project8 |
       | new_account_name | Fundacion  |
       | public           | false      |
-    Then I get body of the answer
+    And save the response as "Project"
+    Then I validate the status code
 
   @acceptance @PostConditionProject
   Scenario: Edit Project
-    When I select any project "Test New Project8"
+    When I select any project "Project.name"
     And I can edit the project
       | DESCRIPTION        | ProjectNewTest |
       | ENABLE_TASKS       | false      |

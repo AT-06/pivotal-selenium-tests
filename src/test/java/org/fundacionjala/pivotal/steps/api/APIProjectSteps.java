@@ -2,7 +2,7 @@ package org.fundacionjala.pivotal.steps.api;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.fundacionjala.pivotal.api.APIProjectsRequests;
+import org.fundacionjala.pivotal.api.APIRequestManager;
 import org.testng.Assert;
 import java.util.Map;
 
@@ -19,17 +19,16 @@ public class APIProjectSteps {
      */
     @Given("^I post a new project$")
     public void iPostANewProject(final Map<String, String> values) {
-        APIProjectsRequests.postNewProject(values, PROJECT_ENDPOINT);
+        APIRequestManager.post(values, PROJECT_ENDPOINT);
     }
 
     /**
      * Then, when a post is made.
      */
-    @Then("^I get body of the answer$")
-    public void iGetBodyOfTheAnswer() {
+    @Then("^I validate the status code$")
+    public void iValidateTheStatusCode() {
         final int expectedStatus = 200;
-        Assert.assertEquals(APIProjectsRequests.getStatusCode(), expectedStatus);
-        APIProjectsRequests.getResponseBody();
+        Assert.assertEquals(APIRequestManager.getStatusCode(), expectedStatus);
     }
 
     /**
@@ -38,7 +37,7 @@ public class APIProjectSteps {
      */
     @Given("^I delete a project$")
     public void iDeleteAProject(final Map<String, String> values) {
-        APIProjectsRequests.deleteProject(PROJECT_ENDPOINT);
+        APIRequestManager.delete(PROJECT_ENDPOINT);
     }
 
     /**
@@ -48,6 +47,6 @@ public class APIProjectSteps {
     @Then("^status code is (\\d+)$")
     public void statusCodeIs(int arg0) {
         final int expectedStatus = 204;
-        Assert.assertEquals(APIProjectsRequests.getStatusCode(), expectedStatus);
+        Assert.assertEquals(APIRequestManager.getStatusCode(), expectedStatus);
     }
 }
