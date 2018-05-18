@@ -43,7 +43,6 @@ public final class APIProjectsRequests {
      * @param endpoint to request to.
      */
     public static void deleteProject(final String endpoint) {
-        //System.out.println("projectId:" + projectId);
         response = given()
                 .spec(APICommons.buildRequestHeader())
                 .when()
