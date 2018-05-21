@@ -1,6 +1,7 @@
 package org.fundacionjala.pivotal.common;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -22,7 +23,8 @@ public final class CommonMethods {
      * @param text       String.
      */
     public static void setWebElement(final WebElement webElement, final String text) {
-        waitWebElement(webElement).sendKeys(text);
+        waitWebElement(webElement).clear();
+        webElement.sendKeys(text);
     }
 
     /**
@@ -52,6 +54,14 @@ public final class CommonMethods {
     public static void clickWebElementWithJavascriptExecutor(final WebElement webElement) {
         ((JavascriptExecutor) DriverManager.getInstance().getDriver())
                 .executeScript("arguments[0].click();", webElement);
+    }
+    /**
+     * This method press enter key to web element.
+     *
+     * @param webElement is the WebElement.
+     */
+    public static void pressEnter(final WebElement webElement) {
+        webElement.sendKeys(Keys.ENTER);
     }
 
 }
