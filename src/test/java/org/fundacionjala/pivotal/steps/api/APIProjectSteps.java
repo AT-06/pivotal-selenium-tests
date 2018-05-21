@@ -1,7 +1,8 @@
 package org.fundacionjala.pivotal.steps.api;
 
-import cucumber.api.java.en.Given;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import org.fundacionjala.pivotal.api.APICommons;
 import org.fundacionjala.pivotal.api.APIRequestManager;
 import org.testng.Assert;
 import java.util.Map;
@@ -11,15 +12,28 @@ import java.util.Map;
  * Class with steps for test feature.
  */
 public class APIProjectSteps {
-    public static final String PROJECT_ENDPOINT = "/projects/";
 
     /**
-     * Given.
-     * @param values received as maps.
+     * And step to post a project.
+     *
+     * @param endpoint to send request.
+     * @param values the map with values to create the project.
      */
-    @Given("^I post a new project$")
-    public void iPostANewProject(final Map<String, String> values) {
-        APIRequestManager.post(values, PROJECT_ENDPOINT);
+    @And("^I post a new project to \"([^\"]*)\" endpoint$")
+    public void iPostANewProjectToEndpoint(final String endpoint, final Map<String, String> values) {
+        APICommons.setEndPoint(endpoint);
+        APIRequestManager.post(values, endpoint);
+    }
+
+    /**
+     * Method to save response.
+     *
+     * @param variableName the key to save.
+     */
+    @And("^save the response as \"([^\"]*)\"$")
+    public void saveTheResponseAs(final String variableName) {
+        APICommons.saveResponse(variableName, APIRequestManager.getResponse());
+        APICommons.buildEndPoint(APIRequestManager.getResponse());
     }
 
     /**
@@ -29,15 +43,6 @@ public class APIProjectSteps {
     public void iValidateTheStatusCode() {
         final int expectedStatus = 200;
         Assert.assertEquals(APIRequestManager.getStatusCode(), expectedStatus);
-    }
-
-    /**
-     * Given.
-     * @param values map.
-     */
-    @Given("^I delete a project$")
-    public void iDeleteAProject(final Map<String, String> values) {
-        APIRequestManager.delete(PROJECT_ENDPOINT);
     }
 
     /**

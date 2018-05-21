@@ -1,9 +1,8 @@
 package org.fundacionjala.pivotal.hooks;
 
 import cucumber.api.java.After;
+import org.fundacionjala.pivotal.api.APICommons;
 import org.fundacionjala.pivotal.api.APIRequestManager;
-
-import static org.fundacionjala.pivotal.steps.api.APIProjectSteps.PROJECT_ENDPOINT;
 
 /**
  * Hooks.java
@@ -16,6 +15,6 @@ public class Hooks {
      */
     @After("@PostConditionProject")
     public void afterCreatingProject() {
-        APIRequestManager.delete(PROJECT_ENDPOINT);
+        APIRequestManager.delete(APICommons.getEndPoint());
     }
 }
