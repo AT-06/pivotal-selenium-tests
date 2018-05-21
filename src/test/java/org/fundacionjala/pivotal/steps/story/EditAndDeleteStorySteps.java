@@ -14,7 +14,6 @@ import java.util.Map;
  */
 public class EditAndDeleteStorySteps {
     private Story story;
-    private Map<DescriptionsStory, String> valuesMap;
 
     /**
      * Constructor for EditAndDeleteStorySteps class.
@@ -48,9 +47,8 @@ public class EditAndDeleteStorySteps {
      */
     @When("^I edit the next parameters$")
     public void iEditTheNextParameters(final Map<DescriptionsStory, String> values) {
-        this.valuesMap = values;
         story.clickSToryExpander();
-        valuesMap.keySet().stream().forEach(step -> story.getStrategyStepMap(valuesMap).get(step).execute());
+        values.keySet().stream().forEach(step -> story.getStrategyStepMap(values).get(step).execute());
         story.setButtonCloseEdit();
     }
 

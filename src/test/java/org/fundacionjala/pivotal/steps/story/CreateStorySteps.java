@@ -13,7 +13,6 @@ import java.util.Map;
  */
 public class CreateStorySteps {
     private Story createStory;
-    private Map<DescriptionsStory, String> valuesMap;
 
     /**
      * Constructor for CreateStorySteps class.
@@ -31,9 +30,8 @@ public class CreateStorySteps {
      */
     @When("^I create a new story$")
     public void iCreateANewStory(final Map<DescriptionsStory, String> values) {
-        this.valuesMap = values;
         createStory.setButtonCreateStory();
-        valuesMap.keySet().stream().forEach(step -> createStory.getStrategyStepMap(valuesMap).get(step).execute());
+        values.keySet().stream().forEach(step -> createStory.getStrategyStepMap(values).get(step).execute());
         createStory.setButtonSaveStory();
     }
 
