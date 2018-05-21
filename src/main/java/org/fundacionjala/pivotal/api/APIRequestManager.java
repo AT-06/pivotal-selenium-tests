@@ -1,8 +1,6 @@
 package org.fundacionjala.pivotal.api;
 
 import com.jayway.restassured.response.Response;
-import com.jayway.restassured.specification.RequestSpecification;
-
 import java.util.Map;
 import static com.jayway.restassured.RestAssured.given;
 
@@ -21,7 +19,6 @@ public final class APIRequestManager {
      * Response attribute to get request.
      */
     private static Response response;
-    private static RequestSpecification requestSpecificacion;
 
     /**
      * Method to post a request.
@@ -29,9 +26,8 @@ public final class APIRequestManager {
      * @param endpoint to request to.
      */
     public static void post(final Map<String, String> values, final String endpoint) {
-        requestSpecificacion = APIManager.getInstance().getRequestSpecification();
         response = given()
-                .spec(requestSpecificacion)
+                .spec(APIManager.getInstance().getRequestSpecification())
                 .params(values)
                 .when()
                 .post(endpoint);

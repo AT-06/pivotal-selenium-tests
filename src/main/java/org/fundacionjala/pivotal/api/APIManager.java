@@ -10,7 +10,7 @@ import org.fundacionjala.pivotal.common.PropertiesConfig;
  */
 public final class APIManager {
     private static APIManager apiManager;
-    private static RequestSpecification requestSpecification;
+    private RequestSpecification requestSpecification;
 
     /**
      * Constructor, it is private, because we only need one instance of the class.
@@ -22,7 +22,7 @@ public final class APIManager {
     /**
      * Method to build requestSpecification.
      */
-    private static void init() {
+    private void init() {
         requestSpecification = new RequestSpecBuilder()
                 .setBaseUri("https://www.pivotaltracker.com/services/v5")
                 .addHeader("X-TrackerToken", PropertiesConfig.getPropertiesConfig().getAPIToken())
@@ -44,7 +44,7 @@ public final class APIManager {
      * Method to get request specification.
      * @return requestSpecification.
      */
-    public static RequestSpecification getRequestSpecification() {
+    public RequestSpecification getRequestSpecification() {
         return requestSpecification;
     }
 }
