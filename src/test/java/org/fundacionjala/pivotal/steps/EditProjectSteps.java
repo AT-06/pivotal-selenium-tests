@@ -4,7 +4,6 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.pivotal.api.APICommons;
-import org.fundacionjala.pivotal.api.APIRequestManager;
 import org.fundacionjala.pivotal.objects.DashBoard;
 import org.fundacionjala.pivotal.objects.ProjectDescription;
 import org.fundacionjala.pivotal.objects.EditProject;
@@ -37,8 +36,6 @@ public class EditProjectSteps  {
     @When("^I select any project \"([^\"]*)\"$")
     public void iSelectAnyProject(final String projectName) {
         dashBoard.setButtonDashborad();
-        System.out.println("1");
-
         dashBoard.searchProject(APICommons.getElementResponse(APICommons.getRequestResponse(), projectName));
     }
 
@@ -66,13 +63,4 @@ public class EditProjectSteps  {
         Assert.assertEquals(message, editProject.setMessageSaved());
     }
 
-    /**
-     * Method to save response.
-     *
-     * @param variableName the key to save.
-     */
-    @And("^save the response as \"([^\"]*)\"$")
-    public void saveTheResponseAs(final String variableName) {
-        APICommons.saveResponse(variableName, APIRequestManager.getResponse());
-    }
 }
