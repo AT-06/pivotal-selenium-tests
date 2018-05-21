@@ -1,8 +1,6 @@
 package org.fundacionjala.pivotal.api;
 
-import com.jayway.restassured.path.json.JsonPath;
 import com.jayway.restassured.response.Response;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +10,7 @@ import java.util.Map;
  */
 public final class APICommons {
     private static Map<String, Response> requestResponse;
+    private static String endPoint;
 
     /**
      * Constructor.
@@ -22,15 +21,24 @@ public final class APICommons {
     /**
      * Method to get an element from the response.
      *
-     * @param mapSaved     the response from request.
+     * @param mapSaved the response from request.
      * @param element the element needed.
      * @return the body of response.
      */
     public static String getElementResponse(final Map<String, Response> mapSaved, final String element) {
-        String[] elementSplited = element.split("\\.");
-        Response responseSaved = mapSaved.get(elementSplited[0]);
-        JsonPath jsonPathEvaluator = responseSaved.jsonPath();
-        return jsonPathEvaluator.get(elementSplited[1]).toString();
+        String[] elementSplit = element.split("\\.");
+        Response res = mapSaved.get(elementSplit[0]);
+        return getElement(res, elementSplit[1]);
+    }
+
+    /**
+     * Method to get an element from a response.
+     * @param res the response from request.
+     * @param element the element needed from response
+     * @return the element value as string.
+     */
+    public static String getElement(final Response res, final String element) {
+        return res.jsonPath().get(element).toString();
     }
 
     /**
@@ -49,6 +57,30 @@ public final class APICommons {
      */
     public static Map getRequestResponse() {
         return requestResponse;
+    }
+
+    /**
+     * Method to build endpoint.
+     * @param res the response to a request.
+     */
+    public static void buildEndPoint(final Response res) {
+        endPoint = String.format("%s%s%s", endPoint, "/", getElement(res, "id"));
+    }
+
+    /**
+     * Method to set end point.
+     * @param end the endpoint.
+     */
+    public static void setEndPoint(final String end) {
+        endPoint = end;
+    }
+
+    /**
+     * Method to get endpoint.
+     * @return the endpoint.
+     */
+    public static String getEndPoint() {
+        return endPoint;
     }
 }
 

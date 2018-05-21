@@ -9,6 +9,7 @@ import static com.jayway.restassured.RestAssured.given;
  * Class that implements the methods to get, post, delete and put through Pivotal API.
  */
 public final class APIRequestManager {
+
     /**
      * Constructor.
      */
