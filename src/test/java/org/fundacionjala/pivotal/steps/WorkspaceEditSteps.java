@@ -42,9 +42,15 @@ public class WorkspaceEditSteps {
         Assert.assertTrue(editWorkspace.getSuccessMessage().isDisplayed());
     }
 
-    @Given("^I select the last workspace created and I delete the workspace$")
-    public void iSelectTheLastWorkspaceCreatedAndIDeleteTheWorkspace() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @Given("^I go to workspace and I select the last workspace created and I delete the workspace$")
+    public void iGoToWorkspaceAndISelectTheLastWorkspaceCreatedAndIDeleteTheWorkspace() {
+        nav.returnToDashboardFromProjWork();
+        nav.clickTabWorkspace();
+        editWorkspace.deleteLastWorkspace();
+    }
+
+    @Then("^Then I can verify the delete workspace$")
+    public void thenICanVerifyTheDeleteWorkspace() {
+        System.out.println("teststs");
     }
 }

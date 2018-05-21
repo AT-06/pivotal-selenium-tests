@@ -12,5 +12,5 @@ Feature: Create Workspace
 
   @acceptance
   Scenario: Delete a Workspace
-    Given I select the last workspace created and I delete the workspace
+    Given I go to workspace and I select the last workspace created and I delete the workspace
     Then Then I can verify the delete workspace

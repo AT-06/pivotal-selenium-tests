@@ -20,8 +20,12 @@ public class EditWorkspace extends Base {
 
     @FindBy(how = How.ID, using = "save_success_bar")
     private WebElement successMessage;
-   // delete_link
 
+    @FindBy(how = How.ID, using = "delete_link")
+    private WebElement buttonDeleteWorkspace;
+
+    @FindBy(how = How.ID, using = "confirm_delete")
+    private WebElement buttonConfirmDeleteWorkspace;
 
     /**
      * Method for get the last workspace created.
@@ -48,6 +52,23 @@ public class EditWorkspace extends Base {
      */
     private WebElement getButtonSaveWorkspace() {
         return CommonMethods.waitWebElement(buttonSaveWorkspace);
+
+    }
+
+    /**
+     * Method for get the last workspace created.
+     * @return the workspace name input.
+     */
+    private WebElement getButtonDeleteWorkspace() {
+        return CommonMethods.waitWebElement(buttonDeleteWorkspace);
+
+    }
+    /**
+     * Method for get the last workspace created.
+     * @return the workspace name input.
+     */
+    private WebElement getButtonConfirmDeleteWorkspace() {
+        return CommonMethods.waitWebElement(buttonConfirmDeleteWorkspace);
 
     }
     /**
@@ -84,10 +105,24 @@ public class EditWorkspace extends Base {
     }
 
     /**
+     * Method for press click buttton for save a new workspace.
+     */
+    private void clickButtonDeleteWorkspace() {
+        CommonMethods.clickWebElement(this.getButtonDeleteWorkspace());
+    }
+
+    /**
+     * Method for press click buttton for save a new workspace.
+     */
+    private void clickButtonConfirmDeleteWorkspace() {
+        CommonMethods.clickWebElement(this.getButtonConfirmDeleteWorkspace());
+    }
+
+    /**
      * Method to Create workspace .
      * @param workspaceName String.
      */
-    public final void editWorkspace(final String workspaceName) {
+    public void editWorkspace(final String workspaceName) {
 
         CommonMethods.clickWebElementWithJavascriptExecutor(getLastWorkspaceCreatedLink());
 
@@ -95,5 +130,17 @@ public class EditWorkspace extends Base {
         this.setWorkspaceName(workspaceName);
         this.clickButtonSaveWorkspace();
     }
+
+    /*
+    *
+    */
+
+    public void deleteLastWorkspace() {
+        CommonMethods.clickWebElementWithJavascriptExecutor(getLastWorkspaceCreatedLink());
+        this.clickButtonDeleteWorkspace();
+        this.clickButtonConfirmDeleteWorkspace();
+
+    }
+
 
 }
