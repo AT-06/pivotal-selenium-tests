@@ -129,8 +129,7 @@ public class EditWorkspace extends Base {
     public void editWorkspace(final String workspaceName) {
 
         CommonMethods.clickWebElementWithJavascriptExecutor(getLastWorkspaceCreatedLink());
-
-        //   this.clickLastWorkspaceCreatedLink();
+        
         this.setWorkspaceName(workspaceName);
         this.clickButtonSaveWorkspace();
     }
