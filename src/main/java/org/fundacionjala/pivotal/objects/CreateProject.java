@@ -28,7 +28,6 @@ public class CreateProject extends Base {
     @FindBy(how = How.XPATH, using = "//div[@class='tc-account-selector__header']")
     private WebElement txtSelectorAcccountCheck;
 
-    ////td[text()='UserID']            @FindBy(how = How.CSS, using = "#view42 span.raw_context_name")
     @FindBy(how = How.CLASS_NAME, using = "raw_context_name")
     private WebElement txtVerifyName;
 
@@ -74,8 +73,6 @@ public class CreateProject extends Base {
      */
     private void setTxtSelectorAcccountSpecific(final String account) {
         this.setTxtSelectorAcccountCheck();
-
-        //these last comands permit to create a new Account from create project menu
         CommonMethods.clickWebElement(buttonCreateAccount);
         CommonMethods.setWebElement(txtAccountName, account);
     }
@@ -128,4 +125,12 @@ public class CreateProject extends Base {
         return strategyMap;
     }
 
+    /**
+     * Method to extract new project's id from url.
+     *
+     * @return the project's id extracted from URL.
+     */
+    public String extractProjectIdFromUrl() {
+        return this.driver.getCurrentUrl().substring(this.driver.getCurrentUrl().lastIndexOf("/") + 1);
+    }
 }

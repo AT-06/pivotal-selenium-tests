@@ -35,7 +35,6 @@ public class ProjectStep {
         createProject.setButtonCreateProject();
         projects.keySet().stream().forEach(step -> createProject.getStrategyStepMap(projects).get(step).execute());
         createProject.setButtonCreate();
-
     }
 
     /**

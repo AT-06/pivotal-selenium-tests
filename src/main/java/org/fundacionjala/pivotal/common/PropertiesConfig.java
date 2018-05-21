@@ -46,7 +46,6 @@ public final class PropertiesConfig {
             properties.load(inputStream);
         } catch (IOException e) {
             throw new NoConfigPropertiesFound("Class PropertiesConfig: ", e);
-            //Logger
         }
     }
 
@@ -62,5 +61,13 @@ public final class PropertiesConfig {
      */
     public String getPassword() {
         return properties.getProperty("Password");
+    }
+
+    /**
+     * Method to get token to use API.
+     * @return the token read from properties file.
+     */
+    public String getAPIToken() {
+        return properties.getProperty("APIToken");
     }
 }

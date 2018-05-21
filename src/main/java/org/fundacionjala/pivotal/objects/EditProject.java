@@ -15,23 +15,18 @@ import java.util.Map;
  */
 public class EditProject extends Base {
 
-    //project_description
     @FindBy(how = How.ID, using = "project_description")
     private WebElement txtProjectDescription;
 
-    //#project_enable_tasks
     @FindBy(how = How.CSS, using = "#project_enable_tasks")
     private WebElement txtTask;
 
-    //#project_public
     @FindBy(how = How.CSS, using = "#project_public")
     private WebElement txtPublic;
 
-    //#project_week_start_day
     @FindBy(how = How.CSS, using = "#project_week_start_day")
     private WebElement txtProjectWeek;
 
-    //#settings_form  input.save_bar__submit
     @FindBy(how = How.CSS, using = "#settings_form  input.save_bar__submit")
     private WebElement saveEditProject;
 
