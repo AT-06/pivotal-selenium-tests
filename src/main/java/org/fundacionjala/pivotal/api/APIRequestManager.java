@@ -31,7 +31,7 @@ public final class APIRequestManager {
      * @param endpoint to request to.
      */
     public static void post(final Map<String, String> values, final String endpoint) {
-        response = given()
+        APIRequestManager.response = given()
                 .spec(APIManager.getInstance().getRequestSpecification())
                 .params(values)
                 .when()
@@ -43,7 +43,7 @@ public final class APIRequestManager {
      * @param endpoint to request to.
      */
     public static void delete(final String endpoint) {
-        response = given()
+        APIRequestManager.response = given()
                 .spec(APIManager.getInstance().getRequestSpecification())
                 .when()
                 .delete(endpoint);
@@ -54,7 +54,7 @@ public final class APIRequestManager {
      * @return status code.
      */
     public static int getStatusCode() {
-        return response.getStatusCode();
+        return APIRequestManager.response.getStatusCode();
     }
 
     /**
@@ -66,6 +66,6 @@ public final class APIRequestManager {
     }
 
     public static Response getResponse() {
-        return response;
+        return APIRequestManager.response;
     }
 }

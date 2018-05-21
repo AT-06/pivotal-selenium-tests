@@ -1,17 +1,14 @@
 package org.fundacionjala.pivotal.steps;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.pivotal.api.APICommons;
-import org.fundacionjala.pivotal.api.APIManager;
 import org.fundacionjala.pivotal.api.APIRequestManager;
 import org.fundacionjala.pivotal.objects.DashBoard;
 import org.fundacionjala.pivotal.objects.ProjectDescription;
 import org.fundacionjala.pivotal.objects.EditProject;
 import org.testng.Assert;
-
 import java.util.Map;
 
 /**
