@@ -16,11 +16,6 @@ public final class APIRequestManager {
     }
 
     /**
-     * static attribute to manage project's id through processes.
-     */
-    private static String projectId = "0";
-
-    /**
      * Response attribute to get request.
      */
     private static Response response;
@@ -31,7 +26,7 @@ public final class APIRequestManager {
      * @param endpoint to request to.
      */
     public static void post(final Map<String, String> values, final String endpoint) {
-        APIRequestManager.response = given()
+        response = given()
                 .spec(APIManager.getInstance().getRequestSpecification())
                 .params(values)
                 .when()
@@ -43,7 +38,7 @@ public final class APIRequestManager {
      * @param endpoint to request to.
      */
     public static void delete(final String endpoint) {
-        APIRequestManager.response = given()
+        response = given()
                 .spec(APIManager.getInstance().getRequestSpecification())
                 .when()
                 .delete(endpoint);
@@ -54,18 +49,14 @@ public final class APIRequestManager {
      * @return status code.
      */
     public static int getStatusCode() {
-        return APIRequestManager.response.getStatusCode();
+        return response.getStatusCode();
     }
 
     /**
-     * Method to set project id.
-     * @param projectId from current project.
+     * Method to get response from request.
+     * @return the response.
      */
-    public static void setProjectId(final String projectId) {
-        APIRequestManager.projectId = projectId;
-    }
-
     public static Response getResponse() {
-        return APIRequestManager.response;
+        return response;
     }
 }

@@ -26,20 +26,28 @@ public final class APICommons {
      * @param element the element needed.
      * @return the body of response.
      */
-    public static String getElementResponse(final Map<String, Response> mapSaved, String element) {
+    public static String getElementResponse(final Map<String, Response> mapSaved, final String element) {
         String[] elementSplited = element.split("\\.");
         Response responseSaved = mapSaved.get(elementSplited[0]);
         JsonPath jsonPathEvaluator = responseSaved.jsonPath();
         return jsonPathEvaluator.get(elementSplited[1]).toString();
     }
 
-    public static void saveResponse(String variableName, Response response) {
+    /**
+     * Method to save response from request into a hashmap.
+     * @param variableName the key name of the response.
+     * @param response the response from request.
+     */
+    public static void saveResponse(final String variableName, final Response response) {
         requestResponse = new HashMap<>();
         requestResponse.put(variableName, response);
     }
 
+    /**
+     * Method to get map with response.
+     * @return the map.
+     */
     public static Map getRequestResponse() {
-        System.out.println("2");
         return requestResponse;
     }
 }

@@ -66,9 +66,13 @@ public class EditProjectSteps  {
         Assert.assertEquals(message, editProject.setMessageSaved());
     }
 
-
+    /**
+     * Method to save response.
+     *
+     * @param variableName the key to save.
+     */
     @And("^save the response as \"([^\"]*)\"$")
-    public void saveTheResponseAs(String variableName) {
+    public void saveTheResponseAs(final String variableName) {
         APICommons.saveResponse(variableName, APIRequestManager.getResponse());
     }
 }
