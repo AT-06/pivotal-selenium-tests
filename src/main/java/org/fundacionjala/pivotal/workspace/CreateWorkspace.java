@@ -19,9 +19,6 @@ public class CreateWorkspace extends Base {
     @FindBy(how = How.CSS, using = ".pvXpn__Button--positive")
     private WebElement buttonCreateWorkspace;
 
-    @FindBy(how = How.CSS, using = ".my_work_group")
-    private WebElement panelWorkspace;
-
     @FindBy(how = How.CSS, using = ".WorkspaceTile:last-child .WorkspaceTile__name")
     private WebElement lastWorkspaceCreated;
 
@@ -45,14 +42,7 @@ public class CreateWorkspace extends Base {
         return CommonMethods.waitWebElement(buttonCreateWorkspace);
 
     }
-    /**
-     * Method for set Workspace name.
-     * @return ButtonCreateWorkspace.
-     */
-    private WebElement getPanelWorkspace() {
-        return CommonMethods.waitWebElement(panelWorkspace);
 
-    }
 
     /**
      * Method for set Workspace name.

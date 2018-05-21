@@ -6,8 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+/**
+ * Class editworkspace contains methods to edit a workspace.
+ */
 public class EditWorkspace extends Base {
-    //project_description
+
     @FindBy(how = How.CSS, using = "div.WorkspaceTile:last-child .SettingsIcon__cog")
     private WebElement lastWorkspaceCreatedLink;
 
@@ -27,6 +30,9 @@ public class EditWorkspace extends Base {
     @FindBy(how = How.ID, using = "confirm_delete")
     private WebElement buttonConfirmDeleteWorkspace;
 
+    @FindBy(how = How.ID, using = "notice")
+    private WebElement successDeleteMessage;
+
     /**
      * Method for get the last workspace created.
      * @return lastWorspaceCreatedLink.
@@ -35,7 +41,14 @@ public class EditWorkspace extends Base {
         return CommonMethods.waitWebElement(lastWorkspaceCreatedLink);
 
     }
+    /**
+     * Method for get the last workspace created.
+     * @return lastWorspaceCreatedLink.
+     */
+    public WebElement getSuccessDeleteMessage() {
+        return CommonMethods.waitWebElement(successDeleteMessage);
 
+    }
 
     /**
      * Method for get the last workspace created.
@@ -89,15 +102,6 @@ public class EditWorkspace extends Base {
     }
 
     /**
-     * Method for press click over the last workspace created.
-     */
-    private void clickLastWorkspaceCreatedLink() {
-        CommonMethods.clickWebElement(this.getLastWorkspaceCreatedLink());
-    }
-
-
-
-    /**
      * Method for press click buttton for save a new workspace.
      */
     private void clickButtonSaveWorkspace() {
@@ -131,10 +135,9 @@ public class EditWorkspace extends Base {
         this.clickButtonSaveWorkspace();
     }
 
-    /*
-    *
-    */
-
+    /**
+     * Method to delete a workspace.
+     */
     public void deleteLastWorkspace() {
         CommonMethods.clickWebElementWithJavascriptExecutor(getLastWorkspaceCreatedLink());
         this.clickButtonDeleteWorkspace();

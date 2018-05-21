@@ -7,6 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+/**
+ * class navigator to return to dashboard from any place.
+ */
 public class Navigator extends Base {
     @FindBy(how = How.CSS, using = "div.Dashboard__Tabs> span:nth-child(2)")
     private WebElement tabWorkspace;

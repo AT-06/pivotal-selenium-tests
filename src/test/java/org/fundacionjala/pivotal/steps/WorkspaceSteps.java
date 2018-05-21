@@ -5,7 +5,6 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.fundacionjala.pivotal.objects.Navigator;
 import org.fundacionjala.pivotal.workspace.CreateWorkspace;
-import org.fundacionjala.pivotal.workspace.EditWorkspace;
 import org.testng.Assert;
 
 /**
@@ -14,20 +13,19 @@ import org.testng.Assert;
 public class WorkspaceSteps {
     private CreateWorkspace createWorkspace;
     private Navigator nav;
-    private String workspaceName;
 
     /**
      * Constructor for AccountSteps class.
-     * @taram nav Navigator.
+     * @param nav Navigator.
      * @param createWorkspace Account object.
      */
-    public WorkspaceSteps(final CreateWorkspace createWorkspace, Navigator nav) {
+    public WorkspaceSteps(final CreateWorkspace createWorkspace, final Navigator nav) {
         this.createWorkspace = createWorkspace;
         this.nav = nav;
     }
 
     /**
-     * Method for create an account.
+     * Method for return to dashboard.
      */
     @Given("^I return to Dashboard and go to workspace tab$")
     public void iReturnToDashboardAndGoToWorkspaceTab() {
@@ -35,13 +33,19 @@ public class WorkspaceSteps {
         nav.clickTabWorkspace();
     }
 
-
+    /**
+     * Method for create a new workspace.
+     * @param workspaceName string workspace name.
+     */
     @And("^I can create a new \"([^\"]*)\" workspace$")
-    public void iCanCreateANewWorkspace(String workspaceName) {
+    public void iCanCreateANewWorkspace(final String workspaceName) {
         createWorkspace.createWorkspace(workspaceName);
         createWorkspace.setWorkspaceName(workspaceName);
     }
 
+    /**
+     * Method to verify the creation of a new workspace.
+     */
     @Then("^I can verify the new workspace$")
     public void iCanVerifyTheNewWorkspace() {
         nav.returnToDashboardFromProjWork();
