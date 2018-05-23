@@ -1,8 +1,8 @@
 package org.fundacionjala.pivotal.hooks;
 
 import cucumber.api.java.After;
-import org.fundacionjala.pivotal.api.APICommons;
-import org.fundacionjala.pivotal.api.APIRequestManager;
+import org.fundacionjala.pivotal.core.api.APICommons;
+import org.fundacionjala.pivotal.core.api.APIRequestManager;
 
 /**
  * Hooks.java

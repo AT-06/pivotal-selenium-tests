@@ -2,8 +2,8 @@ package org.fundacionjala.pivotal.steps.api;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
-import org.fundacionjala.pivotal.api.APICommons;
-import org.fundacionjala.pivotal.api.APIRequestManager;
+import org.fundacionjala.pivotal.core.api.APICommons;
+import org.fundacionjala.pivotal.core.api.APIRequestManager;
 import org.testng.Assert;
 import java.util.Map;
 
