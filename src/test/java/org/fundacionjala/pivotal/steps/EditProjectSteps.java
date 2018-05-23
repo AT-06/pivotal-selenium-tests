@@ -36,7 +36,7 @@ public class EditProjectSteps  {
     @When("^I select any project \"([^\"]*)\"$")
     public void iSelectAnyProject(final String projectName) {
         dashBoard.setButtonDashborad();
-        dashBoard.searchProject(APICommons.getElementResponse(APICommons.getRequestResponse(), projectName));
+        dashBoard.searchProject(APICommons.getElementResponse(projectName));
     }
 
     /**

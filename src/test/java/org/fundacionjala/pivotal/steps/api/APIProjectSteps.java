@@ -1,7 +1,9 @@
 package org.fundacionjala.pivotal.steps.api;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.fundacionjala.pivotal.api.APICommons;
 import org.fundacionjala.pivotal.api.APIRequestManager;
 import org.testng.Assert;
@@ -33,7 +35,7 @@ public class APIProjectSteps {
     @And("^save the response as \"([^\"]*)\"$")
     public void saveTheResponseAs(final String variableName) {
         APICommons.saveResponse(variableName, APIRequestManager.getResponse());
-        APICommons.buildEndPoint(APIRequestManager.getResponse());
+        //APICommons.buildEndPoint(APIRequestManager.getResponse());
     }
 
     /**
@@ -53,5 +55,13 @@ public class APIProjectSteps {
     public void statusCodeIs(int arg0) {
         final int expectedStatus = 204;
         Assert.assertEquals(APIRequestManager.getStatusCode(), expectedStatus);
+    }
+
+    @When("^I post a new story to \"([^\"]*)\"$")
+    public void iPostANewStoryTo(final String endpoint, final Map<String, String> values)  {
+
+        String newEndpoint = APICommons.buildEndPoint(endpoint);//APIRequestManager.getResponse());
+        //APICommons.setEndPoint(newEndpoint);
+        APIRequestManager.post(values, newEndpoint);
     }
 }
