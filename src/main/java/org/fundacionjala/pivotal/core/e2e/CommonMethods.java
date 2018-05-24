@@ -23,7 +23,7 @@ public final class CommonMethods {
      * @param text       String.
      */
     public static void setWebElement(final WebElement webElement, final String text) {
-        waitWebElement(webElement).clear();
+        waitWebElement(webElement);
         webElement.sendKeys(text);
     }
 
@@ -55,6 +55,7 @@ public final class CommonMethods {
         ((JavascriptExecutor) DriverManager.getInstance().getDriver())
                 .executeScript("arguments[0].click();", webElement);
     }
+
     /**
      * This method press enter key to web element.
      *

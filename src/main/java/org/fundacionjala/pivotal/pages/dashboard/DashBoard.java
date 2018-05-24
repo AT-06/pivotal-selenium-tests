@@ -5,20 +5,19 @@ import org.fundacionjala.pivotal.pages.common.Base;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 /**
  * Class to Dashboard for return of any page to Dashboard.
  */
 public class DashBoard extends Base {
 
-    @FindBy(how = How.CSS, using = "#elm-root  a.SettingsIcon__cog.projectTileHeader__hoverable")
+    @FindBy(css = "#elm-root  a.SettingsIcon__cog.projectTileHeader__hoverable")
     private WebElement buttonEditProject;
 
-    @FindBy(how = How.ID, using = "projects-search-bar")
+    @FindBy(id = "projects-search-bar")
     private WebElement searchProjectButton;
 
-    @FindBy(how = How.XPATH, using = "//*[contains(@href,'/dashboard')] ")
+    @FindBy(xpath = "//*[contains(@href,'/dashboard')] ")
     private WebElement buttonDashborad;
 
     /**
@@ -55,4 +54,3 @@ public class DashBoard extends Base {
 
     }
 }
-
