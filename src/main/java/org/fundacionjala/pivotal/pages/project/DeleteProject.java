@@ -4,17 +4,16 @@ import org.fundacionjala.pivotal.core.e2e.CommonMethods;
 import org.fundacionjala.pivotal.pages.common.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 /**
  * Class for Deleted Project Page Object.
  */
 public class DeleteProject extends Base {
 
-    @FindBy(how = How.ID, using = "confirm_delete")
+    @FindBy(id = "confirm_delete")
     private WebElement buttonConfirmDelete;
 
-    @FindBy(how = How.CSS, using = "#notice")
+    @FindBy(css = "#notice")
     private WebElement messageDelete;
 
     /**

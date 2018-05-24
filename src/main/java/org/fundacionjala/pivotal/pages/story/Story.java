@@ -6,7 +6,6 @@ import org.fundacionjala.pivotal.pages.common.Steps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -16,63 +15,61 @@ import java.util.Map;
  */
 public class Story extends Base {
 
-    @FindBy(how = How.CLASS_NAME, using = "Sidebar__addStoryText___3hNs8EcO")
+    @FindBy(className = "Sidebar__addStoryText___3hNs8EcO")
     private WebElement buttonCreateStory;
 
-    @FindBy(how = How.CSS, using = ".autosaves.save")
+    @FindBy(css = ".autosaves.save")
     private WebElement buttonSaveStory;
 
-    @FindBy(how = How.CSS, using = "[class='expander undraggable']")
+    @FindBy(css = "[class='expander undraggable']")
     private WebElement expanderStory;
 
-    @FindBy(how = How.NAME, using = "story[name]")
+    @FindBy(name = "story[name]")
     private WebElement txtStoryName;
 
-    @FindBy(how = How.CSS, using = "div.type.row a.arrow.target")
+    @FindBy(css = "div.type.row a.arrow.target")
     private WebElement dropdownStoryType;
     //setFormatStoryType click
-    @FindBy(how = How.CSS, using = "[data-aid='renderedDescription']")
+    @FindBy(css = "[data-aid='renderedDescription']")
     private WebElement enableDescriptionText;
 
-    @FindBy(how = How.CSS, using = "[data-aid='textarea']")
+    @FindBy(css = "[data-aid='textarea']")
     private WebElement txtStoryDescription;
 
-    @FindBy(how = How.CSS,
-            using = "[class='SMkCk__Button QbMBD__Button--primary _3olWk__Button--small button__save___2XVnhUJI']")
+    @FindBy(css = "[class='SMkCk__Button QbMBD__Button--primary _3olWk__Button--small button__save___2XVnhUJI']")
     private WebElement buttonAddDescription;
 
-    @FindBy(how = How.CSS, using = "[placeholder='Add a comment or paste an image']")
+    @FindBy(css = "[placeholder='Add a comment or paste an image']")
     private WebElement txtActivityComment;
 
-    @FindBy(how = How.CSS, using = ".CommentEdit__button-group___2ytpiQPa button[type=\"button\"]")
+    @FindBy(css = ".CommentEdit__button-group___2ytpiQPa button[type=\"button\"]")
     private WebElement buttonPostComment;
 
-    @FindBy(how = How.CSS, using = "[data-aid='LabelsSearch__input']")
+    @FindBy(css = "[data-aid='LabelsSearch__input']")
     private WebElement txtLabel;
 
-    @FindBy(how = How.CSS, using = "[data-aid='BlockerAdd']")
+    @FindBy(css = "[data-aid='BlockerAdd']")
     private WebElement enableBlocker;
 
-    @FindBy(how = How.ID, using = "blocker-edit-new")
+    @FindBy(id = "blocker-edit-new")
     private WebElement txtBlocker;
 
-    @FindBy(how = How.CSS, using = "[data-aid='BlockerEdit__addButton']")
+    @FindBy(css = "[data-aid='BlockerEdit__addButton']")
     private WebElement buttonAddBlocker;
 
-    @FindBy(how = How.CSS, using = ".story:first-child .tracker_markup")
+    @FindBy(css = ".story:first-child .tracker_markup")
     private WebElement getStoryCreated;
 
     //DELETE
-    @FindBy(how = How.CSS, using = ".autosaves.delete.hoverable.right_endcap")
+    @FindBy(css = ".autosaves.delete.hoverable.right_endcap")
     private WebElement buttonDeleteStory;
-    @FindBy(how = How.CSS, using = "[class='SMkCk__Button SSqkh__Button--warning']")
+    @FindBy(css = "[class='SMkCk__Button SSqkh__Button--warning']")
     private WebElement buttonConfirmDelete;
-    @FindBy(how = How.CSS,
-            using = "li[class='tn_flash_message tn_flash_flash tn_expiring_flash tn_sliding_list_item "
-                    + "tn_sliding_list_fade-enter tn_sliding_list_fade-enter-active']")
+    @FindBy(css = "li[class='tn_flash_message tn_flash_flash tn_expiring_flash tn_sliding_list_item "
+            + "tn_sliding_list_fade-enter tn_sliding_list_fade-enter-active']")
     private WebElement getDeleteMessage;
     //EDIT
-    @FindBy(how = How.CSS, using = ".autosaves.close")
+    @FindBy(css = ".autosaves.close")
     private WebElement buttonCloseEdit;
 
     /**
@@ -216,6 +213,4 @@ public class Story extends Base {
                 -> setStoryComment(values.get(DescriptionsStory.COMMENT)));
         return strategyMap;
     }
-
 }
-

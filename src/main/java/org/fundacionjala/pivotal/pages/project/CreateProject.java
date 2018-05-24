@@ -6,7 +6,6 @@ import org.fundacionjala.pivotal.pages.common.Steps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -19,25 +18,25 @@ import static org.fundacionjala.pivotal.core.e2e.CommonMethods.waitWebElement;
  */
 public class CreateProject extends Base {
 
-    @FindBy(how = How.ID, using = "create-project-button")
+    @FindBy(id = "create-project-button")
     private WebElement buttonCreateProject;
 
-    @FindBy(how = How.NAME, using = "project_name")
+    @FindBy(name = "project_name")
     private WebElement txtProjectName;
 
-    @FindBy(how = How.XPATH, using = "//div[@class='tc-account-selector__header']")
+    @FindBy(xpath = "//div[@class='tc-account-selector__header']")
     private WebElement txtSelectorAcccountCheck;
 
-    @FindBy(how = How.CLASS_NAME, using = "raw_context_name")
+    @FindBy(className = "raw_context_name")
     private WebElement txtVerifyName;
 
-    @FindBy(how = How.XPATH, using = "//*[@id=\"modal_area\"]/div/div[2]/div/form/footer/button[2]")
+    @FindBy(xpath = "//*[@id=\"modal_area\"]/div/div[2]/div/form/footer/button[2]")
     private WebElement buttonCreate;
 
-    @FindBy(how = How.CSS, using = "#modal_area  span.tc-account-selector__create-account-text")
+    @FindBy(css = "#modal_area  span.tc-account-selector__create-account-text")
     private WebElement buttonCreateAccount;
 
-    @FindBy(how = How.CSS, using = "#modal_area  input.tc-account-creator__name")
+    @FindBy(css = "#modal_area  input.tc-account-creator__name")
     private WebElement txtAccountName;
 
     /**

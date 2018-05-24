@@ -3,7 +3,6 @@ package org.fundacionjala.pivotal.pages.project;
 import org.fundacionjala.pivotal.pages.common.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
@@ -11,32 +10,34 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class PageLogin extends Base {
 
-    @FindBy(how = How.NAME, using = "credentials[username]")
+    @FindBy(name = "credentials[username]")
     private WebElement txtUsername;
 
-    @FindBy(how = How.NAME, using = "credentials[password]")
+    @FindBy(name = "credentials[password]")
     private WebElement txtPassword;
 
-    @FindBy(how = How.NAME, using = "action")
+    @FindBy(name = "action")
     private WebElement txtButton;
 
-    @FindBy(how = How.ID_OR_NAME, using = "projects-search-bar")
+    @FindBy(id = "projects-search-bar")
     private WebElement txtSearch;
 
     /**
      * Method for set txt User Name.
+     *
      * @param username String.
      */
-     private void setTxtUsername(final String username) {
+    private void setTxtUsername(final String username) {
         driverWait.until(ExpectedConditions.visibilityOf(txtUsername));
         txtUsername.sendKeys(username);
     }
 
     /**
      * Method for set txt Password.
+     *
      * @param password String.
      */
-    private void setTxtPassword(final String  password) {
+    private void setTxtPassword(final String password) {
         driverWait.until(ExpectedConditions.visibilityOf(txtPassword));
         txtPassword.sendKeys(password);
     }
@@ -51,6 +52,7 @@ public class PageLogin extends Base {
 
     /**
      * Method for check Page Login.
+     *
      * @return txtSearch is Displayed.
      */
     public boolean checkPageLogin() {
@@ -60,6 +62,7 @@ public class PageLogin extends Base {
 
     /**
      * Method for use User Name and Password.
+     *
      * @param username String.
      * @param password String.
      */

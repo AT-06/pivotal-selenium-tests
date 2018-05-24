@@ -25,6 +25,9 @@ public class Task extends Base {
     @FindBy(css = "div[data-aid= TaskDescription]")
     private WebElement getTaskCreated;
 
+    @FindBy(css = "button[data-aid=saveTaskButton]")
+    private WebElement taskSaveButton;
+
     /**
      * Method to click Add task button.
      */
@@ -69,5 +72,19 @@ public class Task extends Base {
     public String verifyTaskName() {
         CommonMethods.waitWebElement(getTaskCreated);
         return getTaskCreated.getText();
+    }
+
+    /**
+     * Method to do click on a task created.
+     */
+    public void clickOnTaskCreated() {
+        CommonMethods.clickWebElement(getTaskCreated);
+    }
+
+    /**
+     * Method to do click on save task button.
+     */
+    public void setSaveTaskButton() {
+        CommonMethods.clickWebElement(taskSaveButton);
     }
 }
