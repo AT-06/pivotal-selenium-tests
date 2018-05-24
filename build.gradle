@@ -21,6 +21,10 @@ dependencies {
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.11.0'
     // https://mvnrepository.com/artifact/com.jayway.restassured/rest-assured
     compile group: 'com.jayway.restassured', name: 'rest-assured', version: '2.9.0'
+    // https://mvnrepository.com/artifact/com.saucelabs/sauce_java_common
+    compile group: 'com.saucelabs', name: 'sauce_java_common', version: '2.1.8'
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testCompile group: 'org.testng', name: 'testng', version: '6.9.10'
 
 
 }
