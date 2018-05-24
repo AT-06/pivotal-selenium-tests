@@ -2,6 +2,8 @@ package org.fundacionjala.pivotal.steps.project;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+
 import org.fundacionjala.pivotal.core.api.APICommons;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.pages.project.DeleteProject;
@@ -33,7 +35,7 @@ public class DeleteProjectSteps {
     @When("^I click \"([^\"]*)\" settings$")
     public void iClickSettings(final String projectName) {
         dashBoard.setButtonDashborad();
-        dashBoard.searchProject(APICommons.getElementResponse(APICommons.getRequestResponse(), projectName));
+        dashBoard.searchProject(APICommons.getElementResponse(projectName));
         deleteProject.deleteProject();
     }
 
