@@ -31,7 +31,7 @@ public final class APICommons {
     public static String getElementResponse(final String element) {
         String[] elementSplit = element.split("\\.");
         if (elementSplit.length > 1) {
-            Response res = getRequestResponse().get(String.format("%s%s", elementSplit[0], date.getDate()));
+             Response res = getRequestResponse().get(String.format("%s%s", elementSplit[0], ""));
             return getElement(res, elementSplit[1]);
         }
         return "";

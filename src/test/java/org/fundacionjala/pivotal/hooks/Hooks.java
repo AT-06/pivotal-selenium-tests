@@ -31,7 +31,7 @@ public class Hooks {
     @After("@PostConditionProject")
     public void afterCreatingProject() {
         Response resaux = APICommons.getRequestResponse().get(String.format("%s%s","Project" , date.getDate()));
-        System.out.println(String.format("%s%s", "/projects/", APICommons.getElement(resaux, "id")));
+      //  System.out.println(String.format("%s%s", "/projects/", APICommons.getElement(resaux, "id")));
         APIRequestManager.delete(String.format("%s%s", "/projects/", APICommons.getElement(resaux, "id")));
 
 
