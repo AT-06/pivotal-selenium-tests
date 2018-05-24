@@ -2,10 +2,9 @@ package org.fundacionjala.pivotal.api;
 
 import com.jayway.restassured.response.Response;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -15,7 +14,6 @@ import java.util.regex.Pattern;
  */
 public final class APICommons {
     private static Map<String, Response> requestResponse = new HashMap<>();
-    private static List<Map<String, Response>> requestResponseList = new ArrayList<>();
     private static String endPoint;
 
     /**
@@ -100,5 +98,8 @@ public final class APICommons {
     public static String getEndPoint() {
         return endPoint;
     }
+
+
+
 }
 
