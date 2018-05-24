@@ -23,7 +23,7 @@ public final class CommonMethods {
      * @param text       String.
      */
     public static void setWebElement(final WebElement webElement, final String text) {
-        waitWebElement(webElement).clear();
+        waitWebElement(webElement);
         webElement.sendKeys(text);
     }
 
