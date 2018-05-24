@@ -4,29 +4,29 @@ import org.fundacionjala.pivotal.pages.common.Base;
 import org.fundacionjala.pivotal.core.e2e.CommonMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
+
 /**
  * Class for create a Project.
  */
 public class CreateWorkspace extends Base {
 
-    @FindBy(how = How.ID, using = "create-workspace-button")
+    @FindBy(id = "create-workspace-button")
     private WebElement buttonNewWorkspaceProject;
 
-    @FindBy(how = How.CSS, using = ".tc-form__input")
+    @FindBy(css = ".tc-form__input")
     private WebElement txtWorkspaceName;
 
-    @FindBy(how = How.CSS, using = ".pvXpn__Button--positive")
+    @FindBy(css = ".pvXpn__Button--positive")
     private WebElement buttonCreateWorkspace;
 
-    @FindBy(how = How.CSS, using = ".WorkspaceTile:last-child .WorkspaceTile__name")
+    @FindBy(css = ".WorkspaceTile:last-child .WorkspaceTile__name")
     private WebElement lastWorkspaceCreated;
 
     private String workspaceName;
 
-
     /**
      * Method for set Workspace name.
+     *
      * @return ButtonCreateWorkspace.
      */
     private WebElement getButtonCreateWorkspace() {
@@ -36,6 +36,7 @@ public class CreateWorkspace extends Base {
 
     /**
      * Method for set Workspace name.
+     *
      * @return ButtonCreateWorkspace.
      */
     private WebElement getButtonSaveWorkspace() {
@@ -43,9 +44,9 @@ public class CreateWorkspace extends Base {
 
     }
 
-
     /**
      * Method for set Workspace name.
+     *
      * @return ButtonCreateWorkspace.
      */
     private WebElement getLastWorkspaceCreated() {
@@ -55,6 +56,7 @@ public class CreateWorkspace extends Base {
 
     /**
      * Method for set Workspace name.
+     *
      * @return ButtonCreateWorkspace.
      */
     public String getLastWorkspaceCreatedText() {
@@ -64,6 +66,7 @@ public class CreateWorkspace extends Base {
 
     /**
      * Method for set Workspace name.
+     *
      * @param workspaceName String.
      */
     private void setTxtWorkspaceNameName(final String workspaceName) {
@@ -87,6 +90,7 @@ public class CreateWorkspace extends Base {
 
     /**
      * Method to Create workspace .
+     *
      * @param workspaceName String.
      */
     public final void createWorkspace(final String workspaceName) {
@@ -97,6 +101,7 @@ public class CreateWorkspace extends Base {
 
     /**
      * This method set the workspace name variable.
+     *
      * @param workspaceName the value to be set.
      */
     public void setWorkspaceName(final String workspaceName) {
@@ -105,11 +110,10 @@ public class CreateWorkspace extends Base {
 
     /**
      * This method return the workspace name variable.
+     *
      * @return the variable value.
      */
     public String getWorkspaceName() {
         return workspaceName;
     }
-
-
 }

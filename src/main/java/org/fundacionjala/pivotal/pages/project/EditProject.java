@@ -5,7 +5,6 @@ import org.fundacionjala.pivotal.pages.common.Base;
 import org.fundacionjala.pivotal.pages.common.Steps;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -15,25 +14,25 @@ import java.util.Map;
  */
 public class EditProject extends Base {
 
-    @FindBy(how = How.ID, using = "project_description")
+    @FindBy(id = "project_description")
     private WebElement txtProjectDescription;
 
-    @FindBy(how = How.CSS, using = "#project_enable_tasks")
+    @FindBy(css = "#project_enable_tasks")
     private WebElement txtTask;
 
-    @FindBy(how = How.CSS, using = "#project_public")
+    @FindBy(css = "#project_public")
     private WebElement txtPublic;
 
-    @FindBy(how = How.CSS, using = "#project_week_start_day")
+    @FindBy(css = "#project_week_start_day")
     private WebElement txtProjectWeek;
 
-    @FindBy(how = How.CSS, using = "#settings_form  input.save_bar__submit")
+    @FindBy(css = "#settings_form  input.save_bar__submit")
     private WebElement saveEditProject;
 
-    @FindBy(how = How.CSS, using = "#save_success_bar div.message")
+    @FindBy(css = "#save_success_bar div.message")
     private WebElement messageSaved;
 
-    @FindBy(how = How.CSS, using = "#project_start_date")
+    @FindBy(css = "#project_start_date")
     private WebElement txtDateProject;
 
     /**
@@ -124,5 +123,4 @@ public class EditProject extends Base {
 
         return strategyMap;
     }
-
 }
