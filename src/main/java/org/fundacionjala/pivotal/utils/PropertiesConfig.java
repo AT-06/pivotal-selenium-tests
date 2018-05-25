@@ -10,6 +10,12 @@ import java.util.Properties;
  */
 public final class PropertiesConfig {
 
+
+    /**
+     * instance.
+     */
+    private static PropertiesConfig instance = new PropertiesConfig();
+
     /**
      * properties.
      */
@@ -50,6 +56,13 @@ public final class PropertiesConfig {
     }
 
     /**
+     * @return instance.
+     */
+    public static PropertiesConfig getInstance() {
+        return instance;
+    }
+
+    /**
      * @return User.
      */
     public String getUser() {
@@ -69,5 +82,21 @@ public final class PropertiesConfig {
      */
     public String getAPIToken() {
         return properties.getProperty("APIToken");
+    }
+
+    /**
+     * Method to get Name user of sauceLabs.
+     * @return the Username SauceLabs read from properties file.
+     */
+    public String getSauceUserName() {
+        return  properties.getProperty("sauceUserName");
+    }
+
+    /**
+     * Method to get key of sauceLabs.
+     * @return the key SauceLabs read from properties file.
+     */
+    public String getSauceKey() {
+        return properties.getProperty("sauceKey");
     }
 }
