@@ -78,6 +78,7 @@ public final class PropertiesConfig {
 
     /**
      * Method to get token to use API.
+     *
      * @return the token read from properties file.
      */
     public String getAPIToken() {
@@ -86,17 +87,32 @@ public final class PropertiesConfig {
 
     /**
      * Method to get Name user of sauceLabs.
+     *
      * @return the Username SauceLabs read from properties file.
      */
     public String getSauceUserName() {
-        return  properties.getProperty("sauceUserName");
+        return properties.getProperty("sauceUserName");
     }
 
     /**
      * Method to get key of sauceLabs.
+     *
      * @return the key SauceLabs read from properties file.
      */
     public String getSauceKey() {
         return properties.getProperty("sauceKey");
+    }
+
+    /**
+     * This method return the docker url from the environment properties.
+     *
+     * @return the docker url in a string object.
+     */
+    public String getDockerUrl() {
+        return properties.getProperty("dockerUrl");
+    }
+
+    public String getBrowser() {
+        return properties.getProperty("browser");
     }
 }

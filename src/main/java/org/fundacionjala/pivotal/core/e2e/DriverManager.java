@@ -1,5 +1,6 @@
 package org.fundacionjala.pivotal.core.e2e;
 
+import org.fundacionjala.pivotal.utils.PropertiesConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -30,7 +31,8 @@ public final class DriverManager {
      */
     private DriverManager() {
         final int explicitWaitTimeOut = 30;
-        driver = new ChromeDriver();
+        DriverType driverType = DriverType.valueOf(PropertiesConfig.getInstance().getBrowser());
+        driver = DriverFactory.getDriverManager(driverType);
         driver.navigate().to("https://www.pivotaltracker.com/signin");
         driverWait = new WebDriverWait(driver, explicitWaitTimeOut);
     }
