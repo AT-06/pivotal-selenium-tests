@@ -23,9 +23,9 @@ public class APIResponseName {
      * @return the creationdate.
      */
     public String generateDate() {
-        Date date = new Date();
+        Date newDate = new Date();
         DateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return formatDate.format(date);
+        return formatDate.format(newDate);
     }
     /**
      * Method to set creationDate.

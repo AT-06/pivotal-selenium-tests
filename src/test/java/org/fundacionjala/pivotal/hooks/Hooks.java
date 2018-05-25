@@ -17,7 +17,6 @@ public class Hooks {
      */
     @After("@DeleteProject")
     public void deleteProject() {
-        //System.out.println(APICommons.buildEndPoint("/projects/[Project.id]"));
         APIRequestManager.delete(APICommons.buildEndPoint("/projects/[Project.id]"));
     }
 
@@ -35,7 +34,6 @@ public class Hooks {
      */
     @After("@deleteWorkspace")
     public void deleteWorkspace() {
-        //System.out.println(APICommons.buildEndPoint("/projects/[Project.id]"));
         APIRequestManager.delete(APICommons.buildEndPoint("/my/workspaces/[Workspace.id]"));
     }
 }

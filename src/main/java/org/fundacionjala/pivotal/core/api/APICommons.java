@@ -52,7 +52,6 @@ public final class APICommons {
      * @param response the response from request.
      */
     public static void saveResponse(final String variableName, final Response response) {
-        //requestResponse = new HashMap<>();
         requestResponse.put(variableName, response);
     }
 
