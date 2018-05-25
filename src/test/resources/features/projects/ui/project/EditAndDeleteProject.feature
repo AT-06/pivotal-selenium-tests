@@ -7,7 +7,7 @@ Feature: Create and Delete Project
       | new_account_name | Fundacion  |
       | public           | false      |
     And save the response as "Project"
-    Then I validate the status code "200"
+    Then I validate the status code 200
 
   @acceptance @PostConditionProject
   Scenario: Edit Project
