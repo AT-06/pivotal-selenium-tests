@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 /**
- * Class Account for start the Project.
+ * Class account for start the Project.
  */
 public class Account extends Base {
 
@@ -56,7 +56,7 @@ public class Account extends Base {
     }
 
     /**
-     * Set Account Button.
+     * Set account Button.
      */
     private void setCreateAccounButton() {
         CommonMethods.clickWebElement(createAccounButton);
@@ -70,14 +70,14 @@ public class Account extends Base {
     }
 
     /**
-     * Set Account Button.
+     * Set account Button.
      */
     private void setAccountButton() {
         CommonMethods.clickWebElement(accountButton);
     }
 
     /**
-     * Set Create Account all previous setter declared.
+     * Set Create account all previous setter declared.
      *
      * @param accountName String.
      */
@@ -90,7 +90,7 @@ public class Account extends Base {
     }
 
     /**
-     * Set verify Account Name.
+     * Set verify account Name.
      *
      * @return setTxtVerifyAccountName.
      */

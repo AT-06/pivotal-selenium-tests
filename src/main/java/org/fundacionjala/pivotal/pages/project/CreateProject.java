@@ -66,7 +66,7 @@ public class CreateProject extends Base {
     }
 
     /**
-     * Method for set Select an Account Specific.
+     * Method for set Select an account Specific.
      *
      * @param account String.
      */
@@ -77,7 +77,7 @@ public class CreateProject extends Base {
     }
 
     /**
-     * Method for Select Account Check.
+     * Method for Select account Check.
      */
     private void setTxtSelectorAcccountCheck() {
         CommonMethods.clickWebElement(txtSelectorAcccountCheck);
