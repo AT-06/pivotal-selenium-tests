@@ -31,8 +31,9 @@ public class APIProjectSteps {
      */
     @And("^I post a new \"([^\"]*)\" to \"([^\"]*)\" endpoint$")
     public void iPostANewToEndpoint(String feature, String endpoint, final Map<String, String> values){
-        APICommons.setEndPoint(endpoint);
+        //APICommons.setEndPoint(endpoint);
         String newEndpoint = APICommons.buildEndPoint(endpoint);
+        System.out.println(newEndpoint);
         APIRequestManager.post(values, newEndpoint);
     }
 
@@ -43,9 +44,9 @@ public class APIProjectSteps {
      */
     @And("^save the response as \"([^\"]*)\"$")
     public void saveTheResponseAs(final String variableName) {
-        date.setDate(date.generateDate());
-        System.out.println(date.getDate());
-        APICommons.saveResponse(String.format("%s%s",variableName, date.getDate()), APIRequestManager.getResponse());
+       // date.setDate(date.generateDate());
+       // System.out.println(date.getDate());
+        APICommons.saveResponse(variableName, APIRequestManager.getResponse());
         //APICommons.buildEndPoint(APIRequestManager.getResponse());
     }
     /**

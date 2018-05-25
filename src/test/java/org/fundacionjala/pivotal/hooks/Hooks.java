@@ -30,10 +30,27 @@ public class Hooks {
      */
     @After("@PostConditionProject")
     public void afterCreatingProject() {
-        Response resaux = APICommons.getRequestResponse().get(String.format("%s%s","Project" , date.getDate()));
+       // Response resaux = APICommons.getRequestResponse().get(String.format("%s%s","Project" , date.getDate()));
       //  System.out.println(String.format("%s%s", "/projects/", APICommons.getElement(resaux, "id")));
-        APIRequestManager.delete(String.format("%s%s", "/projects/", APICommons.getElement(resaux, "id")));
+       // APIRequestManager.delete(String.format("%s%s", "/projects/", APICommons.getElement(resaux, "id")));
 
 
+    }
+
+    /**
+     * After hook to delete the project created in tests.
+     */
+    @After("@DeleteProject")
+    public void deleteProject() {
+        //System.out.println(APICommons.buildEndPoint("/projects/[Project.id]"));
+        APIRequestManager.delete(APICommons.buildEndPoint("/projects/[Project.id]"));
+    }
+
+    /**
+     * After hook to delete the project created in tests.
+     */
+    @After("@DeleteStory")
+    public void deleteStory() {
+        APIRequestManager.delete( APICommons.buildEndPoint("/projects/[Project.id]/stories/[Story.id]"));
     }
 }
