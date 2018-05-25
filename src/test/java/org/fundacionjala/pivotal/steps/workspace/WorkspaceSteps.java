@@ -17,7 +17,7 @@ public class WorkspaceSteps {
     /**
      * Constructor for AccountSteps class.
      * @param nav Navigator.
-     * @param createWorkspace Account object.
+     * @param createWorkspace account object.
      */
     public WorkspaceSteps(final CreateWorkspace createWorkspace, final Navigator nav) {
         this.createWorkspace = createWorkspace;

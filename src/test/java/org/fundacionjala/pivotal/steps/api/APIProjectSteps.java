@@ -2,6 +2,8 @@ package org.fundacionjala.pivotal.steps.api;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+
+import cucumber.api.java.en.When;
 import org.fundacionjala.pivotal.core.api.APICommons;
 import org.fundacionjala.pivotal.core.api.APIRequestManager;
 import org.testng.Assert;
@@ -15,14 +17,13 @@ public class APIProjectSteps {
 
     /**
      * And step to post a project.
-     *
+     * @param feature the feature.
      * @param endpoint to send request.
      * @param values the map with values to create the project.
      */
-    @And("^I post a new project to \"([^\"]*)\" endpoint$")
-    public void iPostANewProjectToEndpoint(final String endpoint, final Map<String, String> values) {
-        APICommons.setEndPoint(endpoint);
-        APIRequestManager.post(values, endpoint);
+    @And("^I post a new \"([^\"]*)\" to \"([^\"]*)\" endpoint$")
+    public void iPostANewToEndpoint(final String feature, final String endpoint, final Map<String, String> values) {
+        APIRequestManager.post(values, APICommons.buildEndPoint(endpoint));
     }
 
     /**
@@ -33,25 +34,36 @@ public class APIProjectSteps {
     @And("^save the response as \"([^\"]*)\"$")
     public void saveTheResponseAs(final String variableName) {
         APICommons.saveResponse(variableName, APIRequestManager.getResponse());
-        APICommons.buildEndPoint(APIRequestManager.getResponse());
+    }
+    /**
+     * Then, when a post is made.
+     * @param status is the response status.
+     */
+    @Then("^I validate the status code (\\d+)$")
+    public void iValidateTheStatusCode(int status) {
+        final int expectedStatus = status;
+        Assert.assertEquals(APIRequestManager.getStatusCode(), expectedStatus);
     }
 
     /**
      * Then, when a post is made.
+     * @param feature is the feature to test.
+     * @param endpoint is the endpoint.
+     * @param values is the data map.
      */
-    @Then("^I validate the status code$")
-    public void iValidateTheStatusCode() {
-        final int expectedStatus = 200;
-        Assert.assertEquals(APIRequestManager.getStatusCode(), expectedStatus);
+    @When("^I put a \"([^\"]*)\" to \"([^\"]*)\" endpoint$")
+    public void iPutAToEndpoint(final String feature, final String endpoint, final Map<String, String> values) {
+        APIRequestManager.put(values, APICommons.buildEndPoint(endpoint));
     }
 
+
     /**
-     * Then.
-     * @param arg0 param.
+     * Then, when a post is made.
+     * @param feature is the feature to test.
+     * @param endpoint is the endpoint.
      */
-    @Then("^status code is (\\d+)$")
-    public void statusCodeIs(int arg0) {
-        final int expectedStatus = 204;
-        Assert.assertEquals(APIRequestManager.getStatusCode(), expectedStatus);
+    @When("^I delete a \"([^\"]*)\" with \"([^\"]*)\" endpoint$")
+    public void iDeleteAWithEndpoint(final String feature, final String endpoint) {
+        APIRequestManager.delete(APICommons.buildEndPoint(endpoint));
     }
 }

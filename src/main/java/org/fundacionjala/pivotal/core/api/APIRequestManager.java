@@ -46,6 +46,19 @@ public final class APIRequestManager {
     }
 
     /**
+     * Method to post a request.
+     * @param values map.
+     * @param endpoint to request to.
+     */
+    public static void put(final Map<String, String> values, final String endpoint) {
+        response = given()
+                .spec(APIManager.getInstance().getRequestSpecification())
+                .params(values)
+                .when()
+                .put(endpoint);
+    }
+
+    /**
      * Method to get status code.
      * @return status code.
      */

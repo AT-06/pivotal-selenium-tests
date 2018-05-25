@@ -3,10 +3,12 @@ package org.fundacionjala.pivotal.steps.project;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+
 import org.fundacionjala.pivotal.core.api.APICommons;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
-import org.fundacionjala.pivotal.pages.project.ProjectDescription;
 import org.fundacionjala.pivotal.pages.project.EditProject;
+import org.fundacionjala.pivotal.pages.project.ProjectDescription;
 import org.testng.Assert;
 import java.util.Map;
 
@@ -36,7 +38,7 @@ public class EditProjectSteps  {
     @When("^I select any project \"([^\"]*)\"$")
     public void iSelectAnyProject(final String projectName) {
         dashBoard.setButtonDashborad();
-        dashBoard.searchProject(APICommons.getElementResponse(APICommons.getRequestResponse(), projectName));
+        dashBoard.searchProject(APICommons.getElementResponse(projectName));
     }
 
     /**

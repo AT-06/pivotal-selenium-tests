@@ -17,7 +17,7 @@ public class WorkspaceEditSteps {
     /**
      * Constructor for AccountSteps class.
      * @param nav Navigator.
-     * @param editWorkspace Account object.
+     * @param editWorkspace account object.
      */
     public WorkspaceEditSteps(final EditWorkspace editWorkspace, final Navigator nav) {
         this.editWorkspace = editWorkspace;

@@ -6,7 +6,7 @@ import org.fundacionjala.pivotal.pages.project.Account;
 import org.testng.Assert;
 
 /**
- * Class for Create Account.
+ * Class for Create account.
  */
 public class AccountSteps {
     private Account account;
@@ -14,7 +14,7 @@ public class AccountSteps {
     /**
      * Constructor for AccountSteps class.
      *
-     * @param account Account object.
+     * @param account account object.
      */
     public AccountSteps(final Account account) {
         this.account = account;
