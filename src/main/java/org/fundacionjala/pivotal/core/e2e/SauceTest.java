@@ -1,47 +1,39 @@
 package org.fundacionjala.pivotal.core.e2e;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  *Class SauceTest.
  */
-public class SauceTest {
-    private static final String BUILD = System.getenv("BUILD_TAG");
-    private static final String USERNAME = "SAUCE_USERNAME";
-    private static final String ACCESS_KEY = "SAUCE_ACCESS_KEY";
-    private static final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:443/wd/hub";
+public class SauceTest extends Connection implements Browser {
+
+    private static final String URL = "https://"
+            + SAUCE_USERNAME + ":"
+            + SAUCE_KEY + "@ondemand.saucelabs.com:443/wd/hub";
+    private static final String PLATFORM = "platform";
+    private static final String RESOLUTION = "resolution";
+    private static final String REMOTE_PLATFORM = "MacOS High Sierra";
+    private static final String REMOTE_PLATFORM_VERSION = "11";
+    private static final String REMOTE_RESOLUTION = "1024x768";
 
     /**
-     * @param browser navigator.
-     * @param version of os.
-     * @param os is a System operative.
-     * @throws MalformedURLException .
+     * SauceTest Set url.
      */
-     void createDriver(final String browser, final String version, final String os) throws MalformedURLException {
-
-        DesiredCapabilities caps = DesiredCapabilities.safari();
-        caps.setCapability(CapabilityType.BROWSER_NAME, browser);
-        caps.setCapability(CapabilityType.VERSION, version);
-        caps.setCapability(CapabilityType.PLATFORM_NAME, os);
-
-
-
-        if (BUILD != null) {
-            caps.setCapability("build", BUILD);
-        }
-
-        // Launch remote browser and set it as the current thread
-        WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
-
-
-
-
-        driver.quit();
+    public SauceTest() {
+        super(URL);
     }
+
+    /**
+     * @return .
+     */
+    @Override
+    DesiredCapabilities setCapabilities() {
+        DesiredCapabilities caps = DesiredCapabilities.safari();
+        caps.setCapability(PLATFORM, String.format("%s %s",
+                REMOTE_PLATFORM,
+                REMOTE_PLATFORM_VERSION));
+        caps.setCapability(RESOLUTION, REMOTE_RESOLUTION);
+        return caps;
+    }
+
 }
