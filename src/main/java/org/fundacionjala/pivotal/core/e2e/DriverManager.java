@@ -2,7 +2,6 @@ package org.fundacionjala.pivotal.core.e2e;
 
 import org.fundacionjala.pivotal.utils.PropertiesConfig;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -39,6 +38,7 @@ public final class DriverManager {
 
     /**
      * Method for get Web utils driver.
+     *
      * @return instance.
      */
     public static DriverManager getInstance() {
@@ -50,6 +50,7 @@ public final class DriverManager {
 
     /**
      * Method for get Driver.
+     *
      * @return driver.
      */
     public WebDriver getDriver() {
@@ -59,6 +60,7 @@ public final class DriverManager {
 
     /**
      * Method get WebDriver.
+     *
      * @return driverWait.
      */
     public WebDriverWait getDriverWait() {

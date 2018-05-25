@@ -104,7 +104,7 @@ public final class PropertiesConfig {
     }
 
     /**
-     * This method return the docker url from the environment properties.
+     * Method to return the docker url from the environment properties.
      *
      * @return the docker url in a string object.
      */
@@ -112,6 +112,11 @@ public final class PropertiesConfig {
         return properties.getProperty("dockerUrl");
     }
 
+    /**
+     * Method to return the browser from the environments properties.
+     *
+     * @return the browser.
+     */
     public String getBrowser() {
         return properties.getProperty("browser");
     }

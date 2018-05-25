@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * DockerChromeBrowser class that implements IBrowsers.
+ * DockerChromeBrowser class.
  */
 public class DockerChromeBrowser implements Browser {
 
