@@ -2,7 +2,8 @@ package org.fundacionjala.pivotal.core.api;
 
 import com.jayway.restassured.response.Response;
 
-import java.util.*;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,21 +13,19 @@ import java.util.regex.Pattern;
  */
 public final class APICommons {
     private static Map<String, Response> requestResponse = new HashMap<>();
-    private static String endPoint;
-    private  APIResponseName date;
+
 
     /**
-     * Constructor.
-     * @param date
+     * private constructor.
      */
-    public APICommons(final APIResponseName date) {
-        this.date = date;
+    private APICommons() {
+
     }
 
     /**
      * Method to get an element from the response.
-     *
      * @param element the response from request.
+     * @return a String with the element response
      */
     public static String getElementResponse(final String element) {
         String[] elementSplit = element.split("\\.");
@@ -36,10 +35,6 @@ public final class APICommons {
         }
         return "";
     }
-
-
-
-
 
     /**
      * Method to get an element from a response.
@@ -71,11 +66,9 @@ public final class APICommons {
 
     /**
      * Method to build endpoint.
-     * @param  endPoint response to a request.
+     * @param endPoint response to a request.
+     * @return the new endpoint.
      */
-   /* public static void buildEndPoint(final Response res) {
-        endPoint = String.format("%s%s%s", endPoint, "/", getElement(res, "id"));
-    }*/
     public static String buildEndPoint(final String endPoint) {
         String[] endPointSplit = endPoint.split("/");
         for (int i = 0; i < endPointSplit.length; i++) {
@@ -88,23 +81,6 @@ public final class APICommons {
         }
         return String.join("/", endPointSplit);
     }
-
-    /**
-     * Method to set end point.
-     * @param end the endpoint.
-     */
-    public static void setEndPoint(final String end) {
-        endPoint = end;
-    }
-
-    /**
-     * Method to get endpoint.
-     * @return the endpoint.
-     */
-    public static String getEndPoint() {
-        return endPoint;
-    }
-
 
 
 }

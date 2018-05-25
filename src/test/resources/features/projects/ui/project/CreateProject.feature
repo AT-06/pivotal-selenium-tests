@@ -3,7 +3,7 @@ Feature: Create Project
   Background: With valid credentials account
     Given I put a valid user and Password
 
-  @acceptance @PostConditionProject
+  @acceptance @DeleteProject
   Scenario: Create Project with a new Account
     Given I can create a new project with the following values
       | PROJECT_TITLE   | Test8   |

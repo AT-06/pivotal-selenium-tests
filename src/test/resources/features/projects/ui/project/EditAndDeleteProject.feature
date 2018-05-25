@@ -9,7 +9,7 @@ Feature: Create and Delete Project
     And save the response as "Project"
     Then I validate the status code 200
 
-  @acceptance @PostConditionProject
+  @acceptance @DeleteProject
   Scenario: Edit Project
     When I select any project "Project.name"
     And I can edit the project

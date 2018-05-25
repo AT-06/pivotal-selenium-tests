@@ -4,6 +4,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * Class to set the creation date of the reponse.
+ */
 public class APIResponseName {
     private String date;
 
@@ -26,9 +29,9 @@ public class APIResponseName {
     }
     /**
      * Method to set creationDate.
-     * @param date
+     * @param date return the creation date.
      */
-    public void setDate(String date) {
+    public void setDate(final String date) {
         this.date = date;
     }
 
