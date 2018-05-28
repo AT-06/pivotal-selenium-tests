@@ -58,6 +58,13 @@ public final class APIRequestManager {
                 .put(endpoint);
     }
 
+    public static Response get(final String endpoint) {
+        return given()
+                .spec(APIManager.getInstance().getRequestSpecification())
+                .when()
+                .get(endpoint);
+    }
+
     /**
      * Method to get status code.
      * @return status code.

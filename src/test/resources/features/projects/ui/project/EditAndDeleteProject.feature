@@ -2,16 +2,15 @@ Feature: Create and Delete Project
 
   Background: With valid credentials account
     Given I put a valid user and Password
-    And I post a new "project" to "/projects" endpoint
-      | name             | Test New ProjectMay |
-      | new_account_name | Fundacion  |
-      | public           | false      |
-    And save the response as "Project"
-    Then I validate the status code 200
+    And I can create a new project with the following values
+      | PROJECT_TITLE   | Test8   |
+      | PROJECT_ACCOUNT | Fundacion |
+      | PROJECT_VISIBLE | public    |
+    Then I can verify the new project with the project name
 
-  @acceptance @DeleteProject
+  @acceptance @DeleteProjectUI
   Scenario: Edit Project
-    When I select any project "Project.name"
+    When I select the created project
     And I can edit the project
       | DESCRIPTION        | ProjectNewTest |
       | ENABLE_TASKS       | false      |
@@ -22,6 +21,7 @@ Feature: Create and Delete Project
 
   @acceptance
   Scenario: Delete Project
-    When I click "Project.name" settings
+    When I select the created project
+    And I delete the project
     Then I can verify the project deleted
 

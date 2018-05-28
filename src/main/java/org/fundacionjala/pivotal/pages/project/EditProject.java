@@ -26,7 +26,7 @@ public class EditProject extends Base {
     @FindBy(css = "#project_week_start_day")
     private WebElement txtProjectWeek;
 
-    @FindBy(css = "#settings_form  input.save_bar__submit")
+    @FindBy(css = "input.save_bar__submit")
     private WebElement saveEditProject;
 
     @FindBy(css = "#save_success_bar div.message")

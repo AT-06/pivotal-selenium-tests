@@ -6,7 +6,7 @@ Feature: Delete Story
       | PROJECT_TITLE   | ESCARLETH |
       | PROJECT_ACCOUNT | Fundacion |
       | PROJECT_VISIBLE | private   |
-    And I can verify the new project with "ESCARLETH" project name
+    And I can verify the new project with the project name
     And I create a new story
       | STORY_NAME  | storyTest       |
       | STORY_TYPE  | feature         |
@@ -14,7 +14,7 @@ Feature: Delete Story
       | DESCRIPTION | descriptionTest |
       | LABEL       | labelStory      |
       | COMMENT     | commentTest     |
-    Then I verify the new story "storyTest" was created
+    Then I verify the new story was created
 
   @acceptance
   Scenario: Edit a story
