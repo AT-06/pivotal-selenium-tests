@@ -10,8 +10,6 @@ import java.util.Properties;
  */
 public final class PropertiesConfig {
 
-
-
     /**
      * properties.
      */
@@ -90,6 +88,41 @@ public final class PropertiesConfig {
      */
     public String getSauceKey() {
         return properties.getProperty("sauceKey");
+    }
+
+    /**
+     * Method to get Remote Browser of sauceLabs.
+     *
+     * @return the browser SauceLabs selected read from properties file.
+     */
+    public String getRemoteBrowser() {
+        return properties.getProperty("remoteBrowser");
+    }
+
+    /**
+     * Method to get OS of sauceLabs.
+     *
+     * @return the OS SauceLabs selected read from properties file.
+     */
+    public String getRemotePlatform() {
+        return properties.getProperty("remotePlatform");
+    }
+    /**
+     * Method to get Browser version of sauceLabs.
+     *
+     * @return the Browser version of SauceLabs  selected read from properties file.
+     */
+    public String getPlatformVersion() {
+        return properties.getProperty("remotePlatformVersion");
+    }
+
+    /**
+     * Method to get resolution of sauceLabs.
+     *
+     * @return the resolution SauceLabs selected read from properties file.
+     */
+    public String getRemoteResolution() {
+        return properties.getProperty("remoteResolution");
     }
 
     /**

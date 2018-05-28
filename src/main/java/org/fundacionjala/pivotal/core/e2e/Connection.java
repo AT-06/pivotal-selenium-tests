@@ -14,7 +14,7 @@ import java.net.URL;
  */
 public abstract class Connection implements  Browser {
 
-    private static final PropertiesConfig PROPERTIES = PropertiesConfig.getInstance();
+    static final PropertiesConfig PROPERTIES = PropertiesConfig.getInstance();
     static final String SAUCE_USERNAME = PROPERTIES.getSauceUserName();
     static final String SAUCE_KEY = PROPERTIES.getSauceKey();
 
