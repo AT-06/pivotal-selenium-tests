@@ -11,10 +11,6 @@ import java.util.Properties;
 public final class PropertiesConfig {
 
 
-    /**
-     * instance.
-     */
-    private static PropertiesConfig instance = new PropertiesConfig();
 
     /**
      * properties.
@@ -29,7 +25,7 @@ public final class PropertiesConfig {
     /**
      * @return a instance of PropertiesConfig.
      */
-    public static PropertiesConfig getPropertiesConfig() {
+    public static PropertiesConfig getInstance() {
         if (propertiesConfig == null) {
             propertiesConfig = new PropertiesConfig();
         }
@@ -53,13 +49,6 @@ public final class PropertiesConfig {
         } catch (IOException e) {
             throw new NoConfigPropertiesFound("Class PropertiesConfig: ", e);
         }
-    }
-
-    /**
-     * @return instance.
-     */
-    public static PropertiesConfig getInstance() {
-        return instance;
     }
 
     /**
