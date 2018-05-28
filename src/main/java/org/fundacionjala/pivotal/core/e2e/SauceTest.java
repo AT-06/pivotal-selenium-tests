@@ -10,11 +10,11 @@ public class SauceTest extends Connection implements Browser {
     private static final String URL = "https://"
             + SAUCE_USERNAME + ":"
             + SAUCE_KEY + "@ondemand.saucelabs.com:443/wd/hub";
+    private static final String BROWSER_NAME = "browserName";
     private static final String PLATFORM = "platform";
     private static final String RESOLUTION = "resolution";
-    private static final String REMOTE_PLATFORM = "MacOS High Sierra";
-    private static final String REMOTE_PLATFORM_VERSION = "11";
-    private static final String REMOTE_RESOLUTION = "1024x768";
+    private static final String VERSION = "version";
+
 
     /**
      * SauceTest Set url.
@@ -28,11 +28,11 @@ public class SauceTest extends Connection implements Browser {
      */
     @Override
     DesiredCapabilities setCapabilities() {
-        DesiredCapabilities caps = DesiredCapabilities.safari();
-        caps.setCapability(PLATFORM, String.format("%s %s",
-                REMOTE_PLATFORM,
-                REMOTE_PLATFORM_VERSION));
-        caps.setCapability(RESOLUTION, REMOTE_RESOLUTION);
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability(BROWSER_NAME, PROPERTIES.getRemoteBrowser());
+        caps.setCapability(PLATFORM, PROPERTIES.getRemotePlatform());
+        caps.setCapability(VERSION, PROPERTIES.getPlatformVersion());
+        caps.setCapability(RESOLUTION, PROPERTIES.getRemoteResolution());
         return caps;
     }
 
