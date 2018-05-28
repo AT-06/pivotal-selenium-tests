@@ -27,7 +27,6 @@ public final class DriverFactory {
         Map<DriverType, Browser> map = new EnumMap<>(DriverType.class);
         map.put(DriverType.CHROME, new ChromeBrowser());
         map.put(DriverType.FIREFOX, new FirefoxBrowser());
-        map.put(DriverType.IEXPLORER, new MicrosoftBrowser());
         map.put(DriverType.DOCKER_CHROME, new DockerChromeBrowser());
         map.put(DriverType.SAUCELABS, new SauceTest());
         return map.get(driverType).getBrowser();
