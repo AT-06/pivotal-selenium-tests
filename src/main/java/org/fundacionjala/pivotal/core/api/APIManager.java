@@ -25,7 +25,7 @@ public final class APIManager {
     private void init() {
         requestSpecification = new RequestSpecBuilder()
                 .setBaseUri("https://www.pivotaltracker.com/services/v5")
-                .addHeader("X-TrackerToken", PropertiesConfig.getPropertiesConfig().getAPIToken())
+                .addHeader("X-TrackerToken", PropertiesConfig.getInstance().getAPIToken())
                 .build();
     }
 
