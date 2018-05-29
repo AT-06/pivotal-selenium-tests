@@ -8,8 +8,24 @@ public class FeatureNames {
 
     private String projectName;
     private String storyName;
+    private String accountName;
 
 
+    /**
+     * Method setProjectName to save the project name.
+     * @param accountName string.
+     */
+    public void setAccountName(final String accountName) {
+        this.accountName = accountName;
+    }
+
+    /**
+     * Method getProjectName to get the project saved.
+     * @return the project name.
+     */
+    public String getAccountName() {
+        return accountName;
+    }
     /**
      * Method setProjectName to save the project name.
      * @param projectVariable string.

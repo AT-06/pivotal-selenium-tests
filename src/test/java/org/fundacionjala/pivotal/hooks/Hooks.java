@@ -6,6 +6,8 @@ import cucumber.api.java.After;
 
 import org.fundacionjala.pivotal.core.api.APIRequestManager;
 import org.fundacionjala.pivotal.core.api.APICommons;
+import org.fundacionjala.pivotal.pages.account.Account;
+import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.steps.FeatureNames;
 
 import java.util.List;
@@ -18,13 +20,19 @@ import java.util.Map;
 public class Hooks {
 
     private final FeatureNames feature;
+    private final DashBoard dashboard;
+    private final Account account;
 
     /**
      * constructor.
      * @param feature object.
+     * @param dashboard object.
+     * @param account object.
      */
-    public Hooks(final FeatureNames feature) {
+    public Hooks(final FeatureNames feature, final DashBoard dashboard, final Account account) {
         this.feature = feature;
+        this.dashboard = dashboard;
+        this.account = account;
     }
     /**
      * After hook to delete the project created in tests.
@@ -64,5 +72,16 @@ public class Hooks {
                 APIRequestManager.delete(String.format("/projects/%s", map.get("id").toString()));
             }
         }
+    }
+
+    /**
+     * After hook to delete the project created in tests.
+     */
+    @After("@DeleteAccount")
+    public void deleteAccount() {
+        dashboard.setButtonDashborad();
+        account.goToAccounts();
+        account.delete();
+
     }
 }

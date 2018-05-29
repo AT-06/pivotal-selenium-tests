@@ -1,7 +1,9 @@
 package org.fundacionjala.pivotal.steps.ui.story;
 
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.pages.story.DescriptionsStory;
 import org.fundacionjala.pivotal.pages.story.Story;
 import org.fundacionjala.pivotal.steps.FeatureNames;
@@ -17,15 +19,18 @@ import static org.fundacionjala.pivotal.pages.story.DescriptionsStory.STORY_NAME
 public class CreateStorySteps {
     private Story createStory;
     private FeatureNames feature;
+    private DashBoard dashBoard;
 
     /**
      * Constructor for CreateStorySteps class.
      * @param createStory object.
      * @param feature object.
+     * @param dashBoard object.
      */
-    public CreateStorySteps(final Story createStory, final FeatureNames feature) {
+    public CreateStorySteps(final Story createStory, final FeatureNames feature, final DashBoard dashBoard) {
         this.createStory = createStory;
         this.feature = feature;
+        this.dashBoard = dashBoard;
     }
 
     /**
@@ -48,6 +53,15 @@ public class CreateStorySteps {
     public void iVerifyTheNewStoryWasCreated() {
 
         Assert.assertEquals(feature.getStoryName(), createStory.verifyStoryName());
+        dashBoard.setButtonDashborad();
     }
-
+    /**
+     * I go to project dashboard.
+     */
+    @Given("^I go to project$")
+    public void iGoToProject() {
+        dashBoard.setButtonDashborad();
+        dashBoard.searchOnlyProject(feature.getProjectName());
+        dashBoard.setProjectTitle();
+    }
 }
