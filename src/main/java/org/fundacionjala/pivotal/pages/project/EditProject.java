@@ -26,7 +26,7 @@ public class EditProject extends Base {
     @FindBy(css = "#project_week_start_day")
     private WebElement txtProjectWeek;
 
-    @FindBy(css = "#settings_form  input.save_bar__submit")
+    @FindBy(css = "input.save_bar__submit")
     private WebElement saveEditProject;
 
     @FindBy(css = "#save_success_bar div.message")
@@ -34,6 +34,18 @@ public class EditProject extends Base {
 
     @FindBy(css = "#project_start_date")
     private WebElement txtDateProject;
+
+    @FindBy(css = "li.projectTile:last-child .projectTileHeader__projectName")
+    private WebElement titleProject;
+
+    /**
+     * Method for get the last workspace created.
+     *
+     * @return title last project created.
+     */
+    public String getTitleProject() {
+        return CommonMethods.waitWebElement(titleProject).getText();
+    }
 
     /**
      * Method for set Date Project.

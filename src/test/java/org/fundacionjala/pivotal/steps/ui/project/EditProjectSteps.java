@@ -1,14 +1,15 @@
-package org.fundacionjala.pivotal.steps.project;
+package org.fundacionjala.pivotal.steps.ui.project;
+
+
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-
-import org.fundacionjala.pivotal.core.api.APICommons;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.pages.project.EditProject;
 import org.fundacionjala.pivotal.pages.project.ProjectDescription;
+import org.fundacionjala.pivotal.steps.FeatureNames;
 import org.testng.Assert;
 import java.util.Map;
 
@@ -18,27 +19,30 @@ import java.util.Map;
 public class EditProjectSteps  {
     private EditProject editProject;
     private DashBoard dashBoard;
+    private FeatureNames feature;
 
     /**
      * Constructor for EditProjectSteps class.
      *
      * @param editProject object.
-     * @param dashBoard   object.
+     * @param dashBoard object.
+     * @param feature object.
      */
-    public EditProjectSteps(final EditProject editProject, final DashBoard dashBoard) {
+    public EditProjectSteps(final EditProject editProject, final DashBoard dashBoard, final FeatureNames feature) {
         this.editProject = editProject;
         this.dashBoard = dashBoard;
+        this.feature = feature;
     }
 
     /**
      * Method for select any project.
-     *
-     * @param projectName String.
      */
-    @When("^I select any project \"([^\"]*)\"$")
-    public void iSelectAnyProject(final String projectName) {
+    @When("^I select the created project")
+    public void iSelectTheCreatedProject() {
+
         dashBoard.setButtonDashborad();
-        dashBoard.searchProject(APICommons.getElementResponse(projectName));
+        dashBoard.searchProject(feature.getProjectName());
+
     }
 
     /**
@@ -65,4 +69,12 @@ public class EditProjectSteps  {
         Assert.assertEquals(message, editProject.setMessageSaved());
     }
 
+    /**
+     * Method for return to dashboard.
+     */
+    @Then("^I return to dashboard and verify the project$")
+    public void iReturnToDashboardAndVerifyTheProject() {
+        dashBoard.setButtonDashborad();
+        Assert.assertEquals(feature.getProjectName(), editProject.getTitleProject());
+    }
 }

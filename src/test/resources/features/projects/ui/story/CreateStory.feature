@@ -6,15 +6,15 @@ Feature: Create Story
       | PROJECT_TITLE   | FATIMA    |
       | PROJECT_ACCOUNT | Fundacion |
       | PROJECT_VISIBLE | private   |
-    Then I can verify the new project with "FATIMA" project name
+    Then I can verify the new project with the project name
 
-  @acceptance
+  @acceptance @DeleteProjectUI
   Scenario: Create story with only the required field
     When I create a new story
       | STORY_NAME | story |
-    Then I verify the new story "story" was created
+    Then I verify the new story was created
 
-  @acceptance
+  @acceptance @DeleteProjectUI
   Scenario: Create a new story
     When I create a new story
       | STORY_NAME  | storyTest       |
@@ -23,4 +23,4 @@ Feature: Create Story
       | DESCRIPTION | descriptionTest |
       | LABEL       | labelStory      |
       | COMMENT     | commentTest     |
-    Then I verify the new story "storyTest" was created
+    Then I verify the new story was created

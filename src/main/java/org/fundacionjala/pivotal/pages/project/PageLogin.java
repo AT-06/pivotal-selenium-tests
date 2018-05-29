@@ -1,9 +1,12 @@
 package org.fundacionjala.pivotal.pages.project;
 
 import org.fundacionjala.pivotal.pages.common.Base;
+import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Class for PageLogin.
@@ -22,6 +25,19 @@ public class PageLogin extends Base {
     @FindBy(id = "projects-search-bar")
     private WebElement txtSearch;
 
+    private DashBoard dashBoard;
+
+    private static final int LOGINTIME = 5;
+
+    private static final int DEFAULTTIME = 30;
+
+    /**
+     * Constructor.
+     * @param dashBoard object.
+     */
+    public PageLogin(final DashBoard dashBoard) {
+        this.dashBoard = dashBoard;
+    }
     /**
      * Method for set txt User Name.
      *
@@ -66,7 +82,25 @@ public class PageLogin extends Base {
      * @param username String.
      * @param password String.
      */
-    public void asLogin(final String username, final String password) {
+    public void signIn(final String username, final String password) {
+        try {
+            driverWait = new WebDriverWait(driver, LOGINTIME);
+            driverWait.until(ExpectedConditions.visibilityOf(txtUsername));
+            setFieldsLogin(username, password);
+        } catch (TimeoutException k) {
+            dashBoard.setButtonDashborad();
+        } finally {
+            driverWait = new WebDriverWait(driver, DEFAULTTIME);
+        }
+
+    }
+    /**
+     * Method for use User Name and Password.
+     *
+     * @param username String.
+     * @param password String.
+     */
+    public void setFieldsLogin(final String username, final String password) {
         setTxtUsername(username);
         setTxtButton();
         setTxtPassword(password);

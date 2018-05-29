@@ -1,4 +1,4 @@
-package org.fundacionjala.pivotal.steps.project;
+package org.fundacionjala.pivotal.steps.ui.project;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -26,7 +26,7 @@ public class LoginSteps {
      */
     @Given("I put a valid user and Password")
     public void iPutAValidAnd() {
-        pageLogin.asLogin(PropertiesConfig.getInstance()
+        pageLogin.signIn(PropertiesConfig.getInstance()
                 .getUser(), PropertiesConfig.getInstance().getPassword());
     }
 
