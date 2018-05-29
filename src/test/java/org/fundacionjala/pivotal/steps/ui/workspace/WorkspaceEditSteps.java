@@ -1,5 +1,6 @@
 package org.fundacionjala.pivotal.steps.ui.workspace;
 
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -37,8 +38,8 @@ public class WorkspaceEditSteps {
      * Step and to go to edit the workspace name.
      * @param name workspace.
      */
-    @And("^I select the last workspace created and I edit the workspace name \"([^\"]*)\" and press save$")
-    public void iSelectTheLastWorkspaceCreatedAndIEditTheWorkspaceNameAndPressSave(final String name) {
+    @And("^I select the workspace created and I edit the workspace name \"([^\"]*)\" and press save$")
+    public void iSelectTheWorkspaceCreatedAndIEditTheWorkspaceNameAndPressSave(final String name) {
         editWorkspace.editWorkspace(name);
     }
     /**
@@ -65,5 +66,12 @@ public class WorkspaceEditSteps {
     @Then("^Then I can verify the delete workspace$")
     public void thenICanVerifyTheDeleteWorkspace() {
         Assert.assertTrue(editWorkspace.getSuccessDeleteMessage().isDisplayed());
+    }
+    /**
+     * return to workspace dashborard.
+     */
+    @Given("^I go to workspace$")
+    public void iGoToWorkspace() {
+        nav.clickTabWorkspace();
     }
 }

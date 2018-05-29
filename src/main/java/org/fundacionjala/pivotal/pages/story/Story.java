@@ -63,14 +63,18 @@ public class Story extends Base {
     //DELETE
     @FindBy(css = ".autosaves.delete.hoverable.right_endcap")
     private WebElement buttonDeleteStory;
+
     @FindBy(css = "[class='SMkCk__Button SSqkh__Button--warning']")
     private WebElement buttonConfirmDelete;
+
     @FindBy(css = "li[class='tn_flash_message tn_flash_flash tn_expiring_flash tn_sliding_list_item "
             + "tn_sliding_list_fade-enter tn_sliding_list_fade-enter-active']")
     private WebElement getDeleteMessage;
     //EDIT
-    @FindBy(css = ".autosaves.close")
+    @FindBy(css = ".persistence .close")
     private WebElement buttonCloseEdit;
+
+
 
     /**
      * Method to delete a story.
@@ -99,6 +103,7 @@ public class Story extends Base {
         CommonMethods.waitWebElement(getStoryCreated);
         return getStoryCreated.getText();
     }
+
 
     /**
      * Method to click expander story button.
@@ -132,6 +137,7 @@ public class Story extends Base {
      * @param storyName String.
      */
     public void setStoryName(final String storyName) {
+        txtStoryName.clear();
         CommonMethods.setWebElement(txtStoryName, storyName);
     }
 

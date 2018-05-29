@@ -44,6 +44,9 @@ public class APIProjectSteps {
         if (feature.compareTo("story") == 0) {
             proyName.setStoryName(values.get("name"));
         }
+        if (feature.compareTo("workspace") == 0) {
+            proyName.setWorkspaceName(values.get("name"));
+        }
     }
 
     /**
