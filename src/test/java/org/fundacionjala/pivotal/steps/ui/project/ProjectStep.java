@@ -21,10 +21,10 @@ public class ProjectStep {
 
     /**
      * Constructor for ProjectStep class.
-     *
      * @param createProject object.
+     * @param proyName object.
      */
-    public ProjectStep(final CreateProject createProject, FeatureNames proyName) {
+    public ProjectStep(final CreateProject createProject, final FeatureNames proyName) {
         this.createProject = createProject;
         this.proyName = proyName;
     }

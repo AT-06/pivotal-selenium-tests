@@ -57,7 +57,11 @@ public final class APIRequestManager {
                 .when()
                 .put(endpoint);
     }
-
+    /**
+     * Method to get a request.
+     * @param endpoint string.
+     * @return a response list.
+     */
     public static Response get(final String endpoint) {
         return given()
                 .spec(APIManager.getInstance().getRequestSpecification())

@@ -1,9 +1,7 @@
 package org.fundacionjala.pivotal.pages.project;
 
-import org.fundacionjala.pivotal.core.e2e.DriverManager;
 import org.fundacionjala.pivotal.pages.common.Base;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,11 +25,16 @@ public class PageLogin extends Base {
     @FindBy(id = "projects-search-bar")
     private WebElement txtSearch;
 
-    @FindBy(css = "a.tc_header_logo")
-    private WebElement logoPivotal;
-
     private DashBoard dashBoard;
 
+    private static final int LOGINTIME = 5;
+
+    private static final int DEFAULTTIME = 30;
+
+    /**
+     * Constructor.
+     * @param dashBoard object.
+     */
     public PageLogin(final DashBoard dashBoard) {
         this.dashBoard = dashBoard;
     }
@@ -43,11 +46,6 @@ public class PageLogin extends Base {
     private void setTxtUsername(final String username) {
         driverWait.until(ExpectedConditions.visibilityOf(txtUsername));
         txtUsername.sendKeys(username);
-    }
-
-    private WebElement getLogoPivotal() {
-
-        return logoPivotal;
     }
 
     /**
@@ -86,13 +84,13 @@ public class PageLogin extends Base {
      */
     public void signIn(final String username, final String password) {
         try {
-            WebDriverWait shortWait = new WebDriverWait(driver, 5);
-            shortWait.until(ExpectedConditions.visibilityOf(txtUsername));
+            driverWait = new WebDriverWait(driver, LOGINTIME);
+            driverWait.until(ExpectedConditions.visibilityOf(txtUsername));
             setFieldsLogin(username, password);
         } catch (TimeoutException k) {
             dashBoard.setButtonDashborad();
-        } catch (NoSuchElementException e) {
-            dashBoard.setButtonDashborad();
+        } finally {
+            driverWait = new WebDriverWait(driver, DEFAULTTIME);
         }
 
     }

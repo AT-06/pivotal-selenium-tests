@@ -10,7 +10,6 @@ import org.fundacionjala.pivotal.steps.FeatureNames;
 import org.testng.Assert;
 import java.util.Map;
 
-import static org.fundacionjala.pivotal.pages.project.ProjectDescription.PROJECT_TITLE;
 
 /**
  * APIProjectSteps.java
@@ -25,7 +24,7 @@ public class APIProjectSteps {
      *
      * @param proyName object.
      */
-    public APIProjectSteps(FeatureNames proyName) {
+    public APIProjectSteps(final FeatureNames proyName) {
         this.proyName = proyName;
     }
 

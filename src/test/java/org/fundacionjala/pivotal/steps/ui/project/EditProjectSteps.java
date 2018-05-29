@@ -25,7 +25,8 @@ public class EditProjectSteps  {
      * Constructor for EditProjectSteps class.
      *
      * @param editProject object.
-     * @param dashBoard   object.
+     * @param dashBoard object.
+     * @param feature object.
      */
     public EditProjectSteps(final EditProject editProject, final DashBoard dashBoard, final FeatureNames feature) {
         this.editProject = editProject;
@@ -68,7 +69,9 @@ public class EditProjectSteps  {
         Assert.assertEquals(message, editProject.setMessageSaved());
     }
 
-
+    /**
+     * Method for return to dashboard.
+     */
     @Then("^I return to dashboard and verify the project$")
     public void iReturnToDashboardAndVerifyTheProject() {
         dashBoard.setButtonDashborad();

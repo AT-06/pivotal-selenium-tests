@@ -1,6 +1,6 @@
 package org.fundacionjala.pivotal.steps.ui.project;
 
-import cucumber.api.PendingException;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -48,7 +48,9 @@ public class DeleteProjectSteps {
     public void iCanVerifyTheProjectDeleted() {
         Assert.assertTrue(deleteProject.setMessageDelete());
     }
-
+    /**
+     * Method for delete the project.
+     */
     @And("^I delete the project$")
     public void iDeleteTheProject() {
         deleteProject.deleteProject();

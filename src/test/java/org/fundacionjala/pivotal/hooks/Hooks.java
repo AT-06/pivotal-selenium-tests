@@ -19,6 +19,10 @@ public class Hooks {
 
     private final FeatureNames feature;
 
+    /**
+     * constructor.
+     * @param feature object.
+     */
     public Hooks(final FeatureNames feature) {
         this.feature = feature;
     }

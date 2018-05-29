@@ -20,8 +20,8 @@ public class CreateStorySteps {
 
     /**
      * Constructor for CreateStorySteps class.
-     *
      * @param createStory object.
+     * @param feature object.
      */
     public CreateStorySteps(final Story createStory, final FeatureNames feature) {
         this.createStory = createStory;
