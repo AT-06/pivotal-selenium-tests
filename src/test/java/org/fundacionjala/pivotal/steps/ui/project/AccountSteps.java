@@ -2,7 +2,7 @@ package org.fundacionjala.pivotal.steps.ui.project;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.fundacionjala.pivotal.pages.project.Account;
+import org.fundacionjala.pivotal.pages.account.Account;
 import org.testng.Assert;
 
 /**

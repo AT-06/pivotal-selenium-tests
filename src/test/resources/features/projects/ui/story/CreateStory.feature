@@ -1,15 +1,17 @@
 Feature: Create Story
 
   Background: With valid credentials account
-    Given I put a valid user and Password
-    And I can create a new project with the following values
-      | PROJECT_TITLE   | FATIMA    |
-      | PROJECT_ACCOUNT | Fundacion |
-      | PROJECT_VISIBLE | private   |
-    Then I can verify the new project with the project name
+    Given I post a new "project" to "/projects" endpoint
+      | name             | Project with story |
+      | new_account_name | Willy  |
+      | public           | false      |
+    And save the response as "Project"
+    And I validate the status code 200
+    Then I put a valid user and Password
 
   @acceptance @DeleteProjectUI
   Scenario: Create story with only the required field
+    Given I go to project
     When I create a new story
       | STORY_NAME | story |
     Then I verify the new story was created
