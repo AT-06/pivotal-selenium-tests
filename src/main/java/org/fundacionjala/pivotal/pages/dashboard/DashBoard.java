@@ -20,11 +20,22 @@ public class DashBoard extends Base {
     @FindBy(xpath = "//*[contains(@href,'/dashboard')] ")
     private WebElement buttonDashborad;
 
+    @FindBy(css = "li.projectTile:first-child a[data-aid='project-name']")
+    private WebElement projectTitle;
+
+
+
     /**
      * Set Button DashBoard.
      */
     public void setButtonDashborad() {
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", buttonDashborad);
+    }
+    /**
+     * Set Button DashBoard.
+     */
+    public void setProjectTitle() {
+        CommonMethods.clickWebElement(projectTitle);
     }
 
     /**
@@ -51,6 +62,15 @@ public class DashBoard extends Base {
     public void searchProject(final String projectName) {
         this.setSearchProjectButton(projectName);
         this.setButtonEditProject();
+
+    }
+    /**
+     * Set Project name for a search.
+     *
+     * @param projectName String.
+     */
+    public void searchOnlyProject(final String projectName) {
+        this.setSearchProjectButton(projectName);
 
     }
 }

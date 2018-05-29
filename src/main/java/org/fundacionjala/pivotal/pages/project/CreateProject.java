@@ -10,8 +10,6 @@ import org.openqa.selenium.support.FindBy;
 import java.util.EnumMap;
 import java.util.Map;
 
-import static org.fundacionjala.pivotal.core.e2e.CommonMethods.waitWebElement;
-
 
 /**
  * Class for create a Project.
@@ -45,8 +43,8 @@ public class CreateProject extends Base {
      * @return txtVerifyName.
      */
     public String verifyName() {
-        waitWebElement(txtVerifyName);
-        return txtVerifyName.getText();
+        return CommonMethods.waitWebElement(txtVerifyName).getText();
+
     }
 
     /**

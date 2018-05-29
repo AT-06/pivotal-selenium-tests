@@ -1,9 +1,11 @@
-package org.fundacionjala.pivotal.pages.project;
+package org.fundacionjala.pivotal.pages.account;
 
 import org.fundacionjala.pivotal.core.e2e.CommonMethods;
 import org.fundacionjala.pivotal.pages.common.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * Class account for start the Project.
@@ -29,6 +31,21 @@ public class Account extends Base {
     @FindBy(css = "#main  h2.account_name")
     private WebElement txtVerifyAccountName;
 
+    @FindBy(css = "button[aria-label='Profile Dropdown']")
+    private WebElement profileDropdown;
+
+    @FindBy(linkText = "Accounts")
+    private WebElement linkAccounts;
+
+    @FindBy(css = "div.tabular_data:last-child a.header_button:last-child")
+    private WebElement manageAccount;
+
+    @FindBy(css = ".subnav li:nth-child(2) a")
+    private WebElement settingsButton;
+
+    @FindBy(css = "a[data-method='delete']")
+    private WebElement deleteLink;
+
     /**
      * Set verify the account name.
      *
@@ -37,6 +54,45 @@ public class Account extends Base {
     private Boolean setTxtVerifyAccountName() {
         CommonMethods.waitWebElement(txtVerifyAccountName);
         return txtVerifyAccountName.isDisplayed();
+    }
+
+    /**
+     * Set do click in the settings account button.
+     *
+     */
+    private void setSettingsButton() {
+        CommonMethods.clickWebElement(settingsButton);
+    }
+    /**
+     * Set do click in the settings account button.
+     *
+     */
+    private void setDeleteLink() {
+        CommonMethods.clickWebElement(deleteLink);
+    }
+
+    /**
+     * Set do click in the dropdown profile.
+     *
+     */
+    private void setManageAccount() {
+        CommonMethods.clickWebElement(manageAccount);
+    }
+
+    /**
+     * Set do click in the dropdown profile.
+     *
+     */
+    private void setProfileDropdown() {
+        CommonMethods.clickWebElement(profileDropdown);
+    }
+
+    /**
+     * click over accounts.
+     *
+     */
+    private void setLinkAccounts() {
+        CommonMethods.clickWebElement(linkAccounts);
     }
 
     /**
@@ -96,5 +152,30 @@ public class Account extends Base {
      */
     public Boolean verifyTheAccountName() {
         return this.setTxtVerifyAccountName();
+    }
+    /**
+     * go to accounts.
+     */
+    public void goToAccounts() {
+        setProfileDropdown();
+        setLinkAccounts();
+    }
+    /**
+     * Delete account.
+     *
+     */
+    public void delete() {
+        setManageAccount();
+        setSettingsButton();
+        setDeleteLink();
+        clickDeleteAlert();
+    }
+
+    /**
+     * clickDeleteAlert.
+     */
+    public void clickDeleteAlert() {
+        Alert alert = driverWait.until(ExpectedConditions.alertIsPresent());
+        alert.accept();
     }
 }
