@@ -35,6 +35,7 @@ public class EditAndDeleteTaskSteps {
     public void iEditTheTaskContent(final Map<DescriptionsTask, String> values) {
         story.clickSToryExpander();
         task.clickOnTaskCreated();
+        task.clickOnTaskTextArea();
         values.keySet().stream().forEach(step -> task.getStrategyStepMap(values).get(step).execute());
         task.setSaveTaskButton();
         story.setButtonCloseEdit();

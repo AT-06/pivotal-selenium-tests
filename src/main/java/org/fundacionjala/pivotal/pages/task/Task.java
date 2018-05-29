@@ -28,6 +28,9 @@ public class Task extends Base {
     @FindBy(css = "button[data-aid=saveTaskButton]")
     private WebElement taskSaveButton;
 
+    @FindBy(css = "div section > div >div > textarea")
+    private WebElement taskTextArea;
+
     /**
      * Method to click Add task button.
      */
@@ -86,5 +89,12 @@ public class Task extends Base {
      */
     public void setSaveTaskButton() {
         CommonMethods.clickWebElement(taskSaveButton);
+    }
+
+    /**
+     * Method to do click on task text area.
+     */
+    public void clickOnTaskTextArea() {
+        CommonMethods.clickWebElement(taskTextArea);
     }
 }
