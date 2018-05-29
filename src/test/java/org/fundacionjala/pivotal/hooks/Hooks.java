@@ -84,4 +84,20 @@ public class Hooks {
         account.delete();
 
     }
+
+
+    /**
+     * After hook to delete the project created in tests.
+     */
+    @After("@DeleteWorkspaceUI")
+    public void deleteWorkspaceUI() {
+        JsonPath jsonPath = new JsonPath(APIRequestManager.get("/my/workspaces").asString());
+        List<Map<String, Object>> projectsList = jsonPath.get();
+        for (final Map<String, Object> map : projectsList) {
+            if (map.get("name").equals(feature.getWorkspaceName())) {
+                APIRequestManager.delete(String.format("/my/workspaces/%s", map.get("id").toString()));
+            }
+        }
+
+    }
 }

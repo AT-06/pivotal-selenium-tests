@@ -9,8 +9,23 @@ public class FeatureNames {
     private String projectName;
     private String storyName;
     private String accountName;
+    private String workspaceName;
 
+    /**
+     * Method setProjectName to save the project name.
+     * @param workspaceName string.
+     */
+    public void setWorkspaceName(final String workspaceName) {
+        this.workspaceName = workspaceName;
+    }
 
+    /**
+     * Method getProjectName to get the project saved.
+     * @return the project name.
+     */
+    public String getWorkspaceName() {
+        return workspaceName;
+    }
     /**
      * Method setProjectName to save the project name.
      * @param accountName string.

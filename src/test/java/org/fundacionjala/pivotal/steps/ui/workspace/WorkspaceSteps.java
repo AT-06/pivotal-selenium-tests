@@ -27,9 +27,8 @@ public class WorkspaceSteps {
     /**
      * Method for return to dashboard.
      */
-    @Given("^I return to Dashboard and go to workspace tab$")
-    public void iReturnToDashboardAndGoToWorkspaceTab() {
-        nav.returnToDashboardFromProjWork();
+    @Given("^I go to Dashboard and go to workspace tab$")
+    public void iGoToDashboardAndGoToWorkspaceTab() {
         nav.clickTabWorkspace();
     }
 

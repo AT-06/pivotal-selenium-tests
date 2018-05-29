@@ -1,23 +1,21 @@
 Feature: Delete Story
 
   Background: With valid credentials account
-    Given I put a valid user and Password
-    And I can create a new project with the following values
-      | PROJECT_TITLE   | ESCARLETH |
-      | PROJECT_ACCOUNT | Fundacion |
-      | PROJECT_VISIBLE | private   |
-    And I can verify the new project with the project name
-    And I create a new story
-      | STORY_NAME  | storyTest       |
-      | STORY_TYPE  | feature         |
-      | BLOCKERS    | blockerTest     |
-      | DESCRIPTION | descriptionTest |
-      | LABEL       | labelStory      |
-      | COMMENT     | commentTest     |
-    Then I verify the new story was created
+    Given I post a new "project" to "/projects" endpoint
+      | name             | Test New Project With Stories |
+      | new_account_name | Fundacion  |
+      | public           | false      |
+    And save the response as "Project"
+    Then I validate the status code 200
+    And I post a new "story" to "/projects/[Project.id]/stories" endpoint
+      | name | story 2 |
+    And save the response as "Story"
+    And I validate the status code 200
+    Then I put a valid user and Password
 
-  @acceptance
+  @acceptance @DeleteProject @DeleteAccount
   Scenario: Edit a story
+    Given I go to project
     When I edit the next parameters
       | STORY_NAME  | StoryEdited           |
       | STORY_TYPE  | bug                   |
@@ -25,9 +23,10 @@ Feature: Delete Story
       | DESCRIPTION | descriptionTestEdited |
       | LABEL       | descriptionTestEdited |
       | COMMENT     | commentTestEdited     |
-    Then I verify the parameters of "StoryEdited" were edited
+    Then I verify the parameters were edited
 
-  @acceptance
+  @acceptance @DeleteProject @DeleteAccount
   Scenario: Delete a story
-    Given I delete the story
+    Given I go to project
+    And I delete the story
     Then I verify that the story was deleted
