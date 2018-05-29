@@ -1,4 +1,4 @@
-package org.fundacionjala.pivotal.steps.workspace;
+package org.fundacionjala.pivotal.steps.ui.workspace;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;

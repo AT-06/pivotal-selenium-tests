@@ -36,7 +36,6 @@ public class APIProjectSteps {
      */
     @And("^I post a new \"([^\"]*)\" to \"([^\"]*)\" endpoint$")
     public void iPostANewToEndpoint(final String feature, final String endpoint, final Map<String, String> values) {
-        System.out.println("test");
         APIRequestManager.post(values, APICommons.buildEndPoint(endpoint));
         proyName.setProjectName(values.get("name"));
     }
