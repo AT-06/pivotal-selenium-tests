@@ -32,6 +32,8 @@ public class EditWorkspace extends Base {
     @FindBy(id = "notice")
     private WebElement successDeleteMessage;
 
+
+
     /**
      * Method for get the last workspace created.
      *

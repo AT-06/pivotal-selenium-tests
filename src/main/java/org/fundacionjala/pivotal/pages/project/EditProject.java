@@ -35,6 +35,18 @@ public class EditProject extends Base {
     @FindBy(css = "#project_start_date")
     private WebElement txtDateProject;
 
+    @FindBy(css = "li.projectTile:last-child .projectTileHeader__projectName")
+    private WebElement titleProject;
+
+    /**
+     * Method for get the last workspace created.
+     *
+     * @return title last project created.
+     */
+    public String getTitleProject() {
+        return CommonMethods.waitWebElement(titleProject).getText();
+    }
+
     /**
      * Method for set Date Project.
      *

@@ -1,4 +1,4 @@
-package org.fundacionjala.pivotal.steps.project;
+package org.fundacionjala.pivotal.steps.ui.project;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;

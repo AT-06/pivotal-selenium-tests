@@ -1,4 +1,5 @@
-package org.fundacionjala.pivotal.steps.project;
+package org.fundacionjala.pivotal.steps.ui.project;
+
 
 
 import cucumber.api.java.en.And;
@@ -37,8 +38,10 @@ public class EditProjectSteps  {
      */
     @When("^I select the created project")
     public void iSelectTheCreatedProject() {
+
         dashBoard.setButtonDashborad();
         dashBoard.searchProject(feature.getProjectName());
+
     }
 
     /**
@@ -66,4 +69,9 @@ public class EditProjectSteps  {
     }
 
 
+    @Then("^I return to dashboard and verify the project$")
+    public void iReturnToDashboardAndVerifyTheProject() {
+        dashBoard.setButtonDashborad();
+        Assert.assertEquals(feature.getProjectName(), editProject.getTitleProject());
+    }
 }

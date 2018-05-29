@@ -6,14 +6,28 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.pivotal.core.api.APICommons;
 import org.fundacionjala.pivotal.core.api.APIRequestManager;
+import org.fundacionjala.pivotal.steps.FeatureNames;
 import org.testng.Assert;
 import java.util.Map;
+
+import static org.fundacionjala.pivotal.pages.project.ProjectDescription.PROJECT_TITLE;
 
 /**
  * APIProjectSteps.java
  * Class with steps for test feature.
  */
 public class APIProjectSteps {
+
+    private FeatureNames proyName;
+
+    /**
+     * Constructor for ProjectStep class.
+     *
+     * @param proyName object.
+     */
+    public APIProjectSteps(FeatureNames proyName) {
+        this.proyName = proyName;
+    }
 
     /**
      * And step to post a project.
@@ -23,7 +37,9 @@ public class APIProjectSteps {
      */
     @And("^I post a new \"([^\"]*)\" to \"([^\"]*)\" endpoint$")
     public void iPostANewToEndpoint(final String feature, final String endpoint, final Map<String, String> values) {
+        System.out.println("test");
         APIRequestManager.post(values, APICommons.buildEndPoint(endpoint));
+        proyName.setProjectName(values.get("name"));
     }
 
     /**
