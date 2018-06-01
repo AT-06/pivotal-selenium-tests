@@ -12,16 +12,20 @@ import java.net.URL;
 /**
  * Class Connection.
  */
-public abstract class Connection implements  Browser {
+public abstract class Connection implements Browser {
 
     static final PropertiesConfig PROPERTIES = PropertiesConfig.getInstance();
     static final String SAUCE_USERNAME = PROPERTIES.getSauceUserName();
     static final String SAUCE_KEY = PROPERTIES.getSauceKey();
+    static final String BROWSERSTACK_USERNAME = PROPERTIES.getBrowserStackUserName();
+    static final String BROWSERSTACK_KEY = PROPERTIES.getBrowserStackKey();
+
 
     private final String url;
 
     /**
      * Set Capabilities.
+     *
      * @return capabilities of sauceLabs.
      */
     abstract DesiredCapabilities setCapabilities();

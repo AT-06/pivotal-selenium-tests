@@ -107,6 +107,7 @@ public final class PropertiesConfig {
     public String getRemotePlatform() {
         return properties.getProperty("remotePlatform");
     }
+
     /**
      * Method to get Browser version of sauceLabs.
      *
@@ -141,5 +142,68 @@ public final class PropertiesConfig {
      */
     public String getBrowser() {
         return properties.getProperty("browser");
+    }
+
+    /**
+     * Getter for the Browserstack username.
+     *
+     * @return the name of the user.
+     */
+    public String getBrowserStackUserName() {
+        return properties.getProperty("bsUserName");
+    }
+
+    /**
+     * Getter for the Browserstack key.
+     *
+     * @return the name of the key.
+     */
+    public String getBrowserStackKey() {
+        return properties.getProperty("bsKey");
+    }
+
+    /**
+     * Getter for the Browserstack Browser.
+     *
+     * @return the name of the browser.
+     */
+    public String getBrowserName() {
+        return properties.getProperty("bsBrowser");
+    }
+
+    /**
+     * Getter for the version of the browser for Browserstack remote driver.
+     *
+     * @return the version of the browser.
+     */
+    public String getBrowserVersion() {
+        return properties.getProperty("bsBrowserVersion");
+    }
+
+    /**
+     * Getter for the OS for Browserstack remote driver.
+     *
+     * @return the OS.
+     */
+    public String getOSName() {
+        return properties.getProperty("bsPlatform");
+    }
+
+    /**
+     * Getter for the OS version for Browserstack remote driver.
+     *
+     * @return the version OS.
+     */
+    public String getOSVersion() {
+        return properties.getProperty("bsOSVersion");
+    }
+
+    /**
+     * Getter for the browser resolution for Browserstack remote driver.
+     *
+     * @return the resolution.
+     */
+    public String getBrowserResolution() {
+        return properties.getProperty("bsResolution");
     }
 }
