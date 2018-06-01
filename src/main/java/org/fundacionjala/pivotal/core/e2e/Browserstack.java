@@ -9,9 +9,9 @@ public class Browserstack extends Connection implements Browser {
     /**
      * @param url .
      */
-    public static final String URL = "https://"
-            + BROWSERSTACK_USERNAME + ":"
-            + BROWSERSTACK_KEY + "@hub-cloud.browserstack.com/wd/hub";
+
+    public static final String URL = String.format("https://%s:%s@hub-cloud.browserstack.com/wd/hub",
+            BROWSERSTACK_USERNAME, BROWSERSTACK_KEY);
     private static final String BROWSER_NAME = "browser";
     private static final String BROWSER_VERSION = "browser_version";
     private static final String BROWSER_OS = "os";
