@@ -1,4 +1,4 @@
-package org.fundacionjala.pivotal.core.e2e;
+package org.fundacionjala.pivotal.core.webdrivers;
 
 import org.openqa.selenium.WebDriver;
 
@@ -29,7 +29,7 @@ public final class DriverFactory {
         map.put(DriverType.FIREFOX, new FirefoxBrowser());
         map.put(DriverType.DOCKER_CHROME, new DockerChromeBrowser());
         map.put(DriverType.DOCKER_FIREFOX, new DockerFirefoxBrowser());
-        map.put(DriverType.SAUCELABS, new SauceTest());
+        map.put(DriverType.SAUCELABS, new SauceLabs());
         map.put(DriverType.BROWSERSTACK, new Browserstack());
         return map.get(driverType).getBrowser();
     }

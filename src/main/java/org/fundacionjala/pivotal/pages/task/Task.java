@@ -1,6 +1,6 @@
 package org.fundacionjala.pivotal.pages.task;
 
-import org.fundacionjala.pivotal.core.e2e.CommonMethods;
+import org.fundacionjala.pivotal.utils.CommonActions;
 import org.fundacionjala.pivotal.pages.common.Base;
 import org.fundacionjala.pivotal.pages.common.Steps;
 import org.openqa.selenium.WebElement;
@@ -35,7 +35,7 @@ public class Task extends Base {
      * Method to click Add task button.
      */
     public void clickAddTask() {
-        CommonMethods.clickWebElement(addtask);
+        CommonActions.clickWebElement(addtask);
     }
 
     /**
@@ -57,14 +57,14 @@ public class Task extends Base {
      * @param taskDescription is the description.
      */
     public void setTaskDescription(final String taskDescription) {
-        CommonMethods.setWebElement(taskField, taskDescription);
+        CommonActions.setWebElement(taskField, taskDescription);
     }
 
     /**
      * Method to set Add task button.
      */
     public void setAddTaskButton() {
-        CommonMethods.clickWebElement(addTaskButton);
+        CommonActions.clickWebElement(addTaskButton);
     }
 
     /**
@@ -73,7 +73,7 @@ public class Task extends Base {
      * @return the task name.
      */
     public String verifyTaskName() {
-        CommonMethods.waitWebElement(getTaskCreated);
+        CommonActions.waitWebElement(getTaskCreated);
         return getTaskCreated.getText();
     }
 
@@ -81,20 +81,20 @@ public class Task extends Base {
      * Method to do click on a task created.
      */
     public void clickOnTaskCreated() {
-        CommonMethods.clickWebElement(getTaskCreated);
+        CommonActions.clickWebElement(getTaskCreated);
     }
 
     /**
      * Method to do click on save task button.
      */
     public void setSaveTaskButton() {
-        CommonMethods.clickWebElement(taskSaveButton);
+        CommonActions.clickWebElement(taskSaveButton);
     }
 
     /**
      * Method to do click on task text area.
      */
     public void clickOnTaskTextArea() {
-        CommonMethods.clickWebElement(taskTextArea);
+        CommonActions.clickWebElement(taskTextArea);
     }
 }

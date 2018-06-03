@@ -1,19 +1,20 @@
-package org.fundacionjala.pivotal.core.e2e;
+package org.fundacionjala.pivotal.utils;
 
+import org.fundacionjala.pivotal.core.webdrivers.DriverManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- * Class CommonMethods.
+ * Class CommonActions.
  */
-public final class CommonMethods {
+public final class CommonActions {
 
     /**
      * Constructor Private.
      */
-    private CommonMethods() {
+    private CommonActions() {
     }
 
     /**

@@ -1,6 +1,6 @@
 package org.fundacionjala.pivotal.pages.common;
 
-import org.fundacionjala.pivotal.core.e2e.DriverManager;
+import org.fundacionjala.pivotal.core.webdrivers.DriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;

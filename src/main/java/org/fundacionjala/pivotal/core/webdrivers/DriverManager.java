@@ -1,4 +1,4 @@
-package org.fundacionjala.pivotal.core.e2e;
+package org.fundacionjala.pivotal.core.webdrivers;
 
 import org.fundacionjala.pivotal.utils.PropertiesConfig;
 import org.openqa.selenium.WebDriver;

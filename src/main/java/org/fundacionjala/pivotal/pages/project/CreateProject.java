@@ -1,6 +1,6 @@
 package org.fundacionjala.pivotal.pages.project;
 
-import org.fundacionjala.pivotal.core.e2e.CommonMethods;
+import org.fundacionjala.pivotal.utils.CommonActions;
 import org.fundacionjala.pivotal.pages.common.Base;
 import org.fundacionjala.pivotal.pages.common.Steps;
 import org.openqa.selenium.By;
@@ -43,7 +43,7 @@ public class CreateProject extends Base {
      * @return txtVerifyName.
      */
     public String verifyName() {
-        return CommonMethods.waitWebElement(txtVerifyName).getText();
+        return CommonActions.waitWebElement(txtVerifyName).getText();
 
     }
 
@@ -70,22 +70,22 @@ public class CreateProject extends Base {
      */
     private void setTxtSelectorAcccountSpecific(final String account) {
         this.setTxtSelectorAcccountCheck();
-        CommonMethods.clickWebElement(buttonCreateAccount);
-        CommonMethods.setWebElement(txtAccountName, account);
+        CommonActions.clickWebElement(buttonCreateAccount);
+        CommonActions.setWebElement(txtAccountName, account);
     }
 
     /**
      * Method for Select account Check.
      */
     private void setTxtSelectorAcccountCheck() {
-        CommonMethods.clickWebElement(txtSelectorAcccountCheck);
+        CommonActions.clickWebElement(txtSelectorAcccountCheck);
     }
 
     /**
      * Method for set Button Create Project.
      */
     public void setButtonCreateProject() {
-        CommonMethods.clickWebElement(buttonCreateProject);
+        CommonActions.clickWebElement(buttonCreateProject);
     }
 
     /**
@@ -94,7 +94,7 @@ public class CreateProject extends Base {
      * @param projectName String.
      */
     private void setTxtProjectName(final String projectName) {
-        CommonMethods.setWebElement(txtProjectName, projectName);
+        CommonActions.setWebElement(txtProjectName, projectName);
 
     }
 
@@ -102,7 +102,7 @@ public class CreateProject extends Base {
      * Method for set Button Create.
      */
     public void setButtonCreate() {
-        CommonMethods.clickWebElement(buttonCreate);
+        CommonActions.clickWebElement(buttonCreate);
     }
 
     /**

@@ -1,7 +1,7 @@
 package org.fundacionjala.pivotal.pages.workspace;
 
+import org.fundacionjala.pivotal.utils.CommonActions;
 import org.fundacionjala.pivotal.pages.common.Base;
-import org.fundacionjala.pivotal.core.e2e.CommonMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -30,7 +30,7 @@ public class CreateWorkspace extends Base {
      * @return ButtonCreateWorkspace.
      */
     private WebElement getButtonCreateWorkspace() {
-        return CommonMethods.waitWebElement(buttonNewWorkspaceProject);
+        return CommonActions.waitWebElement(buttonNewWorkspaceProject);
 
     }
 
@@ -40,7 +40,7 @@ public class CreateWorkspace extends Base {
      * @return ButtonCreateWorkspace.
      */
     private WebElement getButtonSaveWorkspace() {
-        return CommonMethods.waitWebElement(buttonCreateWorkspace);
+        return CommonActions.waitWebElement(buttonCreateWorkspace);
 
     }
 
@@ -50,7 +50,7 @@ public class CreateWorkspace extends Base {
      * @return ButtonCreateWorkspace.
      */
     private WebElement getLastWorkspaceCreated() {
-        return CommonMethods.waitWebElement(lastWorkspaceCreated);
+        return CommonActions.waitWebElement(lastWorkspaceCreated);
 
     }
 
@@ -70,7 +70,7 @@ public class CreateWorkspace extends Base {
      * @param workspaceName String.
      */
     private void setTxtWorkspaceNameName(final String workspaceName) {
-        CommonMethods.setWebElement(txtWorkspaceName, workspaceName);
+        CommonActions.setWebElement(txtWorkspaceName, workspaceName);
 
     }
 
@@ -78,14 +78,14 @@ public class CreateWorkspace extends Base {
      * Method for press click buttton for create a new workspace.
      */
     private void clickButtonCreateWorkspace() {
-        CommonMethods.clickWebElement(this.getButtonCreateWorkspace());
+        CommonActions.clickWebElement(this.getButtonCreateWorkspace());
     }
 
     /**
      * Method for press click buttton for save a new workspace.
      */
     private void clickButtonSaveWorkspace() {
-        CommonMethods.clickWebElement(this.getButtonSaveWorkspace());
+        CommonActions.clickWebElement(this.getButtonSaveWorkspace());
     }
 
     /**

@@ -1,11 +1,11 @@
-package org.fundacionjala.pivotal.core.e2e;
+package org.fundacionjala.pivotal.core.webdrivers;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
- *Class SauceTest.
+ *Class SauceLabs.
  */
-public class SauceTest extends Connection implements Browser {
+public class SauceLabs extends Connection implements Browser {
 
     private static final String URL = "https://"
             + SAUCE_USERNAME + ":"
@@ -17,9 +17,9 @@ public class SauceTest extends Connection implements Browser {
 
 
     /**
-     * SauceTest Set url.
+     * SauceLabs Set url.
      */
-    public SauceTest() {
+    public SauceLabs() {
         super(URL);
     }
 
