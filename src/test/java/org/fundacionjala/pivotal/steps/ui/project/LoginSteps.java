@@ -1,10 +1,8 @@
 package org.fundacionjala.pivotal.steps.ui.project;
 
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import org.fundacionjala.pivotal.utils.PropertiesConfig;
+import org.fundacionjala.pivotal.util.PropertiesConfig;
 import org.fundacionjala.pivotal.pages.project.PageLogin;
-import org.testng.Assert;
 
 /**
  * Class of Login Steps.
@@ -28,13 +26,5 @@ public class LoginSteps {
     public void iPutAValidAnd() {
         pageLogin.signIn(PropertiesConfig.getInstance()
                 .getUser(), PropertiesConfig.getInstance().getPassword());
-    }
-
-    /**
-     * Then can see login page.
-     */
-    @Then("^I can see the Login Page$")
-    public void iCanSeeTheLoginPage() {
-        Assert.assertTrue(pageLogin.checkPageLogin());
     }
 }

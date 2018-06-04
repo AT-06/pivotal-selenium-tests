@@ -1,4 +1,4 @@
-package org.fundacionjala.pivotal.utils;
+package org.fundacionjala.pivotal.util;
 
 import org.fundacionjala.pivotal.core.webdrivers.DriverManager;
 import org.openqa.selenium.JavascriptExecutor;

@@ -1,16 +1,11 @@
 package org.fundacionjala.pivotal.steps.ui.project;
 
-
-
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.pages.project.EditProject;
 import org.fundacionjala.pivotal.pages.project.ProjectDescription;
 import org.fundacionjala.pivotal.steps.FeatureNames;
-import org.testng.Assert;
 import java.util.Map;
 
 /**
@@ -57,24 +52,5 @@ public class EditProjectSteps  {
                 .forEach(step -> editProject.getStrategyStepMap(descriptions)
                         .get(step).execute());
         editProject.setSaveEditProject();
-    }
-
-    /**
-     * Method for Verify the message of saved changes.
-     *
-     * @param message String.
-     */
-    @Then("^I can verify the message saved \"([^\"]*)\"$")
-    public void iCanVerifyTheMessageSaved(final String message) {
-        Assert.assertEquals(message, editProject.setMessageSaved());
-    }
-
-    /**
-     * Method for return to dashboard.
-     */
-    @Then("^I return to dashboard and verify the project$")
-    public void iReturnToDashboardAndVerifyTheProject() {
-        dashBoard.setButtonDashborad();
-        Assert.assertEquals(feature.getProjectName(), editProject.getTitleProject());
     }
 }

@@ -1,6 +1,5 @@
 package org.fundacionjala.pivotal.steps.ui.story;
 
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -58,15 +57,5 @@ public class EditAndDeleteStorySteps {
         story.setButtonCloseEdit();
         feature.setStoryName(values.get(STORY_NAME));
     }
-
-    /**
-     * Verify that the parameters were edited.
-     */
-    @Then("^I verify the parameters were edited$")
-    public void iVerifyTheParametersOfWereEdited() {
-        Assert.assertEquals(feature.getStoryName(), story.verifyStoryName());
-
-    }
-
 
 }

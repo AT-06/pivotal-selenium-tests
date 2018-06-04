@@ -20,7 +20,7 @@ public class APIProjectSteps {
     private FeatureNames proyName;
 
     /**
-     * Constructor for ProjectStep class.
+     * Constructor for ProjectSteps class.
      *
      * @param proyName object.
      */

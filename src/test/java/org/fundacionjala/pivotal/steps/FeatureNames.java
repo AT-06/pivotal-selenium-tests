@@ -1,6 +1,5 @@
 package org.fundacionjala.pivotal.steps;
 
-
 /**
  * Class FeatureNames that save the name of the stories, projects.
  */
@@ -11,8 +10,10 @@ public class FeatureNames {
     private String accountName;
     private String workspaceName;
 
+
     /**
      * Method setProjectName to save the project name.
+     *
      * @param workspaceName string.
      */
     public void setWorkspaceName(final String workspaceName) {
@@ -21,13 +22,16 @@ public class FeatureNames {
 
     /**
      * Method getProjectName to get the project saved.
+     *
      * @return the project name.
      */
     public String getWorkspaceName() {
         return workspaceName;
     }
+
     /**
      * Method setProjectName to save the project name.
+     *
      * @param accountName string.
      */
     public void setAccountName(final String accountName) {
@@ -36,13 +40,16 @@ public class FeatureNames {
 
     /**
      * Method getProjectName to get the project saved.
+     *
      * @return the project name.
      */
     public String getAccountName() {
         return accountName;
     }
+
     /**
      * Method setProjectName to save the project name.
+     *
      * @param projectVariable string.
      */
     public void setProjectName(final String projectVariable) {
@@ -51,13 +58,16 @@ public class FeatureNames {
 
     /**
      * Method getProjectName to get the project saved.
+     *
      * @return the project name.
      */
     public String getProjectName() {
         return projectName;
     }
+
     /**
      * Method setProjectName to save the story name.
+     *
      * @param storyName string.
      */
     public void setStoryName(final String storyName) {
@@ -66,6 +76,7 @@ public class FeatureNames {
 
     /**
      * Method getProjectName to get the story saved.
+     *
      * @return the story name.
      */
     public String getStoryName() {

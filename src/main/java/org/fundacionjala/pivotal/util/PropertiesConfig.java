@@ -1,4 +1,4 @@
-package org.fundacionjala.pivotal.utils;
+package org.fundacionjala.pivotal.util;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -131,7 +131,8 @@ public final class PropertiesConfig {
      *
      * @return the docker url in a string object.
      */
-    public String getDockerUrl() {
+    public String
+    getDockerUrl() {
         return properties.getProperty("dockerUrl");
     }
 

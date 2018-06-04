@@ -4,11 +4,15 @@ package org.fundacionjala.pivotal.hooks;
 import com.jayway.restassured.path.json.JsonPath;
 import cucumber.api.java.After;
 
+import cucumber.api.java.Before;
 import org.fundacionjala.pivotal.core.api.APIRequestManager;
 import org.fundacionjala.pivotal.core.api.APICommons;
 import org.fundacionjala.pivotal.pages.account.Account;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.steps.FeatureNames;
+import org.fundacionjala.pivotal.util.Helper;
+import org.testng.asserts.Assertion;
+import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 import java.util.Map;
@@ -22,18 +26,23 @@ public class Hooks {
     private final FeatureNames feature;
     private final DashBoard dashboard;
     private final Account account;
+    private Helper helper;
 
     /**
      * constructor.
-     * @param feature object.
+     *
+     * @param feature   object.
      * @param dashboard object.
-     * @param account object.
+     * @param account   object.
+     * @param helper    object.
      */
-    public Hooks(final FeatureNames feature, final DashBoard dashboard, final Account account) {
+    public Hooks(final FeatureNames feature, final DashBoard dashboard, final Account account, final Helper helper) {
         this.feature = feature;
         this.dashboard = dashboard;
         this.account = account;
+        this.helper = helper;
     }
+
     /**
      * After hook to delete the project created in tests.
      */
@@ -99,5 +108,21 @@ public class Hooks {
             }
         }
 
+    }
+
+    /**
+     * Set a instance of Soft Assert to helper.
+     */
+    @Before("@SoftAssert")
+    public void setSoftAssertion() {
+        helper.setAssertion(new SoftAssert());
+    }
+
+    /**
+     * Set to hard Assertion.
+     */
+    @Before
+    public void setHardAssertion() {
+        helper.setAssertion(new Assertion());
     }
 }

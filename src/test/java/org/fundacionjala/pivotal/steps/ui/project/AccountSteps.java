@@ -1,9 +1,7 @@
 package org.fundacionjala.pivotal.steps.ui.project;
 
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import org.fundacionjala.pivotal.pages.account.Account;
-import org.testng.Assert;
 
 /**
  * Class for Create account.
@@ -30,11 +28,4 @@ public class AccountSteps {
         account.createAccount(accountName);
     }
 
-    /**
-     * Verify that is created the account.
-     */
-    @Then("^I can verify the new account$")
-    public void iCanVerifyTheNewAccount() {
-        Assert.assertTrue(account.verifyTheAccountName());
-    }
 }

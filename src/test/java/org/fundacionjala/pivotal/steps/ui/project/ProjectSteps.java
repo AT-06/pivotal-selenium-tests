@@ -1,11 +1,9 @@
 package org.fundacionjala.pivotal.steps.ui.project;
 
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import org.fundacionjala.pivotal.pages.project.CreateProject;
 import org.fundacionjala.pivotal.pages.project.ProjectDescription;
 import org.fundacionjala.pivotal.steps.FeatureNames;
-import org.testng.Assert;
 
 import java.util.Map;
 
@@ -15,16 +13,17 @@ import static org.fundacionjala.pivotal.pages.project.ProjectDescription.PROJECT
 /**
  * Class Project Steps for create a project.
  */
-public class ProjectStep {
+public class ProjectSteps {
     private CreateProject createProject;
     private FeatureNames proyName;
 
     /**
-     * Constructor for ProjectStep class.
+     * Constructor for ProjectSteps class.
+     *
      * @param createProject object.
-     * @param proyName object.
+     * @param proyName      object.
      */
-    public ProjectStep(final CreateProject createProject, final FeatureNames proyName) {
+    public ProjectSteps(final CreateProject createProject, final FeatureNames proyName) {
         this.createProject = createProject;
         this.proyName = proyName;
     }
@@ -41,14 +40,6 @@ public class ProjectStep {
         projects.keySet().stream().forEach(step -> createProject.getStrategyStepMap(projects).get(step).execute());
         createProject.setButtonCreate();
         proyName.setProjectName(values.get(PROJECT_TITLE));
-    }
-
-    /**
-     * Verify that is created the project.
-     */
-    @Then("^I can verify the new project with the project name$")
-    public void iCanVerifyTheNewProjectWithProjectName() {
-        Assert.assertEquals(proyName.getProjectName(), createProject.verifyName());
     }
 }
 

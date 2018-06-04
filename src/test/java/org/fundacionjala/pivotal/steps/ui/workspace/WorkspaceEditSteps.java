@@ -1,6 +1,5 @@
 package org.fundacionjala.pivotal.steps.ui.workspace;
 
-
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -38,14 +37,14 @@ public class WorkspaceEditSteps {
      * Step and to go to edit the workspace name.
      * @param name workspace.
      */
-    @And("^I select the workspace created and I edit the workspace name \"([^\"]*)\" and press save$")
+    @And("^I edit the workspace name \"([^\"]*)\" and press save$")
     public void iSelectTheWorkspaceCreatedAndIEditTheWorkspaceNameAndPressSave(final String name) {
         editWorkspace.editWorkspace(name);
     }
     /**
      * Step then to go to verify edit the workspace name.
      */
-    @Then("^Then I can verify the edit workspace$")
+    @Then("^I can verify the edit workspace$")
     public void thenICanVerifyTheEditWorkspace() {
         Assert.assertTrue(editWorkspace.getSuccessMessage().isDisplayed());
     }
@@ -53,20 +52,13 @@ public class WorkspaceEditSteps {
     /**
      * Step given to select the last workspace and delete it.
      */
-    @Given("^I go to workspace and I select the last workspace created and I delete the workspace$")
+    @Given("^I select the last workspace created and I delete it$")
     public void iGoToWorkspaceAndISelectTheLastWorkspaceCreatedAndIDeleteTheWorkspace() {
         nav.returnToDashboardFromProjWork();
         nav.clickTabWorkspace();
         editWorkspace.deleteLastWorkspace();
     }
 
-    /**
-     * Step given to verify the delete workspace.
-     */
-    @Then("^Then I can verify the delete workspace$")
-    public void thenICanVerifyTheDeleteWorkspace() {
-        Assert.assertTrue(editWorkspace.getSuccessDeleteMessage().isDisplayed());
-    }
     /**
      * return to workspace dashborard.
      */

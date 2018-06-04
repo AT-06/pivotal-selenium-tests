@@ -1,7 +1,7 @@
 package org.fundacionjala.pivotal.core.webdrivers;
 
-import org.fundacionjala.pivotal.utils.NoConfigPropertiesFound;
-import org.fundacionjala.pivotal.utils.PropertiesConfig;
+import org.fundacionjala.pivotal.util.NoConfigPropertiesFound;
+import org.fundacionjala.pivotal.util.PropertiesConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;

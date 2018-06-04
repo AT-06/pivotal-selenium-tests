@@ -1,6 +1,6 @@
 package org.fundacionjala.pivotal.pages.account;
 
-import org.fundacionjala.pivotal.utils.CommonActions;
+import org.fundacionjala.pivotal.util.CommonActions;
 import org.fundacionjala.pivotal.pages.common.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

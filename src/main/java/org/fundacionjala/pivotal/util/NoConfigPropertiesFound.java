@@ -1,4 +1,4 @@
-package org.fundacionjala.pivotal.utils;
+package org.fundacionjala.pivotal.util;
 
 /**
  * NoConfigPropertiesFound.java
