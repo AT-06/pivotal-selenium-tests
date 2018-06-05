@@ -1,3 +1,10 @@
+plugins {
+    id "io.qameta.allure" version "2.5"
+}
+
+group 'org.fundacionjala.pivotal'
+version '1.0'
+
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'idea'
@@ -6,9 +13,10 @@ apply plugin: 'checkstyle'
 apply plugin: 'pmd'
 apply plugin: 'findbugs'
 
-// In this section you declare where to find the dependencies of your project
+sourceCompatibility = 1.8
+
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 // In this section you declare the dependencies for your production and test code
@@ -18,15 +26,14 @@ dependencies {
     testCompile group: 'io.cucumber', name: 'cucumber-testng', version: '2.4.0'
     testCompile group: 'io.cucumber', name: 'cucumber-picocontainer', version: '2.4.0'
     testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.11.0'
-    // https://mvnrepository.com/artifact/com.jayway.restassured/rest-assured
     compile group: 'com.jayway.restassured', name: 'rest-assured', version: '2.9.0'
-    // https://mvnrepository.com/artifact/com.saucelabs/sauce_java_common
     compile group: 'com.saucelabs', name: 'sauce_java_common', version: '2.1.8'
-    // https://mvnrepository.com/artifact/org.testng/testng
     testCompile group: 'org.testng', name: 'testng', version: '6.9.10'
+    testCompile group: 'io.qameta.allure', name: 'allure-cucumber2-jvm', version: '2.6.0'
+}
 
-
+allure {
+    version = '2.6.0'
 }
 
 // Checkstyle configuration
@@ -56,3 +63,40 @@ tasks.withType(Pmd) {
         html.enabled = true
     }
 }
+
+task executeFeatures(type: Test) {
+
+    doFirst {
+        useTestNG()
+        options {
+            useDefaultListeners = false
+            jvmArgs = ['-Dcucumber.options= ' +
+                               '--glue org.fundacionjala.pivotal ' +
+                               '--plugin pretty ' +
+                               '--plugin io.qameta.allure.cucumber2jvm.AllureCucumber2Jvm']
+            jvmArgs = ['-Dusername=' + User]
+            jvmArgs = ['-Dpassword=' + Password]
+            jvmArgs = ['-DapiToken=' + APIToken]
+            jvmArgs = ['-Dbrowser=' + browser]
+
+            jvmArgs = ['-DremoteUserName=' + UserName]
+            jvmArgs = ['-DremoteKey=' + Key]
+            jvmArgs = ['-DremoteBrowser=' + remoteBrowser]
+            jvmArgs = ['-DosVersion=' + OSVersion]
+            jvmArgs = ['-DremotePlatform=' + remotePlatform]
+            jvmArgs = ['-DremotePlatformVersion=' + remotePlatformVersion]
+            jvmArgs = ['-DremoteResolution=' + remoteResolution]
+            jvmArgs = ['-DdockerUrl=' + dockerUrl]
+        }
+        testLogging.showStandardStreams = true
+        scanForTestClasses = false
+        ignoreFailures = true
+        reports.html.enabled = false
+
+    }
+    finalizedBy 'allureReport'
+}
+
+
+
+

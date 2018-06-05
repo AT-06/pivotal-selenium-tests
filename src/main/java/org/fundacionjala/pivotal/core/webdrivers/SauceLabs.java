@@ -5,11 +5,10 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 /**
  *Class SauceLabs.
  */
-public class SauceLabs extends Connection implements Browser {
+public class SauceLabs extends RemoteBrowser implements Browser {
 
-    private static final String URL = "https://"
-            + SAUCE_USERNAME + ":"
-            + SAUCE_KEY + "@ondemand.saucelabs.com:443/wd/hub";
+    private static final String URL = String
+            .format("https://%s:%s@ondemand.saucelabs.com:443/wd/hub", USERNAME, ACCESS_KEY);
     private static final String BROWSER_NAME = "browserName";
     private static final String PLATFORM = "platform";
     private static final String RESOLUTION = "resolution";

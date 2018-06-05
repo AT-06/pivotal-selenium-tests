@@ -17,6 +17,7 @@ import org.testng.asserts.SoftAssert;
 /**
  * Class that contains the assertion steps of Project feature.
  */
+@SuppressWarnings("ALL")
 public class ProjectAssertionSteps {
 
     private Account account;
@@ -41,11 +42,12 @@ public class ProjectAssertionSteps {
      * @param helper        Helper object.
      */
 
-    @SuppressWarnings("ParameterNumber")
+    // CSOFF: ParameterNumber
     public ProjectAssertionSteps(final EditProject editProject, final DashBoard dashBoard,
                                  final DeleteProject deleteProject, final Account account,
                                  final FeatureNames feature, final PageLogin pageLogin,
                                  final CreateProject createProject, final FeatureNames proyName, final Helper helper) {
+        // CSON: ParameterNumber
         this.editProject = editProject;
         this.dashBoard = dashBoard;
         this.account = account;
@@ -56,7 +58,6 @@ public class ProjectAssertionSteps {
         this.proyName = proyName;
         this.deleteProject = deleteProject;
     }
-
 
     /**
      * Verify that is created the account.
@@ -116,6 +117,7 @@ public class ProjectAssertionSteps {
     public void assertAll() {
         if (assertion instanceof SoftAssert) {
             ((SoftAssert) assertion).assertAll();
+
         }
     }
 }
