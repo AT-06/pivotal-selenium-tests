@@ -5,7 +5,7 @@ import cucumber.api.java.en.When;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.pages.story.DescriptionsStory;
 import org.fundacionjala.pivotal.pages.story.Story;
-import org.fundacionjala.pivotal.steps.FeatureNames;
+import org.fundacionjala.pivotal.util.Helper;
 
 import java.util.Map;
 
@@ -16,7 +16,7 @@ import static org.fundacionjala.pivotal.pages.story.DescriptionsStory.STORY_NAME
  */
 public class CreateStorySteps {
     private Story createStory;
-    private FeatureNames feature;
+    private Helper feature;
     private DashBoard dashBoard;
 
     /**
@@ -26,7 +26,7 @@ public class CreateStorySteps {
      * @param feature     object.
      * @param dashBoard   object.
      */
-    public CreateStorySteps(final Story createStory, final FeatureNames feature, final DashBoard dashBoard) {
+    public CreateStorySteps(final Story createStory, final Helper feature, final DashBoard dashBoard) {
         this.createStory = createStory;
         this.feature = feature;
         this.dashBoard = dashBoard;

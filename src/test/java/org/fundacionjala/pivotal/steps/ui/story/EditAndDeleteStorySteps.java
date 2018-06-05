@@ -5,7 +5,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.pivotal.pages.story.DescriptionsStory;
 import org.fundacionjala.pivotal.pages.story.Story;
-import org.fundacionjala.pivotal.steps.FeatureNames;
+import org.fundacionjala.pivotal.util.Helper;
 import org.testng.Assert;
 
 import java.util.Map;
@@ -17,14 +17,14 @@ import static org.fundacionjala.pivotal.pages.story.DescriptionsStory.STORY_NAME
  */
 public class EditAndDeleteStorySteps {
     private Story story;
-    private FeatureNames feature;
+    private Helper feature;
 
     /**
      * Constructor for EditAndDeleteStorySteps class.
      * @param story object.
      * @param feature object.
      */
-    public EditAndDeleteStorySteps(final Story story, final FeatureNames feature) {
+    public EditAndDeleteStorySteps(final Story story, final Helper feature) {
         this.story = story;
         this.feature = feature;
     }

@@ -2,13 +2,10 @@ package org.fundacionjala.pivotal.steps.ui.project;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
-import org.fundacionjala.pivotal.pages.account.Account;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.pages.project.CreateProject;
 import org.fundacionjala.pivotal.pages.project.DeleteProject;
 import org.fundacionjala.pivotal.pages.project.EditProject;
-import org.fundacionjala.pivotal.pages.project.PageLogin;
-import org.fundacionjala.pivotal.steps.FeatureNames;
 import org.fundacionjala.pivotal.util.Helper;
 import org.testng.Assert;
 import org.testng.asserts.Assertion;
@@ -17,54 +14,32 @@ import org.testng.asserts.SoftAssert;
 /**
  * Class that contains the assertion steps of Project feature.
  */
-@SuppressWarnings("ALL")
 public class ProjectAssertionSteps {
 
-    private Account account;
     private final Assertion assertion;
     private EditProject editProject;
     private DashBoard dashBoard;
-    private FeatureNames feature;
-    private PageLogin pageLogin;
+    private Helper feature;
     private CreateProject createProject;
-    private FeatureNames proyName;
     private DeleteProject deleteProject;
 
     /**
      * @param editProject   EditProject page object.
      * @param dashBoard     Dashboard page object.
      * @param deleteProject DeleteProject page object.
-     * @param account       EditProject page
-     * @param feature       Account page object.
-     * @param pageLogin     Login page object.
-     * @param createProject CreateProject page object.
-     * @param proyName      name of the project.
+     * @param createProject CreateProject page object..
      * @param helper        Helper object.
      */
 
-    // CSOFF: ParameterNumber
     public ProjectAssertionSteps(final EditProject editProject, final DashBoard dashBoard,
-                                 final DeleteProject deleteProject, final Account account,
-                                 final FeatureNames feature, final PageLogin pageLogin,
-                                 final CreateProject createProject, final FeatureNames proyName, final Helper helper) {
-        // CSON: ParameterNumber
+                                 final DeleteProject deleteProject, final CreateProject createProject,
+                                 final Helper helper) {
         this.editProject = editProject;
         this.dashBoard = dashBoard;
-        this.account = account;
         this.assertion = helper.getAssertion();
-        this.feature = feature;
-        this.pageLogin = pageLogin;
+        this.feature = helper;
         this.createProject = createProject;
-        this.proyName = proyName;
         this.deleteProject = deleteProject;
-    }
-
-    /**
-     * Verify that is created the account.
-     */
-    @Then("^I can verify the new account$")
-    public void iCanVerifyTheNewAccount() {
-        assertion.assertTrue(account.verifyTheAccountName());
     }
 
     /**
@@ -86,20 +61,13 @@ public class ProjectAssertionSteps {
         assertion.assertEquals(feature.getProjectName(), editProject.getTitleProject());
     }
 
-    /**
-     * Then can see login page.
-     */
-    @Then("^I can see the Login Page$")
-    public void iCanSeeTheLoginPage() {
-        assertion.assertTrue(pageLogin.checkPageLogin());
-    }
 
     /**
      * Verify that is created the project.
      */
     @Then("^I can verify the new project with the project name$")
     public void iCanVerifyTheNewProjectWithProjectName() {
-        assertion.assertEquals(proyName.getProjectName(), createProject.verifyName());
+        assertion.assertEquals(feature.getProjectName(), createProject.verifyName());
     }
 
     /**

@@ -3,7 +3,6 @@ package org.fundacionjala.pivotal.steps.ui.story;
 import cucumber.api.java.en.Then;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.pages.story.Story;
-import org.fundacionjala.pivotal.steps.FeatureNames;
 import org.fundacionjala.pivotal.util.Helper;
 import org.testng.asserts.Assertion;
 
@@ -13,7 +12,7 @@ import org.testng.asserts.Assertion;
 public class StoryAssertionSteps {
 
     private Story createStory;
-    private FeatureNames feature;
+    private Helper feature;
     private DashBoard dashBoard;
     private final Assertion assertion;
 
@@ -25,7 +24,7 @@ public class StoryAssertionSteps {
      * @param dashBoard   object.
      * @param helper      object.
      */
-    public StoryAssertionSteps(final Story createStory, final FeatureNames feature,
+    public StoryAssertionSteps(final Story createStory, final Helper feature,
                                final DashBoard dashBoard, final Helper helper) {
         this.assertion = helper.getAssertion();
         this.createStory = createStory;

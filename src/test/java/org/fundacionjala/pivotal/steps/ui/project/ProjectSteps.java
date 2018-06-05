@@ -3,7 +3,7 @@ package org.fundacionjala.pivotal.steps.ui.project;
 import cucumber.api.java.en.Given;
 import org.fundacionjala.pivotal.pages.project.CreateProject;
 import org.fundacionjala.pivotal.pages.project.ProjectDescription;
-import org.fundacionjala.pivotal.steps.FeatureNames;
+import org.fundacionjala.pivotal.util.Helper;
 
 import java.util.Map;
 
@@ -15,7 +15,7 @@ import static org.fundacionjala.pivotal.pages.project.ProjectDescription.PROJECT
  */
 public class ProjectSteps {
     private CreateProject createProject;
-    private FeatureNames proyName;
+    private Helper proyName;
 
     /**
      * Constructor for ProjectSteps class.
@@ -23,7 +23,7 @@ public class ProjectSteps {
      * @param createProject object.
      * @param proyName      object.
      */
-    public ProjectSteps(final CreateProject createProject, final FeatureNames proyName) {
+    public ProjectSteps(final CreateProject createProject, final Helper proyName) {
         this.createProject = createProject;
         this.proyName = proyName;
     }

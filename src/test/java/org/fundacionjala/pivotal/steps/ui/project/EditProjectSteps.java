@@ -5,7 +5,8 @@ import cucumber.api.java.en.When;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.pages.project.EditProject;
 import org.fundacionjala.pivotal.pages.project.ProjectDescription;
-import org.fundacionjala.pivotal.steps.FeatureNames;
+import org.fundacionjala.pivotal.util.Helper;
+
 import java.util.Map;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Map;
 public class EditProjectSteps  {
     private EditProject editProject;
     private DashBoard dashBoard;
-    private FeatureNames feature;
+    private Helper feature;
 
     /**
      * Constructor for EditProjectSteps class.
@@ -23,7 +24,7 @@ public class EditProjectSteps  {
      * @param dashBoard object.
      * @param feature object.
      */
-    public EditProjectSteps(final EditProject editProject, final DashBoard dashBoard, final FeatureNames feature) {
+    public EditProjectSteps(final EditProject editProject, final DashBoard dashBoard, final Helper feature) {
         this.editProject = editProject;
         this.dashBoard = dashBoard;
         this.feature = feature;

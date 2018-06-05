@@ -9,7 +9,6 @@ import org.fundacionjala.pivotal.core.api.APIRequestManager;
 import org.fundacionjala.pivotal.core.api.APICommons;
 import org.fundacionjala.pivotal.pages.account.Account;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
-import org.fundacionjala.pivotal.steps.FeatureNames;
 import org.fundacionjala.pivotal.util.Helper;
 import org.testng.asserts.Assertion;
 import org.testng.asserts.SoftAssert;
@@ -23,7 +22,7 @@ import java.util.Map;
  */
 public class Hooks {
 
-    private final FeatureNames feature;
+    private final Helper feature;
     private final DashBoard dashboard;
     private final Account account;
     private Helper helper;
@@ -36,7 +35,7 @@ public class Hooks {
      * @param account   object.
      * @param helper    object.
      */
-    public Hooks(final FeatureNames feature, final DashBoard dashboard, final Account account, final Helper helper) {
+    public Hooks(final Helper feature, final DashBoard dashboard, final Account account, final Helper helper) {
         this.feature = feature;
         this.dashboard = dashboard;
         this.account = account;
