@@ -2,14 +2,11 @@ package org.fundacionjala.pivotal.steps.ui.project;
 
 
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-
 
 import org.fundacionjala.pivotal.core.api.APICommons;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.pages.project.DeleteProject;
-import org.testng.Assert;
 
 /**
  * Class for Project Settings Steps.
@@ -41,13 +38,7 @@ public class DeleteProjectSteps {
         deleteProject.deleteProject();
     }
 
-    /**
-     * Method for Expect Message was success full Deleted.
-     */
-    @Then("^I can verify the project deleted$")
-    public void iCanVerifyTheProjectDeleted() {
-        Assert.assertTrue(deleteProject.setMessageDelete());
-    }
+
     /**
      * Method for delete the project.
      */

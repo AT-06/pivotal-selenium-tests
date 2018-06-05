@@ -3,21 +3,25 @@ package org.fundacionjala.pivotal.steps.ui.project;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.fundacionjala.pivotal.pages.account.Account;
-import org.testng.Assert;
+import org.fundacionjala.pivotal.util.Helper;
+import org.testng.asserts.Assertion;
 
 /**
  * Class for Create account.
  */
 public class AccountSteps {
     private Account account;
+    private final Assertion assertion;
 
     /**
      * Constructor for AccountSteps class.
      *
      * @param account account object.
+     * @param helper  object.
      */
-    public AccountSteps(final Account account) {
+    public AccountSteps(final Account account, final Helper helper) {
         this.account = account;
+        this.assertion = helper.getAssertion();
     }
 
     /**
@@ -35,6 +39,7 @@ public class AccountSteps {
      */
     @Then("^I can verify the new account$")
     public void iCanVerifyTheNewAccount() {
-        Assert.assertTrue(account.verifyTheAccountName());
+        assertion.assertTrue(account.verifyTheAccountName());
     }
+
 }

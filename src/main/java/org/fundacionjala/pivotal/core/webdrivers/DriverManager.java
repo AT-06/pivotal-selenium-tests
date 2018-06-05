@@ -1,11 +1,11 @@
-package org.fundacionjala.pivotal.core.e2e;
+package org.fundacionjala.pivotal.core.webdrivers;
 
-import org.fundacionjala.pivotal.utils.PropertiesConfig;
+import org.fundacionjala.pivotal.util.PropertiesConfig;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * Class Web utils Driver.
+ * Class Web util Driver.
  */
 public final class DriverManager {
 
@@ -25,7 +25,7 @@ public final class DriverManager {
     private static DriverManager instance;
 
     /**
-     * Method Web utils Driver.
+     * Method Web util Driver.
      * Use Singleton Pattern.
      */
     private DriverManager() {
@@ -37,7 +37,7 @@ public final class DriverManager {
     }
 
     /**
-     * Method for get Web utils driver.
+     * Method for get Web util driver.
      *
      * @return instance.
      */

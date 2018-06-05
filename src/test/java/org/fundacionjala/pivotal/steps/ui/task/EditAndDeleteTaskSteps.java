@@ -1,6 +1,5 @@
 package org.fundacionjala.pivotal.steps.ui.task;
 
-
 import cucumber.api.java.en.When;
 import org.fundacionjala.pivotal.pages.story.Story;
 import org.fundacionjala.pivotal.pages.task.DescriptionsTask;

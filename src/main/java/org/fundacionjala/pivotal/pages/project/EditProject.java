@@ -1,6 +1,6 @@
 package org.fundacionjala.pivotal.pages.project;
 
-import org.fundacionjala.pivotal.core.e2e.CommonMethods;
+import org.fundacionjala.pivotal.util.CommonActions;
 import org.fundacionjala.pivotal.pages.common.Base;
 import org.fundacionjala.pivotal.pages.common.Steps;
 import org.openqa.selenium.WebElement;
@@ -44,7 +44,7 @@ public class EditProject extends Base {
      * @return title last project created.
      */
     public String getTitleProject() {
-        return CommonMethods.waitWebElement(titleProject).getText();
+        return CommonActions.waitWebElement(titleProject).getText();
     }
 
     /**
@@ -53,7 +53,7 @@ public class EditProject extends Base {
      * @param date String.
      */
     private void setTxtDateProject(final String date) {
-        CommonMethods.setWebElement(txtDateProject, date);
+        CommonActions.setWebElement(txtDateProject, date);
     }
 
     /**
@@ -62,8 +62,8 @@ public class EditProject extends Base {
      * @param day String.
      */
     private void setTxtProjectWeek(final String day) {
-        CommonMethods.clickWebElementWithJavascriptExecutor(txtProjectWeek);
-        CommonMethods.setWebElement(txtProjectWeek, day);
+        CommonActions.clickWebElementWithJavascriptExecutor(txtProjectWeek);
+        CommonActions.setWebElement(txtProjectWeek, day);
     }
 
     /**
@@ -72,7 +72,7 @@ public class EditProject extends Base {
      * @return messageSaved.
      */
     public String setMessageSaved() {
-        CommonMethods.waitWebElement(messageSaved);
+        CommonActions.waitWebElement(messageSaved);
         return messageSaved.getText();
     }
 
@@ -80,7 +80,7 @@ public class EditProject extends Base {
      * Method for SAve edit Project.
      */
     public void setSaveEditProject() {
-        CommonMethods.clickWebElement(saveEditProject);
+        CommonActions.clickWebElement(saveEditProject);
     }
 
     /**
@@ -90,7 +90,7 @@ public class EditProject extends Base {
      */
     private void setTxtPublic(final String check) {
         if (check.equalsIgnoreCase("false")) {
-            CommonMethods.clickWebElement(txtPublic);
+            CommonActions.clickWebElement(txtPublic);
         }
     }
 
@@ -100,7 +100,7 @@ public class EditProject extends Base {
      * @param description String.
      */
     private void setTxtProjectDescription(final String description) {
-        CommonMethods.setWebElement(txtProjectDescription, description);
+        CommonActions.setWebElement(txtProjectDescription, description);
     }
 
     /**
@@ -110,7 +110,7 @@ public class EditProject extends Base {
      */
     private void setTxtTask(final String check) {
         if (check.equalsIgnoreCase("false")) {
-            CommonMethods.clickWebElement(txtTask);
+            CommonActions.clickWebElement(txtTask);
         }
     }
 

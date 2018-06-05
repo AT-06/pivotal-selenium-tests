@@ -1,11 +1,9 @@
 package org.fundacionjala.pivotal.steps.ui.task;
 
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.pivotal.pages.story.Story;
 import org.fundacionjala.pivotal.pages.task.DescriptionsTask;
 import org.fundacionjala.pivotal.pages.task.Task;
-import org.testng.Assert;
 
 import java.util.Map;
 
@@ -42,15 +40,4 @@ public class CreateTaskSteps {
         story.setButtonCloseEdit();
     }
 
-    /**
-     * Verify that the new task was created.
-     *
-     * @param taskName name of the task.
-     */
-    @Then("^I verify the new task \"([^\"]*)\" was created$")
-    public void iVerifyTheNewTaskWasCreated(final String taskName) {
-        story.clickSToryExpander();
-        Assert.assertEquals(taskName, task.verifyTaskName());
-        story.setButtonCloseEdit();
-    }
 }

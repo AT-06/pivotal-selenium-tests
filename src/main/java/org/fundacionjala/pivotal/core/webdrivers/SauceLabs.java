@@ -1,15 +1,14 @@
-package org.fundacionjala.pivotal.core.e2e;
+package org.fundacionjala.pivotal.core.webdrivers;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
- *Class SauceTest.
+ *Class SauceLabs.
  */
-public class SauceTest extends Connection implements Browser {
+public class SauceLabs extends RemoteBrowser implements Browser {
 
-    private static final String URL = "https://"
-            + SAUCE_USERNAME + ":"
-            + SAUCE_KEY + "@ondemand.saucelabs.com:443/wd/hub";
+    private static final String URL = String
+            .format("https://%s:%s@ondemand.saucelabs.com:443/wd/hub", USERNAME, ACCESS_KEY);
     private static final String BROWSER_NAME = "browserName";
     private static final String PLATFORM = "platform";
     private static final String RESOLUTION = "resolution";
@@ -17,9 +16,9 @@ public class SauceTest extends Connection implements Browser {
 
 
     /**
-     * SauceTest Set url.
+     * SauceLabs Set url.
      */
-    public SauceTest() {
+    public SauceLabs() {
         super(URL);
     }
 

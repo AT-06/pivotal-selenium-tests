@@ -6,7 +6,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.fundacionjala.pivotal.core.api.APICommons;
 import org.fundacionjala.pivotal.core.api.APIRequestManager;
-import org.fundacionjala.pivotal.steps.FeatureNames;
+import org.fundacionjala.pivotal.util.Helper;
 import org.testng.Assert;
 import java.util.Map;
 
@@ -17,14 +17,14 @@ import java.util.Map;
  */
 public class APIProjectSteps {
 
-    private FeatureNames proyName;
+    private Helper proyName;
 
     /**
-     * Constructor for ProjectStep class.
+     * Constructor for ProjectSteps class.
      *
      * @param proyName object.
      */
-    public APIProjectSteps(final FeatureNames proyName) {
+    public APIProjectSteps(final Helper proyName) {
         this.proyName = proyName;
     }
 

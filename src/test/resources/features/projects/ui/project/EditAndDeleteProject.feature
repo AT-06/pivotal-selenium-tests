@@ -9,7 +9,7 @@ Feature: Create and Delete Project
     And I validate the status code 200
     Then I put a valid user and Password
 
-  @acceptance @DeleteProject @DeleteAccount
+  @acceptance @DeleteProject @DeleteAccount @SoftAssert
   Scenario: Edit Project
     When I select the created project
     And I can edit the project
@@ -25,5 +25,6 @@ Feature: Create and Delete Project
   Scenario: Delete Project
     When I select the created project
     And I delete the project
-    Then I can verify the project deleted
+    And I can verify the project deleted
+    Then Assert all
 

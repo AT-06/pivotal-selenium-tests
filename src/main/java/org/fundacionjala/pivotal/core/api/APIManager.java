@@ -2,7 +2,7 @@ package org.fundacionjala.pivotal.core.api;
 
 import com.jayway.restassured.builder.RequestSpecBuilder;
 import com.jayway.restassured.specification.RequestSpecification;
-import org.fundacionjala.pivotal.utils.PropertiesConfig;
+import org.fundacionjala.pivotal.util.PropertiesConfig;
 
 /**
  * APIManager.java

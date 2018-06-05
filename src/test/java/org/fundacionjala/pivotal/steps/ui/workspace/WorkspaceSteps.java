@@ -2,10 +2,8 @@ package org.fundacionjala.pivotal.steps.ui.workspace;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import org.fundacionjala.pivotal.pages.common.Navigator;
 import org.fundacionjala.pivotal.pages.workspace.CreateWorkspace;
-import org.testng.Assert;
 
 /**
  * Class WorkspaceSteps to execute functions of features.
@@ -41,17 +39,4 @@ public class WorkspaceSteps {
         createWorkspace.createWorkspace(workspaceName);
         createWorkspace.setWorkspaceName(workspaceName);
     }
-
-    /**
-     * Method to verify the creation of a new workspace.
-     */
-    @Then("^I can verify the new workspace$")
-    public void iCanVerifyTheNewWorkspace() {
-        nav.returnToDashboardFromProjWork();
-        nav.clickTabWorkspace();
-        Assert.assertEquals(createWorkspace.getLastWorkspaceCreatedText(), createWorkspace.getWorkspaceName());
-    }
-
-
-
 }

@@ -1,6 +1,6 @@
 package org.fundacionjala.pivotal.pages.dashboard;
 
-import org.fundacionjala.pivotal.core.e2e.CommonMethods;
+import org.fundacionjala.pivotal.util.CommonActions;
 import org.fundacionjala.pivotal.pages.common.Base;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -35,14 +35,14 @@ public class DashBoard extends Base {
      * Set Button DashBoard.
      */
     public void setProjectTitle() {
-        CommonMethods.clickWebElement(projectTitle);
+        CommonActions.clickWebElement(projectTitle);
     }
 
     /**
      * Set Button Edit Project.
      */
     private void setButtonEditProject() {
-        CommonMethods.clickWebElement(buttonEditProject);
+        CommonActions.clickWebElement(buttonEditProject);
     }
 
     /**
@@ -51,7 +51,7 @@ public class DashBoard extends Base {
      * @param nameProject String.
      */
     private void setSearchProjectButton(final String nameProject) {
-        CommonMethods.setWebElement(searchProjectButton, nameProject);
+        CommonActions.setWebElement(searchProjectButton, nameProject);
     }
 
     /**
