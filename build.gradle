@@ -1,7 +1,6 @@
 plugins {
     id "io.qameta.allure" version "2.5"
 }
-
 group 'org.fundacionjala.pivotal'
 version '1.0'
 
@@ -34,6 +33,7 @@ dependencies {
 
 allure {
     version = '2.6.0'
+    autoconfigure = true
 }
 
 // Checkstyle configuration
@@ -65,7 +65,6 @@ tasks.withType(Pmd) {
 }
 
 task executeFeatures(type: Test) {
-
     doFirst {
         useTestNG()
         options {
@@ -74,15 +73,15 @@ task executeFeatures(type: Test) {
                                '--glue org.fundacionjala.pivotal ' +
                                '--plugin pretty ' +
                                '--plugin io.qameta.allure.cucumber2jvm.AllureCucumber2Jvm']
-            jvmArgs = ['-Dusername=' + User]
-            jvmArgs = ['-Dpassword=' + Password]
-            jvmArgs = ['-DapiToken=' + APIToken]
+            jvmArgs = ['-DUser=' + User]
+            jvmArgs = ['-DPassword=' + Password]
+            jvmArgs = ['-DAPIToken=' + APIToken]
             jvmArgs = ['-Dbrowser=' + browser]
 
-            jvmArgs = ['-DremoteUserName=' + UserName]
-            jvmArgs = ['-DremoteKey=' + Key]
+            jvmArgs = ['-DUserName=' + UserName]
+            jvmArgs = ['-DKey=' + Key]
             jvmArgs = ['-DremoteBrowser=' + remoteBrowser]
-            jvmArgs = ['-DosVersion=' + OSVersion]
+            jvmArgs = ['-DOSVersion=' + OSVersion]
             jvmArgs = ['-DremotePlatform=' + remotePlatform]
             jvmArgs = ['-DremotePlatformVersion=' + remotePlatformVersion]
             jvmArgs = ['-DremoteResolution=' + remoteResolution]
@@ -90,7 +89,7 @@ task executeFeatures(type: Test) {
         }
         testLogging.showStandardStreams = true
         scanForTestClasses = false
-        ignoreFailures = true
+        ignoreFailures = false
         reports.html.enabled = false
 
     }

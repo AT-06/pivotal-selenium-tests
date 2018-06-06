@@ -41,8 +41,9 @@ public final class PropertiesConfig {
      * This method initialize properties and input stream.
      */
     private void init() {
-        properties = new Properties();
-        try (InputStream inputStream = new FileInputStream("config.properties")) {
+
+        try (InputStream inputStream = new FileInputStream("gradle.properties")) {
+            properties = new Properties();
             properties.load(inputStream);
         } catch (IOException e) {
             throw new NoConfigPropertiesFound("Class PropertiesConfig: ", e);
@@ -53,14 +54,14 @@ public final class PropertiesConfig {
      * @return User.
      */
     public String getUser() {
-        return properties.getProperty("User");
+        return getEnv("User");
     }
 
     /**
      * @return Password.
      */
     public String getPassword() {
-        return properties.getProperty("Password");
+        return getEnv("Password");
     }
 
     /**
@@ -69,7 +70,7 @@ public final class PropertiesConfig {
      * @return the token read from properties file.
      */
     public String getAPIToken() {
-        return properties.getProperty("APIToken");
+        return getEnv("APIToken");
     }
 
     /**
@@ -78,7 +79,7 @@ public final class PropertiesConfig {
      * @return the Username SauceLabs read from properties file.
      */
     public String getSauceUserName() {
-        return properties.getProperty("UserName");
+        return getEnv("UserName");
     }
 
     /**
@@ -87,7 +88,7 @@ public final class PropertiesConfig {
      * @return the key SauceLabs read from properties file.
      */
     public String getSauceKey() {
-        return properties.getProperty("Key");
+        return getEnv("Key");
     }
 
     /**
@@ -96,7 +97,7 @@ public final class PropertiesConfig {
      * @return the browser SauceLabs selected read from properties file.
      */
     public String getRemoteBrowser() {
-        return properties.getProperty("remoteBrowser");
+        return getEnv("remoteBrowser");
     }
 
     /**
@@ -105,7 +106,7 @@ public final class PropertiesConfig {
      * @return the OS SauceLabs selected read from properties file.
      */
     public String getRemotePlatform() {
-        return properties.getProperty("remotePlatform");
+        return getEnv("remotePlatform");
     }
 
     /**
@@ -114,7 +115,7 @@ public final class PropertiesConfig {
      * @return the Browser version of SauceLabs  selected read from properties file.
      */
     public String getPlatformVersion() {
-        return properties.getProperty("remotePlatformVersion");
+        return getEnv("remotePlatformVersion");
     }
 
     /**
@@ -123,7 +124,7 @@ public final class PropertiesConfig {
      * @return the resolution SauceLabs selected read from properties file.
      */
     public String getRemoteResolution() {
-        return properties.getProperty("remoteResolution");
+        return getEnv("remoteResolution");
     }
 
     /**
@@ -131,9 +132,8 @@ public final class PropertiesConfig {
      *
      * @return the docker url in a string object.
      */
-    public String
-    getDockerUrl() {
-        return properties.getProperty("dockerUrl");
+    public String getDockerUrl() {
+        return getEnv("dockerUrl");
     }
 
     /**
@@ -142,7 +142,7 @@ public final class PropertiesConfig {
      * @return the browser.
      */
     public String getBrowser() {
-        return properties.getProperty("browser");
+        return getEnv("browser");
     }
 
     /**
@@ -151,7 +151,21 @@ public final class PropertiesConfig {
      * @return the version OS.
      */
     public String getOSVersion() {
-        return properties.getProperty("OSVersion");
+        return getEnv("OSVersion");
+    }
+
+    /**
+     * This method return the string for a specific environment property.
+     *
+     * @param env is the property string.
+     * @return the specified property.
+     */
+    private String getEnv(final String env) {
+        String property = System.getProperty(env);
+        if (property == null) {
+            return properties.getProperty(env);
+        }
+        return property;
     }
 }
 
