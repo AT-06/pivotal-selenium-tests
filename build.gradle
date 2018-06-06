@@ -29,6 +29,8 @@ dependencies {
     compile group: 'com.saucelabs', name: 'sauce_java_common', version: '2.1.8'
     testCompile group: 'org.testng', name: 'testng', version: '6.9.10'
     testCompile group: 'io.qameta.allure', name: 'allure-cucumber2-jvm', version: '2.6.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
 }
 
 allure {
