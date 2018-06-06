@@ -1,5 +1,7 @@
 package org.fundacionjala.pivotal.core.webdrivers;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.fundacionjala.pivotal.util.NoConfigPropertiesFound;
 import org.fundacionjala.pivotal.util.PropertiesConfig;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +16,8 @@ import java.net.URL;
  */
 public class DockerFirefoxBrowser implements Browser {
 
+    private static final Logger LOGGER = LogManager.getLogger();
+
     /**
      * {@inheritDoc}
      */
@@ -24,6 +28,8 @@ public class DockerFirefoxBrowser implements Browser {
             driver = new RemoteWebDriver(new URL(PropertiesConfig.getInstance().getDockerUrl()), new FirefoxOptions());
         } catch (MalformedURLException e) {
             String message = "URL bad created";
+            LOGGER.error(message);
+            LOGGER.info(e);
             throw new NoConfigPropertiesFound(message, e);
         }
         return driver;
