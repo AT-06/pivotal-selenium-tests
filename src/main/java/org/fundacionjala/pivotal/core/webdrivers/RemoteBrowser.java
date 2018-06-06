@@ -1,5 +1,7 @@
 package org.fundacionjala.pivotal.core.webdrivers;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.fundacionjala.pivotal.util.NoConfigPropertiesFound;
 import org.fundacionjala.pivotal.util.PropertiesConfig;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +19,7 @@ public abstract class RemoteBrowser implements Browser {
     static final PropertiesConfig PROPERTIES = PropertiesConfig.getInstance();
     static final String USERNAME = PROPERTIES.getSauceUserName();
     static final String ACCESS_KEY = PROPERTIES.getSauceKey();
+    private static final Logger LOGGER = LogManager.getLogger();
     private final String url;
 
     /**
@@ -43,6 +46,8 @@ public abstract class RemoteBrowser implements Browser {
             driver = new RemoteWebDriver(new URL(url), setCapabilities());
         } catch (MalformedURLException e) {
             String message = "URL not valid";
+            LOGGER.error(message);
+            LOGGER.info(e);
             throw new NoConfigPropertiesFound(message, e);
         }
         return driver;

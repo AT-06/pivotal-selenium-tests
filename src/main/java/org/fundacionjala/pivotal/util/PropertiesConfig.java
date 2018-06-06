@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 /**
  * PropertiesConfig is class for read config.properties.
  */
@@ -19,6 +22,11 @@ public final class PropertiesConfig {
      * PropertiesConfig.
      */
     private static PropertiesConfig propertiesConfig;
+
+    /**
+     * Logger.
+     */
+    private static final Logger LOGGER = LogManager.getLogger();
 
     /**
      * @return a instance of PropertiesConfig.
@@ -46,7 +54,10 @@ public final class PropertiesConfig {
             properties = new Properties();
             properties.load(inputStream);
         } catch (IOException e) {
-            throw new NoConfigPropertiesFound("Class PropertiesConfig: ", e);
+            String message = "Not instance driver";
+            LOGGER.error(message);
+            LOGGER.info(e);
+            throw new NoConfigPropertiesFound(message, e);
         }
     }
 
