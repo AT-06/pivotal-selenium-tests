@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit;
  */
 public final class DriverManager {
 
-    private static final int EXPLICIT_TIME = 60;
     private static DriverManager driverManager;
     private WebDriver driver;
     private WebDriverWait driverWait;
@@ -22,7 +21,7 @@ public final class DriverManager {
     private DriverManager() {
         DriverType driverType = DriverType.valueOf(PropertiesConfig.getInstance().getBrowser());
         driver = DriverFactory.getDriverManager(driverType);
-        driverWait = new WebDriverWait(driver, EXPLICIT_TIME);
+        driverWait = new WebDriverWait(driver, PropertiesConfig.getInstance().getExplicitTime());
     }
 
     /**

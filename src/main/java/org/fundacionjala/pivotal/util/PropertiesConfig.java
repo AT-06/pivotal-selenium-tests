@@ -73,6 +73,13 @@ public final class PropertiesConfig {
     /**
      * @return urlLogin.
      */
+    public int getExplicitTime() {
+        return  Integer.parseInt(getEnvValue("explicitTime")) ;
+    }
+
+    /**
+     * @return urlLogin.
+     */
     public String getUrlLogin() {
         return getEnvValue("urlLogin");
     }
