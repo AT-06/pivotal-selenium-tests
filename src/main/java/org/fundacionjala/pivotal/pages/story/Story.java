@@ -119,7 +119,7 @@ public class Story extends Base {
      */
     public void setStoryType(final String storyType) {
         CommonActions.clickWebElement(dropdownStoryType);
-        CommonActions.clickWebElement(driver.findElement(By.className(
+        CommonActions.clickWebElement(webDriver.findElement(By.className(
                 String.format("%s%s%s", "item_", storyType, " "))));
 
     }

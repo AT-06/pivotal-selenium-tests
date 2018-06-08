@@ -29,7 +29,7 @@ public class DashBoard extends Base {
      * Set Button DashBoard.
      */
     public void setButtonDashborad() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", buttonDashborad);
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].click();", buttonDashborad);
     }
     /**
      * Set Button DashBoard.

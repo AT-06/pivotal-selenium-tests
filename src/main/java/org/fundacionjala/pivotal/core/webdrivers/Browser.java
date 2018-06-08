@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 public interface Browser {
 
     /**
-     * @return getBrowser Web driver.
+     * @return getBrowser Web webDriver.
      */
     WebDriver getBrowser();
 }

@@ -5,7 +5,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 /**
  *Class SauceLabs.
  */
-public class SauceLabs extends RemoteBrowser implements Browser {
+public class SauceLabs extends RemoteBrowserConnection implements Browser {
 
     private static final String URL = String
             .format("https://%s:%s@ondemand.saucelabs.com:443/wd/hub", USERNAME, ACCESS_KEY);
@@ -28,11 +28,10 @@ public class SauceLabs extends RemoteBrowser implements Browser {
     @Override
     DesiredCapabilities setCapabilities() {
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability(BROWSER_NAME, PROPERTIES.getRemoteBrowser());
-        caps.setCapability(PLATFORM, PROPERTIES.getRemotePlatform());
-        caps.setCapability(VERSION, PROPERTIES.getPlatformVersion());
-        caps.setCapability(RESOLUTION, PROPERTIES.getRemoteResolution());
+        caps.setCapability(BROWSER_NAME, PROPERTIES_MANAGER.getRemoteBrowserName());
+        caps.setCapability(PLATFORM, PROPERTIES_MANAGER.getRemotePlatform());
+        caps.setCapability(VERSION, PROPERTIES_MANAGER.getRemoteBrowserVersion());
+        caps.setCapability(RESOLUTION, PROPERTIES_MANAGER.getRemoteResolution());
         return caps;
     }
-
 }

@@ -6,10 +6,9 @@ import java.util.EnumMap;
 import java.util.Map;
 
 /**
- * Class created in order to recognize the driver type.
+ * Class created in order to recognize the webDriver type.
  */
 public final class DriverFactory {
-
 
     /**
      * Private Constructor for the DriverFactory utility class.
@@ -30,7 +29,7 @@ public final class DriverFactory {
         map.put(DriverType.DOCKER_CHROME, new DockerChromeBrowser());
         map.put(DriverType.DOCKER_FIREFOX, new DockerFirefoxBrowser());
         map.put(DriverType.SAUCELABS, new SauceLabs());
-        map.put(DriverType.BROWSERSTACK, new Browserstack());
+        map.put(DriverType.BROWSER_STACK, new BrowserConnectionStack());
         return map.get(driverType).getBrowser();
     }
 }
