@@ -3,7 +3,6 @@ package org.fundacionjala.pivotal.util;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Objects;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;

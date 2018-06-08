@@ -50,6 +50,9 @@ public class PageLogin extends Base {
         txtUsername.sendKeys(username);
     }
 
+    /**
+     * @param url Set the Url.
+     */
     public void loginUrl(final String url) {
         webDriver.navigate().to(url);
     }
