@@ -32,6 +32,7 @@ public class LoginSteps {
      */
     @Given("I put a valid user and Password")
     public void iPutAValidAnd() {
+        pageLogin.loginUrl(PropertiesConfig.getInstance().getUrlLogin());
         pageLogin.signIn(PropertiesConfig.getInstance()
                 .getUser(), PropertiesConfig.getInstance().getPassword());
     }

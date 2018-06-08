@@ -12,13 +12,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Class RemoteBrowser.
+ * Class RemoteBrowserConnection.
  */
-public abstract class RemoteBrowser implements Browser {
+public abstract class RemoteBrowserConnection implements Browser {
 
-    static final PropertiesConfig PROPERTIES = PropertiesConfig.getInstance();
-    static final String USERNAME = PROPERTIES.getSauceUserName();
-    static final String ACCESS_KEY = PROPERTIES.getSauceKey();
+    static final PropertiesConfig PROPERTIES_MANAGER = PropertiesConfig.getInstance();
+    static final String USERNAME = PROPERTIES_MANAGER.getRemoteUserName();
+    static final String ACCESS_KEY = PROPERTIES_MANAGER.getRemoteAccessKey();
     private static final Logger LOGGER = LogManager.getLogger();
     private final String url;
 
@@ -32,7 +32,7 @@ public abstract class RemoteBrowser implements Browser {
     /**
      * @param url .
      */
-    public RemoteBrowser(final String url) {
+    public RemoteBrowserConnection(final String url) {
         this.url = url;
     }
 

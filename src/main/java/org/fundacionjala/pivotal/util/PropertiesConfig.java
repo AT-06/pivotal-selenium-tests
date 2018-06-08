@@ -3,6 +3,7 @@ package org.fundacionjala.pivotal.util;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
@@ -54,7 +55,7 @@ public final class PropertiesConfig {
             properties = new Properties();
             properties.load(inputStream);
         } catch (IOException e) {
-            String message = "Not instance driver";
+            String message = "Not instance webDriver";
             LOGGER.error(message);
             LOGGER.info(e);
             throw new NoConfigPropertiesFound(message, e);
@@ -62,17 +63,33 @@ public final class PropertiesConfig {
     }
 
     /**
+     * Gets remote platform.
+     *
+     * @return string remote platform.
+     */
+    public String getRemotePlatform() {
+        return getEnvValue("remotePlatform");
+    }
+
+    /**
+     * @return urlLogin.
+     */
+    public String getUrlLogin() {
+        return getEnvValue("urlLogin");
+    }
+
+    /**
      * @return User.
      */
     public String getUser() {
-        return getEnv("User");
+        return getEnvValue("User");
     }
 
     /**
      * @return Password.
      */
     public String getPassword() {
-        return getEnv("Password");
+        return getEnvValue("Password");
     }
 
     /**
@@ -81,7 +98,7 @@ public final class PropertiesConfig {
      * @return the token read from properties file.
      */
     public String getAPIToken() {
-        return getEnv("APIToken");
+        return getEnvValue("APIToken");
     }
 
     /**
@@ -89,8 +106,8 @@ public final class PropertiesConfig {
      *
      * @return the Username SauceLabs read from properties file.
      */
-    public String getSauceUserName() {
-        return getEnv("UserName");
+    public String getRemoteUserName() {
+        return getEnvValue("remoteUserName");
     }
 
     /**
@@ -98,8 +115,8 @@ public final class PropertiesConfig {
      *
      * @return the key SauceLabs read from properties file.
      */
-    public String getSauceKey() {
-        return getEnv("Key");
+    public String getRemoteAccessKey() {
+        return getEnvValue("remoteAccessKey");
     }
 
     /**
@@ -107,8 +124,8 @@ public final class PropertiesConfig {
      *
      * @return the browser SauceLabs selected read from properties file.
      */
-    public String getRemoteBrowser() {
-        return getEnv("remoteBrowser");
+    public String getRemoteBrowserName() {
+        return getEnvValue("remoteBrowserName");
     }
 
     /**
@@ -116,8 +133,8 @@ public final class PropertiesConfig {
      *
      * @return the OS SauceLabs selected read from properties file.
      */
-    public String getRemotePlatform() {
-        return getEnv("remotePlatform");
+    public String getRemoteOS() {
+        return getEnvValue("remoteOS");
     }
 
     /**
@@ -125,8 +142,8 @@ public final class PropertiesConfig {
      *
      * @return the Browser version of SauceLabs  selected read from properties file.
      */
-    public String getPlatformVersion() {
-        return getEnv("remotePlatformVersion");
+    public String getRemoteBrowserVersion() {
+        return getEnvValue("remoteBrowserVersion");
     }
 
     /**
@@ -135,7 +152,7 @@ public final class PropertiesConfig {
      * @return the resolution SauceLabs selected read from properties file.
      */
     public String getRemoteResolution() {
-        return getEnv("remoteResolution");
+        return getEnvValue("remoteResolution");
     }
 
     /**
@@ -144,7 +161,7 @@ public final class PropertiesConfig {
      * @return the docker url in a string object.
      */
     public String getDockerUrl() {
-        return getEnv("dockerUrl");
+        return getEnvValue("dockerUrl");
     }
 
     /**
@@ -153,16 +170,16 @@ public final class PropertiesConfig {
      * @return the browser.
      */
     public String getBrowser() {
-        return getEnv("browser");
+        return getEnvValue("browser");
     }
 
     /**
-     * Getter for the OS version for Browserstack remote driver.
+     * Getter for the OS version for BrowserConnectionStack remote webDriver.
      *
      * @return the version OS.
      */
-    public String getOSVersion() {
-        return getEnv("OSVersion");
+    public String getRemoteOSVersion() {
+        return getEnvValue("remoteOSVersion");
     }
 
     /**
@@ -171,13 +188,8 @@ public final class PropertiesConfig {
      * @param env is the property string.
      * @return the specified property.
      */
-    private String getEnv(final String env) {
+    private String getEnvValue(final String env) {
         String property = System.getProperty(env);
-        if (property == null) {
-            return properties.getProperty(env);
-        }
-        return property;
+        return property == null ? properties.getProperty(env) : property;
     }
 }
-
-

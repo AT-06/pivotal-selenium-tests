@@ -44,7 +44,7 @@ public final class CommonActions {
      * @return the element received in param.
      */
     public static WebElement waitWebElement(final WebElement webElement) {
-        return DriverManager.getInstance().getDriverWait().until(ExpectedConditions.visibilityOf(webElement));
+        return DriverManager.getInstance().getWaiter().until(ExpectedConditions.visibilityOf(webElement));
     }
 
     /**

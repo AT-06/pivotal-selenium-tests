@@ -54,11 +54,11 @@ public class CreateProject extends Base {
      */
     private void setPrivacy(final String privacy) {
         if ("private".equalsIgnoreCase(privacy)) {
-            driver.findElement(By.cssSelector(
+            webDriver.findElement(By.cssSelector(
                     "div#modal_area label:nth-child(2) > input[name=\"project_type\"]")).click();
         }
         if ("public".equalsIgnoreCase(privacy)) {
-            driver.findElement(By.cssSelector(
+            webDriver.findElement(By.cssSelector(
                     "div#modal_area label:nth-child(3) > input[name=\"project_type\"]")).click();
         }
     }
@@ -128,6 +128,6 @@ public class CreateProject extends Base {
      * @return the project's id extracted from URL.
      */
     public String extractProjectIdFromUrl() {
-        return this.driver.getCurrentUrl().substring(this.driver.getCurrentUrl().lastIndexOf("/") + 1);
+        return this.webDriver.getCurrentUrl().substring(this.webDriver.getCurrentUrl().lastIndexOf("/") + 1);
     }
 }

@@ -33,11 +33,13 @@ public class PageLogin extends Base {
 
     /**
      * Constructor.
+     *
      * @param dashBoard object.
      */
     public PageLogin(final DashBoard dashBoard) {
         this.dashBoard = dashBoard;
     }
+
     /**
      * Method for set txt User Name.
      *
@@ -46,6 +48,10 @@ public class PageLogin extends Base {
     private void setTxtUsername(final String username) {
         driverWait.until(ExpectedConditions.visibilityOf(txtUsername));
         txtUsername.sendKeys(username);
+    }
+
+    public void loginUrl(final String url) {
+        webDriver.navigate().to(url);
     }
 
     /**
@@ -84,16 +90,17 @@ public class PageLogin extends Base {
      */
     public void signIn(final String username, final String password) {
         try {
-            driverWait = new WebDriverWait(driver, LOGINTIME);
+            driverWait = new WebDriverWait(webDriver, LOGINTIME);
             driverWait.until(ExpectedConditions.visibilityOf(txtUsername));
             setFieldsLogin(username, password);
         } catch (TimeoutException k) {
             dashBoard.setButtonDashborad();
         } finally {
-            driverWait = new WebDriverWait(driver, DEFAULTTIME);
+            driverWait = new WebDriverWait(webDriver, DEFAULTTIME);
         }
 
     }
+
     /**
      * Method for use User Name and Password.
      *

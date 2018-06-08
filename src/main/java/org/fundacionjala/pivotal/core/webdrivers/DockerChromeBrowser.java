@@ -16,21 +16,18 @@ import java.net.URL;
  */
 public class DockerChromeBrowser implements Browser {
 
-    private static final Logger LOGGER = LogManager.getLogger();
-
+    private static final Logger LOGGER = LogManager.getLogger(DockerChromeBrowser.class);
     /**
      * {@inheritDoc}
      */
     @Override
     public WebDriver getBrowser() {
-        WebDriver driver;
+        WebDriver driver = null;
         try {
             driver = new RemoteWebDriver(new URL(PropertiesConfig.getInstance().getDockerUrl()), new ChromeOptions());
         } catch (MalformedURLException e) {
-            String message = "URL bad created";
-            LOGGER.error(message);
-            LOGGER.info(e);
-            throw new NoConfigPropertiesFound(message, e);
+            LOGGER.error("URL bad created:", e);
+
         }
         return driver;
     }

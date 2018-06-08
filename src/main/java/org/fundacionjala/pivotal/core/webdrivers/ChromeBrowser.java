@@ -9,7 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class ChromeBrowser implements Browser {
 
     /**
-     * {@inheritDoc}
+     * Get the Chrome webDriver.
+     *
+     * @return the ChromeDriver.
      */
     @Override
     public WebDriver getBrowser() {
