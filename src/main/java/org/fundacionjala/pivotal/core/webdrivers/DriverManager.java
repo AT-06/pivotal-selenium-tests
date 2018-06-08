@@ -22,7 +22,6 @@ public final class DriverManager {
     private DriverManager() {
         DriverType driverType = DriverType.valueOf(PropertiesConfig.getInstance().getBrowser());
         driver = DriverFactory.getDriverManager(driverType);
-        //webDriver.navigate().to("https://www.pivotaltracker.com/signin");
         driverWait = new WebDriverWait(driver, EXPLICIT_TIME);
     }
 
