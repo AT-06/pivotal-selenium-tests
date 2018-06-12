@@ -32,7 +32,6 @@ public final class DriverManager {
         final int explicitWaitTimeOut = 30;
         DriverType driverType = DriverType.valueOf(PropertiesConfig.getInstance().getBrowser());
         driver = DriverFactory.getDriverManager(driverType);
-        driver.navigate().to("https://www.pivotaltracker.com/signin");
         driverWait = new WebDriverWait(driver, explicitWaitTimeOut);
     }
 

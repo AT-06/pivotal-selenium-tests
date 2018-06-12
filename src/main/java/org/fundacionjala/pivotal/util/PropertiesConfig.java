@@ -65,14 +65,21 @@ public final class PropertiesConfig {
      * @return User.
      */
     public String getUser() {
-        return getEnv("User");
+        return getEnvValue("User");
+    }
+
+    /**
+     * @return Url.
+     */
+    public String getUrl() {
+        return getEnvValue("urlLogin");
     }
 
     /**
      * @return Password.
      */
     public String getPassword() {
-        return getEnv("Password");
+        return getEnvValue("Password");
     }
 
     /**
@@ -81,7 +88,7 @@ public final class PropertiesConfig {
      * @return the token read from properties file.
      */
     public String getAPIToken() {
-        return getEnv("APIToken");
+        return getEnvValue("APIToken");
     }
 
     /**
@@ -90,7 +97,7 @@ public final class PropertiesConfig {
      * @return the Username SauceLabs read from properties file.
      */
     public String getSauceUserName() {
-        return getEnv("UserName");
+        return getEnvValue("UserName");
     }
 
     /**
@@ -99,7 +106,7 @@ public final class PropertiesConfig {
      * @return the key SauceLabs read from properties file.
      */
     public String getSauceKey() {
-        return getEnv("Key");
+        return getEnvValue("Key");
     }
 
     /**
@@ -108,7 +115,7 @@ public final class PropertiesConfig {
      * @return the browser SauceLabs selected read from properties file.
      */
     public String getRemoteBrowser() {
-        return getEnv("remoteBrowser");
+        return getEnvValue("remoteBrowser");
     }
 
     /**
@@ -117,7 +124,7 @@ public final class PropertiesConfig {
      * @return the OS SauceLabs selected read from properties file.
      */
     public String getRemotePlatform() {
-        return getEnv("remotePlatform");
+        return getEnvValue("remotePlatform");
     }
 
     /**
@@ -126,7 +133,7 @@ public final class PropertiesConfig {
      * @return the Browser version of SauceLabs  selected read from properties file.
      */
     public String getPlatformVersion() {
-        return getEnv("remotePlatformVersion");
+        return getEnvValue("remotePlatformVersion");
     }
 
     /**
@@ -135,7 +142,7 @@ public final class PropertiesConfig {
      * @return the resolution SauceLabs selected read from properties file.
      */
     public String getRemoteResolution() {
-        return getEnv("remoteResolution");
+        return getEnvValue("remoteResolution");
     }
 
     /**
@@ -144,7 +151,7 @@ public final class PropertiesConfig {
      * @return the docker url in a string object.
      */
     public String getDockerUrl() {
-        return getEnv("dockerUrl");
+        return getEnvValue("dockerUrl");
     }
 
     /**
@@ -153,7 +160,7 @@ public final class PropertiesConfig {
      * @return the browser.
      */
     public String getBrowser() {
-        return getEnv("browser");
+        return getEnvValue("browser");
     }
 
     /**
@@ -162,7 +169,7 @@ public final class PropertiesConfig {
      * @return the version OS.
      */
     public String getOSVersion() {
-        return getEnv("OSVersion");
+        return getEnvValue("OSVersion");
     }
 
     /**
@@ -171,12 +178,9 @@ public final class PropertiesConfig {
      * @param env is the property string.
      * @return the specified property.
      */
-    private String getEnv(final String env) {
+    private String getEnvValue(final String env) {
         String property = System.getProperty(env);
-        if (property == null) {
-            return properties.getProperty(env);
-        }
-        return property;
+        return property == null ? properties.getProperty(env) : property;
     }
 }
 
