@@ -1,4 +1,4 @@
-package org.fundacionjala.pivotal.core.api;
+package org.fundacionjala.pivotal.api;
 
 import com.jayway.restassured.response.Response;
 
@@ -24,13 +24,14 @@ public final class APICommons {
 
     /**
      * Method to get an element from the response.
+     *
      * @param element the response from request.
      * @return a String with the element response
      */
     public static String getElementResponse(final String element) {
         String[] elementSplit = element.split("\\.");
         if (elementSplit.length > 1) {
-             Response res = getRequestResponse().get(elementSplit[0]);
+            Response res = getRequestResponse().get(elementSplit[0]);
             return getElement(res, elementSplit[1]);
         }
         return "";
@@ -38,7 +39,8 @@ public final class APICommons {
 
     /**
      * Method to get an element from a response.
-     * @param res the response from request.
+     *
+     * @param res     the response from request.
      * @param element the element needed from response
      * @return the element value as string.
      */
@@ -48,8 +50,9 @@ public final class APICommons {
 
     /**
      * Method to save response from request into a hashmap.
+     *
      * @param variableName the key name of the response.
-     * @param response the response from request.
+     * @param response     the response from request.
      */
     public static void saveResponse(final String variableName, final Response response) {
         requestResponse.put(variableName, response);
@@ -57,6 +60,7 @@ public final class APICommons {
 
     /**
      * Method to get map with response.
+     *
      * @return the map.
      */
     public static Map<String, Response> getRequestResponse() {
@@ -65,6 +69,7 @@ public final class APICommons {
 
     /**
      * Method to build endpoint.
+     *
      * @param endPoint response to a request.
      * @return the new endpoint.
      */
@@ -80,6 +85,4 @@ public final class APICommons {
         }
         return String.join("/", endPointSplit);
     }
-
-
 }

@@ -1,7 +1,7 @@
 package org.fundacionjala.pivotal.pages.dashboard;
 
-import org.fundacionjala.pivotal.util.CommonActions;
-import org.fundacionjala.pivotal.pages.common.Base;
+import org.fundacionjala.core.selenium.Base;
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,14 +35,14 @@ public class DashBoard extends Base {
      * Set Button DashBoard.
      */
     public void setProjectTitle() {
-        CommonActions.clickWebElement(projectTitle);
+        CommonWebActions.clickElement(projectTitle);
     }
 
     /**
      * Set Button Edit Project.
      */
     private void setButtonEditProject() {
-        CommonActions.clickWebElement(buttonEditProject);
+        CommonWebActions.clickElement(buttonEditProject);
     }
 
     /**
@@ -51,7 +51,7 @@ public class DashBoard extends Base {
      * @param nameProject String.
      */
     private void setSearchProjectButton(final String nameProject) {
-        CommonActions.setWebElement(searchProjectButton, nameProject);
+        CommonWebActions.setTextElement(searchProjectButton, nameProject);
     }
 
     /**
@@ -62,7 +62,6 @@ public class DashBoard extends Base {
     public void searchProject(final String projectName) {
         this.setSearchProjectButton(projectName);
         this.setButtonEditProject();
-
     }
     /**
      * Set Project name for a search.
@@ -71,6 +70,5 @@ public class DashBoard extends Base {
      */
     public void searchOnlyProject(final String projectName) {
         this.setSearchProjectButton(projectName);
-
     }
 }

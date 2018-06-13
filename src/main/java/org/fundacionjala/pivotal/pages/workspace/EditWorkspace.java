@@ -1,7 +1,7 @@
 package org.fundacionjala.pivotal.pages.workspace;
 
-import org.fundacionjala.pivotal.util.CommonActions;
-import org.fundacionjala.pivotal.pages.common.Base;
+import org.fundacionjala.core.selenium.Base;
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -32,16 +32,13 @@ public class EditWorkspace extends Base {
     @FindBy(id = "notice")
     private WebElement successDeleteMessage;
 
-
-
     /**
      * Method for get the last workspace created.
      *
      * @return lastWorspaceCreatedLink.
      */
     public WebElement getLastWorkspaceCreatedLink() {
-        return CommonActions.waitWebElement(lastWorkspaceCreatedLink);
-
+        return CommonWebActions.waitWebElementVisible(lastWorkspaceCreatedLink);
     }
 
     /**
@@ -50,7 +47,7 @@ public class EditWorkspace extends Base {
      * @return lastWorspaceCreatedLink.
      */
     public WebElement getSuccessDeleteMessage() {
-        return CommonActions.waitWebElement(successDeleteMessage);
+        return CommonWebActions.waitWebElementVisible(successDeleteMessage);
 
     }
 
@@ -60,7 +57,7 @@ public class EditWorkspace extends Base {
      * @return the workspace name input.
      */
     private WebElement getTxtWorkspaceName() {
-        return CommonActions.waitWebElement(txtWorkspaceName);
+        return CommonWebActions.waitWebElementVisible(txtWorkspaceName);
 
     }
 
@@ -70,7 +67,7 @@ public class EditWorkspace extends Base {
      * @return the workspace name input.
      */
     private WebElement getButtonSaveWorkspace() {
-        return CommonActions.waitWebElement(buttonSaveWorkspace);
+        return CommonWebActions.waitWebElementVisible(buttonSaveWorkspace);
     }
 
     /**
@@ -79,7 +76,7 @@ public class EditWorkspace extends Base {
      * @return the workspace name input.
      */
     private WebElement getButtonDeleteWorkspace() {
-        return CommonActions.waitWebElement(buttonDeleteWorkspace);
+        return CommonWebActions.waitWebElementVisible(buttonDeleteWorkspace);
     }
 
     /**
@@ -88,7 +85,7 @@ public class EditWorkspace extends Base {
      * @return the workspace name input.
      */
     private WebElement getButtonConfirmDeleteWorkspace() {
-        return CommonActions.waitWebElement(buttonConfirmDeleteWorkspace);
+        return CommonWebActions.waitWebElementVisible(buttonConfirmDeleteWorkspace);
     }
 
     /**
@@ -97,7 +94,7 @@ public class EditWorkspace extends Base {
      * @return the workspace name input.
      */
     public WebElement getSuccessMessage() {
-        return CommonActions.waitWebElement(successMessage);
+        return CommonWebActions.waitWebElementVisible(successMessage);
     }
 
     /**
@@ -106,28 +103,28 @@ public class EditWorkspace extends Base {
      * @param workspaceName String.
      */
     private void setWorkspaceName(final String workspaceName) {
-        CommonActions.setWebElement(getTxtWorkspaceName(), workspaceName);
+        CommonWebActions.setTextElement(getTxtWorkspaceName(), workspaceName);
     }
 
     /**
      * Method for press click buttton for save a new workspace.
      */
     private void clickButtonSaveWorkspace() {
-        CommonActions.clickWebElement(this.getButtonSaveWorkspace());
+        CommonWebActions.clickElement(this.getButtonSaveWorkspace());
     }
 
     /**
      * Method for press click buttton for save a new workspace.
      */
     private void clickButtonDeleteWorkspace() {
-        CommonActions.clickWebElement(this.getButtonDeleteWorkspace());
+        CommonWebActions.clickElement(this.getButtonDeleteWorkspace());
     }
 
     /**
      * Method for press click buttton for save a new workspace.
      */
     private void clickButtonConfirmDeleteWorkspace() {
-        CommonActions.clickWebElement(this.getButtonConfirmDeleteWorkspace());
+        CommonWebActions.clickElement(this.getButtonConfirmDeleteWorkspace());
     }
 
     /**
@@ -137,7 +134,7 @@ public class EditWorkspace extends Base {
      */
     public void editWorkspace(final String workspaceName) {
 
-        CommonActions.clickWebElementWithJavascriptExecutor(getLastWorkspaceCreatedLink());
+        CommonWebActions.jsClickElement(getLastWorkspaceCreatedLink());
 
         this.setWorkspaceName(workspaceName);
         this.clickButtonSaveWorkspace();
@@ -147,7 +144,7 @@ public class EditWorkspace extends Base {
      * Method to delete a workspace.
      */
     public void deleteLastWorkspace() {
-        CommonActions.clickWebElementWithJavascriptExecutor(getLastWorkspaceCreatedLink());
+        CommonWebActions.jsClickElement(getLastWorkspaceCreatedLink());
         this.clickButtonDeleteWorkspace();
         this.clickButtonConfirmDeleteWorkspace();
     }

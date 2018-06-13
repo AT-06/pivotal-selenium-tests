@@ -1,7 +1,7 @@
 package org.fundacionjala.pivotal.pages.workspace;
 
-import org.fundacionjala.pivotal.util.CommonActions;
-import org.fundacionjala.pivotal.pages.common.Base;
+import org.fundacionjala.core.selenium.Base;
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -30,7 +30,7 @@ public class CreateWorkspace extends Base {
      * @return ButtonCreateWorkspace.
      */
     private WebElement getButtonCreateWorkspace() {
-        return CommonActions.waitWebElement(buttonNewWorkspaceProject);
+        return CommonWebActions.waitWebElementVisible(buttonNewWorkspaceProject);
 
     }
 
@@ -40,7 +40,7 @@ public class CreateWorkspace extends Base {
      * @return ButtonCreateWorkspace.
      */
     private WebElement getButtonSaveWorkspace() {
-        return CommonActions.waitWebElement(buttonCreateWorkspace);
+        return CommonWebActions.waitWebElementVisible(buttonCreateWorkspace);
 
     }
 
@@ -50,7 +50,7 @@ public class CreateWorkspace extends Base {
      * @return ButtonCreateWorkspace.
      */
     private WebElement getLastWorkspaceCreated() {
-        return CommonActions.waitWebElement(lastWorkspaceCreated);
+        return CommonWebActions.waitWebElementVisible(lastWorkspaceCreated);
 
     }
 
@@ -70,7 +70,7 @@ public class CreateWorkspace extends Base {
      * @param workspaceName String.
      */
     private void setTxtWorkspaceNameName(final String workspaceName) {
-        CommonActions.setWebElement(txtWorkspaceName, workspaceName);
+        CommonWebActions.setTextElement(txtWorkspaceName, workspaceName);
 
     }
 
@@ -78,14 +78,14 @@ public class CreateWorkspace extends Base {
      * Method for press click buttton for create a new workspace.
      */
     private void clickButtonCreateWorkspace() {
-        CommonActions.clickWebElement(this.getButtonCreateWorkspace());
+        CommonWebActions.clickElement(this.getButtonCreateWorkspace());
     }
 
     /**
      * Method for press click buttton for save a new workspace.
      */
     private void clickButtonSaveWorkspace() {
-        CommonActions.clickWebElement(this.getButtonSaveWorkspace());
+        CommonWebActions.clickElement(this.getButtonSaveWorkspace());
     }
 
     /**

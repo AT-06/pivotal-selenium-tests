@@ -1,7 +1,7 @@
 package org.fundacionjala.pivotal.pages.project;
 
-import org.fundacionjala.pivotal.util.CommonActions;
-import org.fundacionjala.pivotal.pages.common.Base;
+import org.fundacionjala.core.selenium.Base;
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.fundacionjala.pivotal.pages.common.Steps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -43,7 +43,7 @@ public class CreateProject extends Base {
      * @return txtVerifyName.
      */
     public String verifyName() {
-        return CommonActions.waitWebElement(txtVerifyName).getText();
+        return CommonWebActions.waitWebElementVisible(txtVerifyName).getText();
 
     }
 
@@ -70,22 +70,22 @@ public class CreateProject extends Base {
      */
     private void setTxtSelectorAcccountSpecific(final String account) {
         this.setTxtSelectorAcccountCheck();
-        CommonActions.clickWebElement(buttonCreateAccount);
-        CommonActions.setWebElement(txtAccountName, account);
+        CommonWebActions.clickElement(buttonCreateAccount);
+        CommonWebActions.setTextElement(txtAccountName, account);
     }
 
     /**
      * Method for Select account Check.
      */
     private void setTxtSelectorAcccountCheck() {
-        CommonActions.clickWebElement(txtSelectorAcccountCheck);
+        CommonWebActions.clickElement(txtSelectorAcccountCheck);
     }
 
     /**
      * Method for set Button Create Project.
      */
     public void setButtonCreateProject() {
-        CommonActions.clickWebElement(buttonCreateProject);
+        CommonWebActions.clickElement(buttonCreateProject);
     }
 
     /**
@@ -94,7 +94,7 @@ public class CreateProject extends Base {
      * @param projectName String.
      */
     private void setTxtProjectName(final String projectName) {
-        CommonActions.setWebElement(txtProjectName, projectName);
+        CommonWebActions.setTextElement(txtProjectName, projectName);
 
     }
 
@@ -102,7 +102,7 @@ public class CreateProject extends Base {
      * Method for set Button Create.
      */
     public void setButtonCreate() {
-        CommonActions.clickWebElement(buttonCreate);
+        CommonWebActions.clickElement(buttonCreate);
     }
 
     /**

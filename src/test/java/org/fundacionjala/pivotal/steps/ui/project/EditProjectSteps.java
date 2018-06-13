@@ -12,7 +12,7 @@ import java.util.Map;
 /**
  * Class por Edit Project Steps.
  */
-public class EditProjectSteps  {
+public class EditProjectSteps {
     private EditProject editProject;
     private DashBoard dashBoard;
     private Helper feature;
@@ -21,8 +21,8 @@ public class EditProjectSteps  {
      * Constructor for EditProjectSteps class.
      *
      * @param editProject object.
-     * @param dashBoard object.
-     * @param feature object.
+     * @param dashBoard   object.
+     * @param feature     object.
      */
     public EditProjectSteps(final EditProject editProject, final DashBoard dashBoard, final Helper feature) {
         this.editProject = editProject;
@@ -35,10 +35,8 @@ public class EditProjectSteps  {
      */
     @When("^I select the created project")
     public void iSelectTheCreatedProject() {
-
         dashBoard.setButtonDashborad();
         dashBoard.searchProject(feature.getProjectName());
-
     }
 
     /**

@@ -1,6 +1,6 @@
 package org.fundacionjala.pivotal.pages.project;
 
-import org.fundacionjala.pivotal.pages.common.Base;
+import org.fundacionjala.core.selenium.Base;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;

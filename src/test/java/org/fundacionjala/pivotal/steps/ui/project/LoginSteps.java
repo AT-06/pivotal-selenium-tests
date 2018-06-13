@@ -2,8 +2,9 @@ package org.fundacionjala.pivotal.steps.ui.project;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import org.fundacionjala.core.util.PropertiesInput;
+import org.fundacionjala.core.util.PropertiesManager;
 import org.fundacionjala.pivotal.util.Helper;
-import org.fundacionjala.pivotal.util.PropertiesConfig;
 import org.fundacionjala.pivotal.pages.project.PageLogin;
 import org.testng.asserts.Assertion;
 
@@ -32,9 +33,10 @@ public class LoginSteps {
      */
     @Given("I put a valid user and Password")
     public void iPutAValidAnd() {
-        pageLogin.setUrl(PropertiesConfig.getInstance().getUrl());
-        pageLogin.signIn(PropertiesConfig.getInstance()
-                .getUser(), PropertiesConfig.getInstance().getPassword());
+        pageLogin.setUrl(PropertiesManager.getInstance().getProperties(PropertiesInput.URL_LOGIN));
+        pageLogin.signIn(PropertiesManager.getInstance()
+                .getProperties(PropertiesInput.USER), PropertiesManager
+                .getInstance().getProperties(PropertiesInput.PASSWORD));
     }
 
     /**

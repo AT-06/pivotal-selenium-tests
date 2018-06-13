@@ -1,7 +1,7 @@
 package org.fundacionjala.pivotal.pages.story;
 
-import org.fundacionjala.pivotal.util.CommonActions;
-import org.fundacionjala.pivotal.pages.common.Base;
+import org.fundacionjala.core.selenium.Base;
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.fundacionjala.pivotal.pages.common.Steps;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -80,9 +80,9 @@ public class Story extends Base {
      * Method to delete a story.
      */
     public void deleteStory() {
-        CommonActions.clickWebElement(expanderStory);
-        CommonActions.clickWebElement(buttonDeleteStory);
-        CommonActions.clickWebElement(buttonConfirmDelete);
+        CommonWebActions.clickElement(expanderStory);
+        CommonWebActions.clickElement(buttonDeleteStory);
+        CommonWebActions.clickElement(buttonConfirmDelete);
     }
 
     /**
@@ -100,7 +100,7 @@ public class Story extends Base {
      * @return the story name
      */
     public String verifyStoryName() {
-        CommonActions.waitWebElement(getStoryCreated);
+        CommonWebActions.waitWebElementVisible(getStoryCreated);
         return getStoryCreated.getText();
     }
 
@@ -109,7 +109,7 @@ public class Story extends Base {
      * Method to click expander story button.
      */
     public void clickSToryExpander() {
-        CommonActions.clickWebElement(expanderStory);
+        CommonWebActions.clickElement(expanderStory);
     }
 
     /**
@@ -118,8 +118,8 @@ public class Story extends Base {
      * @param storyType String.
      */
     public void setStoryType(final String storyType) {
-        CommonActions.clickWebElement(dropdownStoryType);
-        CommonActions.clickWebElement(driver.findElement(By.className(
+        CommonWebActions.clickElement(dropdownStoryType);
+        CommonWebActions.clickElement(driver.findElement(By.className(
                 String.format("%s%s%s", "item_", storyType, " "))));
 
     }
@@ -128,7 +128,7 @@ public class Story extends Base {
      * Method to click create story button.
      */
     public void setButtonCreateStory() {
-        CommonActions.clickWebElement(buttonCreateStory);
+        CommonWebActions.clickElement(buttonCreateStory);
     }
 
     /**
@@ -138,14 +138,14 @@ public class Story extends Base {
      */
     public void setStoryName(final String storyName) {
         txtStoryName.clear();
-        CommonActions.setWebElement(txtStoryName, storyName);
+        CommonWebActions.setTextElement(txtStoryName, storyName);
     }
 
     /**
      * Method to select save story button.
      */
     public void setButtonSaveStory() {
-        CommonActions.clickWebElement(buttonSaveStory);
+        CommonWebActions.clickElement(buttonSaveStory);
     }
 
     /**
@@ -154,9 +154,9 @@ public class Story extends Base {
      * @param storyDescription story description.
      */
     private void setStoryDescription(final String storyDescription) {
-        CommonActions.clickWebElement(enableDescriptionText);
-        CommonActions.setWebElement(txtStoryDescription, storyDescription);
-        CommonActions.clickWebElement(buttonAddDescription);
+        CommonWebActions.clickElement(enableDescriptionText);
+        CommonWebActions.setTextElement(txtStoryDescription, storyDescription);
+        CommonWebActions.clickElement(buttonAddDescription);
     }
 
     /**
@@ -165,8 +165,8 @@ public class Story extends Base {
      * @param storyComment story comment.
      */
     public void setStoryComment(final String storyComment) {
-        CommonActions.setWebElement(txtActivityComment, storyComment);
-        CommonActions.clickWebElement(buttonPostComment);
+        CommonWebActions.setTextElement(txtActivityComment, storyComment);
+        CommonWebActions.clickElement(buttonPostComment);
     }
 
     /**
@@ -175,8 +175,8 @@ public class Story extends Base {
      * @param storyLabel label name.
      */
     public void setStoryLabel(final String storyLabel) {
-        CommonActions.setWebElement(txtLabel, storyLabel);
-        CommonActions.pressEnter(txtLabel);
+        CommonWebActions.setTextElement(txtLabel, storyLabel);
+        CommonWebActions.pressEnter(txtLabel);
     }
 
     /**
@@ -185,16 +185,16 @@ public class Story extends Base {
      * @param storyBlocker blocker.
      */
     public void setStoryBlocker(final String storyBlocker) {
-        CommonActions.clickWebElement(enableBlocker);
-        CommonActions.setWebElement(txtBlocker, storyBlocker);
-        CommonActions.clickWebElement(buttonAddBlocker);
+        CommonWebActions.clickElement(enableBlocker);
+        CommonWebActions.setTextElement(txtBlocker, storyBlocker);
+        CommonWebActions.clickElement(buttonAddBlocker);
     }
 
     /**
      * Method to select close edit button.
      */
     public void setButtonCloseEdit() {
-        CommonActions.clickWebElement(buttonCloseEdit);
+        CommonWebActions.clickElement(buttonCloseEdit);
     }
 
     /**

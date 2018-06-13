@@ -1,7 +1,7 @@
 package org.fundacionjala.pivotal.pages.account;
 
-import org.fundacionjala.pivotal.util.CommonActions;
-import org.fundacionjala.pivotal.pages.common.Base;
+import org.fundacionjala.core.selenium.Base;
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.Alert;
@@ -52,7 +52,7 @@ public class Account extends Base {
      * @return txtVerifyAccountName in the display.
      */
     private Boolean setTxtVerifyAccountName() {
-        CommonActions.waitWebElement(txtVerifyAccountName);
+        CommonWebActions.waitWebElementVisible(txtVerifyAccountName);
         return txtVerifyAccountName.isDisplayed();
     }
 
@@ -61,14 +61,14 @@ public class Account extends Base {
      *
      */
     private void setSettingsButton() {
-        CommonActions.clickWebElement(settingsButton);
+        CommonWebActions.clickElement(settingsButton);
     }
     /**
      * Set do click in the settings account button.
      *
      */
     private void setDeleteLink() {
-        CommonActions.clickWebElement(deleteLink);
+        CommonWebActions.clickElement(deleteLink);
     }
 
     /**
@@ -76,7 +76,7 @@ public class Account extends Base {
      *
      */
     private void setManageAccount() {
-        CommonActions.clickWebElement(manageAccount);
+        CommonWebActions.clickElement(manageAccount);
     }
 
     /**
@@ -84,7 +84,7 @@ public class Account extends Base {
      *
      */
     private void setProfileDropdown() {
-        CommonActions.clickWebElement(profileDropdown);
+        CommonWebActions.clickElement(profileDropdown);
     }
 
     /**
@@ -92,14 +92,14 @@ public class Account extends Base {
      *
      */
     private void setLinkAccounts() {
-        CommonActions.clickWebElement(linkAccounts);
+        CommonWebActions.clickElement(linkAccounts);
     }
 
     /**
      * Set Button for create.
      */
     private void setCreateButton() {
-        CommonActions.clickWebElement(createButton);
+        CommonWebActions.clickElement(createButton);
     }
 
     /**
@@ -108,28 +108,28 @@ public class Account extends Base {
      * @param accountName String.
      */
     private void setTxtAccountName(final String accountName) {
-        CommonActions.setWebElement(txtAccountName, accountName);
+        CommonWebActions.setTextElement(txtAccountName, accountName);
     }
 
     /**
      * Set account Button.
      */
     private void setCreateAccounButton() {
-        CommonActions.clickWebElement(createAccounButton);
+        CommonWebActions.clickElement(createAccounButton);
     }
 
     /**
      * Set Profile Button.
      */
     private void setProfileButton() {
-        CommonActions.clickWebElement(profileButton);
+        CommonWebActions.clickElement(profileButton);
     }
 
     /**
      * Set account Button.
      */
     private void setAccountButton() {
-        CommonActions.clickWebElement(accountButton);
+        CommonWebActions.clickElement(accountButton);
     }
 
     /**

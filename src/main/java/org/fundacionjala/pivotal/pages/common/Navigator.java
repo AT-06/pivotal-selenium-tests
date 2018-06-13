@@ -1,7 +1,8 @@
 package org.fundacionjala.pivotal.pages.common;
 
-import org.fundacionjala.pivotal.util.CommonActions;
-import org.fundacionjala.pivotal.core.webdrivers.DriverManager;
+import org.fundacionjala.core.driver.DriverManager;
+import org.fundacionjala.core.selenium.Base;
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -24,7 +25,7 @@ public class Navigator extends Base {
      * @return tab workspace.
      */
     private WebElement getTabWorkspace() {
-        return CommonActions.waitWebElement(tabWorkspace);
+        return CommonWebActions.waitWebElementVisible(tabWorkspace);
     }
 
     /**
@@ -33,7 +34,7 @@ public class Navigator extends Base {
      * @return tab workspace.
      */
     private WebElement getComboProjectWorkspaces() {
-        return CommonActions.waitWebElement(comboProjectWorkspaces);
+        return CommonWebActions.waitWebElementVisible(comboProjectWorkspaces);
 
     }
 
@@ -43,7 +44,7 @@ public class Navigator extends Base {
      * @return dashboard button.
      */
     private WebElement getButtonDashboard() {
-        return CommonActions.waitWebElement(buttonDashboard);
+        return CommonWebActions.waitWebElementVisible(buttonDashboard);
 
     }
 
@@ -51,24 +52,22 @@ public class Navigator extends Base {
      * Method for press click tab workspace.
      */
     public void clickTabWorkspace() {
-        CommonActions.clickWebElement(this.getTabWorkspace());
+        CommonWebActions.clickElement(this.getTabWorkspace());
     }
 
     /**
      * Method for press click top dropdown.
      */
     public void clickComboProjectWorkspaces() {
-        CommonActions.clickWebElementWithJavascriptExecutor(getComboProjectWorkspaces());
-        CommonActions.clickWebElement(getComboProjectWorkspaces());
-
-
+        CommonWebActions.jsClickElement(getComboProjectWorkspaces());
+        CommonWebActions.clickElement(getComboProjectWorkspaces());
     }
 
     /**
      * Method for press click over dashboard button.
      */
     public void clickButtonDashboard() {
-        CommonActions.clickWebElement(this.getButtonDashboard());
+        CommonWebActions.clickElement(this.getButtonDashboard());
     }
 
     /**

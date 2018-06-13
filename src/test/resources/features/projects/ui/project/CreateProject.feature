@@ -6,7 +6,7 @@ Feature: Create Project
   @acceptance @DeleteProjectUI @DeleteAccount
   Scenario: Create Project with a new Account
     Given I can create a new project with the following values
-      | PROJECT_TITLE   | Test8   |
+      | PROJECT_TITLE   | Test8     |
       | PROJECT_ACCOUNT | Fundacion |
       | PROJECT_VISIBLE | public    |
     Then I can verify the new project with the project name
