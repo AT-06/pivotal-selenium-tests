@@ -74,8 +74,6 @@ public class Story extends Base {
     @FindBy(css = ".persistence .close")
     private WebElement buttonCloseEdit;
 
-
-
     /**
      * Method to delete a story.
      */
@@ -103,7 +101,6 @@ public class Story extends Base {
         CommonWebActions.waitWebElementVisible(getStoryCreated);
         return getStoryCreated.getText();
     }
-
 
     /**
      * Method to click expander story button.

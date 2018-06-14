@@ -53,7 +53,7 @@ public class EditProject extends Base {
      * @param date String.
      */
     private void setTxtDateProject(final String date) {
-        CommonWebActions.setTextElement(txtDateProject, date);
+       CommonWebActions.setComboBox(txtDateProject, date);
     }
 
     /**
@@ -62,8 +62,8 @@ public class EditProject extends Base {
      * @param day String.
      */
     private void setTxtProjectWeek(final String day) {
-        CommonWebActions.jsClickElement(txtProjectWeek);
-        CommonWebActions.setTextElement(txtProjectWeek, day);
+        CommonWebActions.jsExecutorScript(txtProjectWeek);
+        CommonWebActions.setComboBox(txtProjectWeek, day);
     }
 
     /**
@@ -90,7 +90,7 @@ public class EditProject extends Base {
      */
     private void setTxtPublic(final String check) {
         if (check.equalsIgnoreCase("false")) {
-            CommonWebActions.clickElement(txtPublic);
+            CommonWebActions.setCheckButton(txtPublic);
         }
     }
 
@@ -109,8 +109,8 @@ public class EditProject extends Base {
      * @param check String.
      */
     private void setTxtTask(final String check) {
-        if (check.equalsIgnoreCase("false")) {
-            CommonWebActions.clickElement(txtTask);
+       if (check.equalsIgnoreCase("false")) {
+            CommonWebActions.setCheckButton(txtTask);
         }
     }
 

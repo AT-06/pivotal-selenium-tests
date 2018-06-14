@@ -30,7 +30,7 @@ public class DeleteProject extends Base {
      * Method for delete Project.
      */
     public void deleteProject() {
-        CommonWebActions.jsClickElement(buttonConfirmDelete);
+        CommonWebActions.jsExecutorScript(buttonConfirmDelete);
     }
 }
 
