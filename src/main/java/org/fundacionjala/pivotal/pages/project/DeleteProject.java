@@ -1,7 +1,7 @@
 package org.fundacionjala.pivotal.pages.project;
 
-import org.fundacionjala.pivotal.util.CommonActions;
-import org.fundacionjala.pivotal.pages.common.Base;
+import org.fundacionjala.core.selenium.Base;
+import org.fundacionjala.core.selenium.CommonWebActions;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -22,7 +22,7 @@ public class DeleteProject extends Base {
      * @return messageDeleted is Displayed.
      */
     public boolean setMessageDelete() {
-        CommonActions.waitWebElement(messageDelete);
+        CommonWebActions.waitWebElementVisible(messageDelete);
         return messageDelete.isDisplayed();
     }
 
@@ -30,7 +30,7 @@ public class DeleteProject extends Base {
      * Method for delete Project.
      */
     public void deleteProject() {
-        CommonActions.clickWebElementWithJavascriptExecutor(buttonConfirmDelete);
+        CommonWebActions.jsExecutorScript(buttonConfirmDelete);
     }
 }
 

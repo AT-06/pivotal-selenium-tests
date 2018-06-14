@@ -1,4 +1,4 @@
-package org.fundacionjala.pivotal.core.api;
+package org.fundacionjala.pivotal.api;
 
 import com.jayway.restassured.response.Response;
 import java.util.Map;

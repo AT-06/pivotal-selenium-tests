@@ -39,5 +39,4 @@ public class CreateTaskSteps {
         task.setAddTaskButton();
         story.setButtonCloseEdit();
     }
-
 }

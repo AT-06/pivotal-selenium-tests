@@ -1,8 +1,8 @@
-package org.fundacionjala.pivotal.core.api;
+package org.fundacionjala.pivotal.api;
 
 import com.jayway.restassured.builder.RequestSpecBuilder;
 import com.jayway.restassured.specification.RequestSpecification;
-import org.fundacionjala.pivotal.util.PropertiesConfig;
+import org.fundacionjala.pivotal.util.PropertiesPivotal;
 
 /**
  * APIManager.java
@@ -25,12 +25,13 @@ public final class APIManager {
     private void init() {
         requestSpecification = new RequestSpecBuilder()
                 .setBaseUri("https://www.pivotaltracker.com/services/v5")
-                .addHeader("X-TrackerToken", PropertiesConfig.getInstance().getAPIToken())
+                .addHeader("X-TrackerToken", PropertiesPivotal.getInstance().getAPIToken())
                 .build();
     }
 
     /**
      * Method to get instance of the class.
+     *
      * @return the instance.
      */
     public static APIManager getInstance() {
@@ -42,6 +43,7 @@ public final class APIManager {
 
     /**
      * Method to get request specification.
+     *
      * @return requestSpecification.
      */
     public RequestSpecification getRequestSpecification() {

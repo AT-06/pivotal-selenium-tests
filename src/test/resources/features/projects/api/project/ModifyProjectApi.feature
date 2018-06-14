@@ -3,8 +3,8 @@ Feature: Create Story
   Background: With valid credentials account
     Given I post a new "project" to "/projects" endpoint
       | name             | Test New Project 900 |
-      | new_account_name | Willy  |
-      | public           | false      |
+      | new_account_name | Willy                |
+      | public           | false                |
     And save the response as "Project"
     Then I validate the status code 200
 

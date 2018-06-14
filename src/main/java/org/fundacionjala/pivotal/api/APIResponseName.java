@@ -1,4 +1,4 @@
-package org.fundacionjala.pivotal.core.api;
+package org.fundacionjala.pivotal.api;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

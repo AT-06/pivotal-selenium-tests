@@ -3,8 +3,8 @@ Feature: Create Story
   Background: With valid credentials account
     Given I post a new "project" to "/projects" endpoint
       | name             | Project with story |
-      | new_account_name | Willy  |
-      | public           | false      |
+      | new_account_name | Willy              |
+      | public           | false              |
     And save the response as "Project"
     And I validate the status code 200
     Then I put a valid user and Password
@@ -18,6 +18,7 @@ Feature: Create Story
 
   @acceptance @DeleteProjectUI
   Scenario: Create a new story
+    Given I go to project
     When I create a new story
       | STORY_NAME  | storyTest       |
       | STORY_TYPE  | feature         |

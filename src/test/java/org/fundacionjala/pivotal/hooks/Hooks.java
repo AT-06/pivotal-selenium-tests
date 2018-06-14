@@ -5,8 +5,8 @@ import com.jayway.restassured.path.json.JsonPath;
 import cucumber.api.java.After;
 
 import cucumber.api.java.Before;
-import org.fundacionjala.pivotal.core.api.APIRequestManager;
-import org.fundacionjala.pivotal.core.api.APICommons;
+import org.fundacionjala.pivotal.api.APIRequestManager;
+import org.fundacionjala.pivotal.api.APICommons;
 import org.fundacionjala.pivotal.pages.account.Account;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.util.Helper;
