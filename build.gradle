@@ -80,25 +80,24 @@ task executeFeatures(type: Test) {
                                '--glue org.fundacionjala.pivotal ' +
                                '--plugin pretty ' +
                                '--plugin io.qameta.allure.cucumber2jvm.AllureCucumber2Jvm']
-            jvmArgs = ['-DUser=' + User]
-            jvmArgs = ['-DPassword=' + Password]
+            jvmArgs = ['-DUser=' + user]
+            jvmArgs = ['-DPassword=' + password]
             jvmArgs = ['-DAPIToken=' + APIToken]
             jvmArgs = ['-Dbrowser=' + browser]
 
-            jvmArgs = ['-DUserName=' + UserName]
-            jvmArgs = ['-DKey=' + Key]
-            jvmArgs = ['-DremoteBrowser=' + remoteBrowser]
-            jvmArgs = ['-DOSVersion=' + OSVersion]
+            jvmArgs = ['-DUserName=' + remoteUserName]
+            jvmArgs = ['-DKey=' + remoteAccessKey]
+            jvmArgs = ['-DremoteBrowser=' + remoteBrowserName]
+            jvmArgs = ['-DOSVersion=' + remoteOS]
             jvmArgs = ['-DremotePlatform=' + remotePlatform]
-            jvmArgs = ['-DremotePlatformVersion=' + remotePlatformVersion]
             jvmArgs = ['-DremoteResolution=' + remoteResolution]
-            jvmArgs = ['-DdockerUrl=' + dockerUrl]
+            jvmArgs = ['-DdockerUrl=' + dockerURL]
+            jvmArgs = ['-DexplicitWait=' + explicitWait]
         }
         testLogging.showStandardStreams = true
         scanForTestClasses = false
         ignoreFailures = false
         reports.html.enabled = false
-
     }
     finalizedBy 'allureReport'
 }
