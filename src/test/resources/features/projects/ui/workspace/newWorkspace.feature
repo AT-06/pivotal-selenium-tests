@@ -4,6 +4,6 @@ Feature: Create Workspace
 
   @acceptance @DeleteWorkspaceUI
   Scenario: Create a new Workspace
-    Given I go to Dashboard and go to workspace tab
+    Given I go to workspace
     And I can create a new "may 18 test 11" workspace
     Then I can verify the new workspace

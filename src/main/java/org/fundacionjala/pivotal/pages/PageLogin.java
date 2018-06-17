@@ -1,4 +1,4 @@
-package org.fundacionjala.pivotal.pages.project;
+package org.fundacionjala.pivotal.pages;
 
 import org.fundacionjala.core.selenium.Base;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;

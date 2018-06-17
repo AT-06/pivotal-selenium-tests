@@ -24,18 +24,16 @@ allprojects{
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.11.0'
-    testCompile group: 'io.cucumber', name: 'cucumber-java', version: '2.4.0'
-    testCompile group: 'io.cucumber', name: 'cucumber-testng', version: '2.4.0'
-    testCompile group: 'io.cucumber', name: 'cucumber-picocontainer', version: '2.4.0'
-    testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.12.0'
     compile group: 'com.jayway.restassured', name: 'rest-assured', version: '2.9.0'
-    compile group: 'com.saucelabs', name: 'sauce_java_common', version: '2.1.8'
-    testCompile group: 'org.testng', name: 'testng', version: '6.9.10'
-    testCompile group: 'io.qameta.allure', name: 'allure-cucumber2-jvm', version: '2.6.0'
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.11.0'
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.0'
     compile 'com.github.AT-06:coreJavaProject:1.6'
+
+    testCompile group: 'io.cucumber', name: 'cucumber-java', version: '2.4.0'
+    testCompile group: 'io.cucumber', name: 'cucumber-testng', version: '2.4.0'
+    testCompile group: 'io.cucumber', name: 'cucumber-picocontainer', version: '2.4.0'
+    testCompile group: 'io.qameta.allure', name: 'allure-cucumber2-jvm', version: '2.6.0'
 }
 
 allure {

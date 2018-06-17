@@ -1,15 +1,14 @@
 package org.fundacionjala.pivotal.steps.ui.project;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import org.testng.Assert;
+import org.testng.asserts.Assertion;
+
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.pages.project.CreateProject;
 import org.fundacionjala.pivotal.pages.project.DeleteProject;
 import org.fundacionjala.pivotal.pages.project.EditProject;
 import org.fundacionjala.pivotal.util.Helper;
-import org.testng.Assert;
-import org.testng.asserts.Assertion;
-import org.testng.asserts.SoftAssert;
 
 /**
  * Class that contains the assertion steps of Project feature.
@@ -61,7 +60,6 @@ public class ProjectAssertionSteps {
         assertion.assertEquals(feature.getProjectName(), editProject.getTitleProject());
     }
 
-
     /**
      * Verify that is created the project.
      */
@@ -78,14 +76,4 @@ public class ProjectAssertionSteps {
         Assert.assertTrue(deleteProject.setMessageDelete());
     }
 
-    /**
-     * Step for apply Soft Assertion.
-     */
-    @And("^Assert all$")
-    public void assertAll() {
-        if (assertion instanceof SoftAssert) {
-            ((SoftAssert) assertion).assertAll();
-
-        }
-    }
 }

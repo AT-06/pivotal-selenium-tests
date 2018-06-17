@@ -16,7 +16,7 @@ public class TaskAssertionSteps {
     private Assertion assertion;
 
     /**
-     * Constructor for CreateTaskSteps class.
+     * Constructor for TaskSteps class.
      *
      * @param story  object.
      * @param task   object.

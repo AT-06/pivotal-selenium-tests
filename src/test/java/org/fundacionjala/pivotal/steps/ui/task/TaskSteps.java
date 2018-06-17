@@ -8,20 +8,20 @@ import org.fundacionjala.pivotal.pages.task.Task;
 import java.util.Map;
 
 /**
- * CreateTaskSteps class that create a task.
+ * TaskSteps class that create a task.
  */
-public class CreateTaskSteps {
+public class TaskSteps {
     private Story story;
     private Task task;
 
     /**
-     * Constructor for CreateTaskSteps class.
+     * Constructor for TaskSteps class.
      *
      * @param story object.
      * @param task  object.
      */
 
-    public CreateTaskSteps(final Story story, final Task task) {
+    public TaskSteps(final Story story, final Task task) {
         this.story = story;
         this.task = task;
     }
@@ -35,8 +35,23 @@ public class CreateTaskSteps {
     public void iCreateANewTask(final Map<DescriptionsTask, String> values) {
         story.clickSToryExpander();
         task.clickAddTask();
-        values.keySet().stream().forEach(step -> task.getStrategyStepMap(values).get(step).execute());
+        values.keySet().forEach(step -> task.getStrategyStepMap(values).get(step).execute());
         task.setAddTaskButton();
+        story.setButtonCloseEdit();
+    }
+
+    /**
+     * First step to edit a task.
+     *
+     * @param values parameters to edit.
+     */
+    @When("^I edit the task content$")
+    public void iEditTheTaskContent(final Map<DescriptionsTask, String> values) {
+        story.clickSToryExpander();
+        task.clickOnTaskCreated();
+        task.clickOnTaskTextArea();
+        values.keySet().forEach(step -> task.getStrategyStepMap(values).get(step).execute());
+        task.setSaveTaskButton();
         story.setButtonCloseEdit();
     }
 }

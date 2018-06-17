@@ -1,27 +1,29 @@
-package org.fundacionjala.pivotal.steps.ui.project;
+package org.fundacionjala.pivotal.steps.ui;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.fundacionjala.core.util.PropertiesInput;
 import org.fundacionjala.core.util.PropertiesManager;
 import org.fundacionjala.pivotal.util.Helper;
-import org.fundacionjala.pivotal.pages.project.PageLogin;
+import org.fundacionjala.pivotal.pages.PageLogin;
 import org.testng.asserts.Assertion;
+import org.testng.asserts.SoftAssert;
 
 /**
  * Class of Login Steps.
  */
-public class LoginSteps {
+public class CommonSteps {
 
     private final Assertion assertion;
 
     /**
-     * Constructor for LoginSteps class.
+     * Constructor for CommonSteps class.
      *
      * @param pageLogin object.
      * @param helper    object.
      */
-    public LoginSteps(final PageLogin pageLogin, final Helper helper) {
+    public CommonSteps(final PageLogin pageLogin, final Helper helper) {
         this.pageLogin = pageLogin;
         this.assertion = helper.getAssertion();
     }
@@ -45,5 +47,16 @@ public class LoginSteps {
     @Then("^I can see the Login Page$")
     public void iCanSeeTheLoginPage() {
         assertion.assertTrue(pageLogin.checkPageLogin());
+    }
+
+    /**
+     * Step for apply Soft Assertion.
+     */
+    @And("^Assert all$")
+    public void assertAll() {
+        if (assertion instanceof SoftAssert) {
+            ((SoftAssert) assertion).assertAll();
+
+        }
     }
 }
