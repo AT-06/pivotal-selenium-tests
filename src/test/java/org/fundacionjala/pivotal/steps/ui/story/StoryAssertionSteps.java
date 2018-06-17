@@ -4,6 +4,8 @@ import cucumber.api.java.en.Then;
 import org.fundacionjala.pivotal.pages.dashboard.DashBoard;
 import org.fundacionjala.pivotal.pages.story.Story;
 import org.fundacionjala.pivotal.util.Helper;
+
+import org.testng.Assert;
 import org.testng.asserts.Assertion;
 
 /**
@@ -11,23 +13,23 @@ import org.testng.asserts.Assertion;
  */
 public class StoryAssertionSteps {
 
-    private Story createStory;
+    private Story story;
     private Helper feature;
     private DashBoard dashBoard;
     private final Assertion assertion;
 
     /**
-     * Constructor for CreateStorySteps class.
+     * Constructor for StorySteps class.
      *
-     * @param createStory object.
+     * @param story object.
      * @param feature     object.
      * @param dashBoard   object.
      * @param helper      object.
      */
-    public StoryAssertionSteps(final Story createStory, final Helper feature,
+    public StoryAssertionSteps(final Story story, final Helper feature,
                                final DashBoard dashBoard, final Helper helper) {
         this.assertion = helper.getAssertion();
-        this.createStory = createStory;
+        this.story = story;
         this.feature = feature;
         this.dashBoard = dashBoard;
     }
@@ -37,7 +39,7 @@ public class StoryAssertionSteps {
      */
     @Then("^I verify the new story was created$")
     public void iVerifyTheNewStoryWasCreated() {
-        assertion.assertEquals(feature.getStoryName(), createStory.verifyStoryName());
+        assertion.assertEquals(feature.getStoryName(), story.verifyStoryName());
         dashBoard.setButtonDashborad();
     }
 
@@ -46,6 +48,14 @@ public class StoryAssertionSteps {
      */
     @Then("^I verify the parameters were edited$")
     public void iVerifyTheParametersOfWereEdited() {
-        assertion.assertEquals(feature.getStoryName(), createStory.verifyStoryName());
+        assertion.assertEquals(feature.getStoryName(), story.verifyStoryName());
+    }
+
+    /**
+     * Verify that the story was deleted.
+     */
+    @Then("^I verify that the story was deleted$")
+    public void iVerifyThatTheStoryWasDeleted() {
+        Assert.assertTrue(story.deleteMessageIsDisplayed());
     }
 }

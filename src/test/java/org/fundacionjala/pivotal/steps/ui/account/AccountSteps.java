@@ -1,10 +1,11 @@
-package org.fundacionjala.pivotal.steps.ui.project;
+package org.fundacionjala.pivotal.steps.ui.account;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import org.testng.asserts.Assertion;
+
 import org.fundacionjala.pivotal.pages.account.Account;
 import org.fundacionjala.pivotal.util.Helper;
-import org.testng.asserts.Assertion;
 
 /**
  * Class for Create account.

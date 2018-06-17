@@ -1,31 +1,32 @@
 package org.fundacionjala.pivotal.steps.api;
 
+import java.util.Map;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
-
 import cucumber.api.java.en.When;
+import org.testng.Assert;
+
 import org.fundacionjala.pivotal.api.APICommons;
 import org.fundacionjala.pivotal.api.APIRequestManager;
 import org.fundacionjala.pivotal.util.Helper;
-import org.testng.Assert;
-import java.util.Map;
 
 
 /**
- * APIProjectSteps.java
+ * RequestSteps.java
  * Class with steps for test feature.
  */
-public class APIProjectSteps {
+public class RequestSteps {
 
-    private Helper proyName;
+    private Helper helper;
 
     /**
      * Constructor for ProjectSteps class.
      *
-     * @param proyName object.
+     * @param helper object.
      */
-    public APIProjectSteps(final Helper proyName) {
-        this.proyName = proyName;
+    public RequestSteps(final Helper helper) {
+        this.helper = helper;
     }
 
     /**
@@ -37,15 +38,25 @@ public class APIProjectSteps {
     @And("^I post a new \"([^\"]*)\" to \"([^\"]*)\" endpoint$")
     public void iPostANewToEndpoint(final String feature, final String endpoint, final Map<String, String> values) {
         APIRequestManager.post(values, APICommons.buildEndPoint(endpoint));
+        setHelperValues(feature, values);
+    }
+
+    /**
+     * This need to be improved.
+     *
+     * @param feature object.
+     * @param values object.
+     */
+    private void setHelperValues(final String feature, final Map<String, String> values) {
         if (feature.compareTo("project") == 0) {
-            proyName.setProjectName(values.get("name"));
-            proyName.setAccountName(values.get("new_account_name"));
+            helper.setProjectName(values.get("name"));
+            helper.setAccountName(values.get("new_account_name"));
         }
         if (feature.compareTo("story") == 0) {
-            proyName.setStoryName(values.get("name"));
+            helper.setStoryName(values.get("name"));
         }
         if (feature.compareTo("workspace") == 0) {
-            proyName.setWorkspaceName(values.get("name"));
+            helper.setWorkspaceName(values.get("name"));
         }
     }
 
@@ -64,8 +75,7 @@ public class APIProjectSteps {
      */
     @Then("^I validate the status code (\\d+)$")
     public void iValidateTheStatusCode(int status) {
-        final int expectedStatus = status;
-        Assert.assertEquals(APIRequestManager.getStatusCode(), expectedStatus);
+        Assert.assertEquals(APIRequestManager.getStatusCode(), status);
     }
 
     /**
